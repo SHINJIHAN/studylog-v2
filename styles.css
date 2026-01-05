@@ -6,3 +6,13 @@
 .quarto-title-banner {
   background-color: #4A6FA5 !important;
 }
+
+#toc-title {
+  font-size: 0; /* 기존 텍스트 숨기기 */
+}
+
+#toc-title::after {
+  content: "목차"; /* 여기만 수정하면 됨 */
+  font-size: 1.5rem; /* 원하는 크기 */
+  font-weight: 600;  /* 굵기 조절 */
+}
