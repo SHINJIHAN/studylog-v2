@@ -2,8 +2,21 @@
   {
     "listing": "/index.html",
     "items": [
+      "/da/ida_02.html",
+      "/about.html",
+      "/data-analysis.html",
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html"
     ]
+  },
+  {
+    "listing": "/data-analysis.html",
+    "items": [
+      "/da/ida_02.html"
+    ]
+  },
+  {
+    "listing": "/da/ida_02.html",
+    "items": []
   }
 ]
