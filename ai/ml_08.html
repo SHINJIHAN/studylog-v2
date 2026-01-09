@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-09-24">
 
-<title>StudyLog</title>
+<title>의사결정트리 실습 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,17 +72,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -92,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -115,107 +116,156 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#랜덤-시드-설정" id="toc-랜덤-시드-설정" class="nav-link active" data-scroll-target="#랜덤-시드-설정">랜덤 시드 설정</a></li>
+  <li><a href="#xor-데이터-생성" id="toc-xor-데이터-생성" class="nav-link" data-scroll-target="#xor-데이터-생성">XOR 데이터 생성</a></li>
+  <li><a href="#클래스별-산점도" id="toc-클래스별-산점도" class="nav-link" data-scroll-target="#클래스별-산점도">클래스별 산점도</a></li>
+  <li><a href="#그래프-옵션" id="toc-그래프-옵션" class="nav-link" data-scroll-target="#그래프-옵션">그래프 옵션</a></li>
+  <li><a href="#xor-데이터-생성-1" id="toc-xor-데이터-생성-1" class="nav-link" data-scroll-target="#xor-데이터-생성-1">XOR 데이터 생성</a></li>
+  <li><a href="#xor-plot-함수-정의" id="toc-xor-plot-함수-정의" class="nav-link" data-scroll-target="#xor-plot-함수-정의">XOR plot 함수 정의</a></li>
+  <li><a href="#결정-경계-시각화" id="toc-결정-경계-시각화" class="nav-link" data-scroll-target="#결정-경계-시각화">결정 경계 시각화</a></li>
+  <li><a href="#기저-함수-정의" id="toc-기저-함수-정의" class="nav-link" data-scroll-target="#기저-함수-정의">기저 함수 정의</a></li>
+  <li><a href="#테스트용-배열-생성" id="toc-테스트용-배열-생성" class="nav-link" data-scroll-target="#테스트용-배열-생성">테스트용 배열 생성</a></li>
+  <li><a href="#기저-함수-변환" id="toc-기저-함수-변환" class="nav-link" data-scroll-target="#기저-함수-변환">기저 함수 변환</a></li>
+  <li><a href="#변환된-특징으로-산점도" id="toc-변환된-특징으로-산점도" class="nav-link" data-scroll-target="#변환된-특징으로-산점도">변환된 특징으로 산점도</a></li>
+  <li><a href="#한글-폰트-설정" id="toc-한글-폰트-설정" class="nav-link" data-scroll-target="#한글-폰트-설정">— 한글 폰트 설정 —</a></li>
+  <li><a href="#적용" id="toc-적용" class="nav-link" data-scroll-target="#적용">적용</a></li>
+  <li><a href="#시그모이드-커널-svc-학습" id="toc-시그모이드-커널-svc-학습" class="nav-link" data-scroll-target="#시그모이드-커널-svc-학습">시그모이드 커널 SVC 학습</a></li>
+  <li><a href="#xor-데이터-결정-경계-시각화" id="toc-xor-데이터-결정-경계-시각화" class="nav-link" data-scroll-target="#xor-데이터-결정-경계-시각화">XOR 데이터 결정 경계 시각화</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">의사결정트리 실습</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<!-- 탭 메뉴 -->
-<ul class="nav nav-tabs" id="mainTab" role="tablist">
-<li class="nav-item" role="presentation">
-<a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-</li>
-<li class="nav-item" role="presentation">
-<a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-</li>
-</ul>
-<div class="tab-content mt-3">
-<!-- Home Tab -->
-<div id="home" class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
-<p class="fs-5 mb-4">
-<strong>StudyLog</strong>는 학습 과정을 규칙적으로 기록하고 체계화합니다.
-</p>
-<div class="card-container d-flex flex-wrap gap-2">
-<!-- Data Analysis 카드 -->
-<a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-Data Analysis
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- AI·ML·DL 카드 -->
-<a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-AI·ML·DL
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 프로그래밍·개발 카드 -->
-<a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-프로그래밍·개발
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 컴퓨터 CG·HW 카드 -->
-<a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-컴퓨터 CG·HW
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 보안·네트워크 카드 -->
-<a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-보안·네트워크
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 학업·연구 카드 -->
-<a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-학업·연구
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 기타 카드 -->
-<a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-기타
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-</div>
-</div>
-<!-- Profile Tab -->
-<div id="profile" class="tab-pane fade" role="tabpanel" aria-labelledby="profile-tab">
-<p>
-프로필 탭 내용
-</p>
-</div>
-</div>
-<hr class="my-4">
-<p class="fs-6">
-이 웹사이트는 <a href="https://quarto.org/docs/websites" target="_blank" class="link">Quarto</a>를 이용해 제작되었습니다.
-</p>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 24, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>의사결정트리 실습에 대해 다루고자 한다.</p>
+<p>01 커널 서포트 벡터 머신 Kernel Support Vector Machine</p>
+<p>1 . 제목2 %matplotlib inline import numpy as np import matplotlib.pyplot as plt</p>
+<section id="랜덤-시드-설정" class="level1">
+<h1>랜덤 시드 설정</h1>
+<p>np.random.seed(0)</p>
+</section>
+<section id="xor-데이터-생성" class="level1">
+<h1>XOR 데이터 생성</h1>
+<p>X_xor = np.random.randn(200, 2) y_xor = np.logical_xor(X_xor[:, 0] &gt; 0, X_xor[:, 1] &gt; 0) y_xor = np.where(y_xor, 1, 0)</p>
+</section>
+<section id="클래스별-산점도" class="level1">
+<h1>클래스별 산점도</h1>
+<p>plt.scatter(X_xor[y_xor == 1, 0], X_xor[y_xor == 1, 1], c=‘b’, marker=‘o’, label=‘class 1’, s=50) plt.scatter(X_xor[y_xor == 0, 0], X_xor[y_xor == 0, 1], c=‘r’, marker=‘s’, label=‘class 0’, s=50)</p>
+</section>
+<section id="그래프-옵션" class="level1">
+<h1>그래프 옵션</h1>
+<p>plt.legend() plt.xlabel(“x1”) plt.ylabel(“x2”) plt.title(“XOR Problem”) plt.show()</p>
+<p>%matplotlib inline import numpy as np import matplotlib.pyplot as plt from sklearn.svm import SVC import matplotlib as mpl</p>
+</section>
+<section id="xor-데이터-생성-1" class="level1">
+<h1>XOR 데이터 생성</h1>
+<p>np.random.seed(0) X_xor = np.random.randn(200, 2) y_xor = np.logical_xor(X_xor[:, 0] &gt; 0, X_xor[:, 1] &gt; 0) y_xor = np.where(y_xor, 1, 0)</p>
+</section>
+<section id="xor-plot-함수-정의" class="level1">
+<h1>XOR plot 함수 정의</h1>
+<p>def plot_xor_flipped(X, y, model, title, xmin=-3, xmax=3, ymin=-3, ymax=3): XX, YY = np.meshgrid( np.arange(xmin, xmax, (xmax-xmin)/100), np.arange(ymin, ymax, (ymax-ymin)/100) ) ZZ = np.reshape( model.predict(np.array([XX.ravel(), YY.ravel()]).T), XX.shape ) # 색상 반전 ZZ = 1 - ZZ</p>
+<pre><code>plt.contourf(XX, YY, ZZ, alpha=0.5, cmap=mpl.cm.Paired)
+plt.scatter(X[y == 1, 0], X[y == 1, 1], c='b', marker='o', label='class 1', s=50)
+plt.scatter(X[y == 0, 0], X[y == 0, 1], c='r', marker='s', label='class 0', s=50)
+plt.xlim(xmin, xmax)
+plt.ylim(ymin, ymax)
+plt.title(title)
+plt.xlabel("x1")
+plt.ylabel("x2")
+plt.legend()</code></pre>
+</section>
+<section id="결정-경계-시각화" class="level1">
+<h1>결정 경계 시각화</h1>
+<p>svc = SVC(kernel=‘linear’) svc.fit(X_xor, y_xor) plot_xor_flipped(X_xor, y_xor, svc, “Classification Result by Linear SVC XOR”) plt.show()</p>
+<p>import numpy as np from sklearn.preprocessing import FunctionTransformer</p>
+</section>
+<section id="기저-함수-정의" class="level1">
+<h1>기저 함수 정의</h1>
+<p>def basis(X): return np.vstack([X[:, 0]<strong>2, np.sqrt(2)<em>X[:, 0]</em>X[:, 1], X[:, 1]</strong>2]).T</p>
+</section>
+<section id="테스트용-배열-생성" class="level1">
+<h1>테스트용 배열 생성</h1>
+<p>x = np.arange(8).reshape(4, 2) x</p>
+<p>FunctionTransformer(basis).fit_transform(x)</p>
+<p>import matplotlib.pyplot as plt from sklearn.preprocessing import FunctionTransformer</p>
+</section>
+<section id="기저-함수-변환" class="level1">
+<h1>기저 함수 변환</h1>
+<p>X_xor2 = FunctionTransformer(basis).fit_transform(X_xor)</p>
+</section>
+<section id="변환된-특징으로-산점도" class="level1">
+<h1>변환된 특징으로 산점도</h1>
+<p>plt.scatter(X_xor2[y_xor == 1, 0], X_xor2[y_xor == 1, 1], c=“b”, s=50, label=“class 1”) plt.scatter(X_xor2[y_xor == 0, 0], X_xor2[y_xor == 0, 1], c=“r”, s=50, label=“class 0”) plt.legend() plt.show()</p>
+<p>02 ㄷ SVM with various Kernels</p>
+<p>import matplotlib.pyplot as plt from sklearn.pipeline import Pipeline from sklearn.preprocessing import FunctionTransformer from sklearn.svm import SVC</p>
+</section>
+<section id="한글-폰트-설정" class="level1">
+<h1>— 한글 폰트 설정 —</h1>
+<p>plt.rc(‘font’, family=‘Malgun Gothic’) # Windows: ‘Malgun Gothic’, Mac: ‘AppleGothic’, Linux: ‘NanumGothic’ plt.rcParams[‘axes.unicode_minus’] = False # 마이너스 기호 깨짐 방지</p>
+<p>def plot_xor(X, y, model, title, xmin=-3, xmax=3, ymin=-3, ymax=3): XX, YY = np.meshgrid( np.arange(xmin, xmax, (xmax-xmin)/100), np.arange(ymin, ymax, (ymax-ymin)/100) ) ZZ = np.reshape( model.predict(np.array([XX.ravel(), YY.ravel()]).T), XX.shape )</p>
+<pre><code># 색상 반전
+ZZ = 1 - ZZ  
+
+plt.contourf(XX, YY, ZZ, alpha=0.5, cmap=plt.cm.Paired)
+plt.scatter(X[y == 1, 0], X[y == 1, 1], c='b', marker='o', label='class 1', s=50)
+plt.scatter(X[y == 0, 0], X[y == 0, 1], c='r', marker='s', label='class 0', s=50)
+plt.xlim(xmin, xmax)
+plt.ylim(ymin, ymax)
+plt.title(title)
+plt.xlabel("x1")
+plt.ylabel("x2")
+plt.legend()</code></pre>
+</section>
+<section id="적용" class="level1">
+<h1>적용</h1>
+<p>plot_xor(X_xor, y_xor, basismodel, “기저함수 SVC 모형을 사용한 XOR 분류 결과”) plt.show()</p>
+</section>
+<section id="시그모이드-커널-svc-학습" class="level1">
+<h1>시그모이드 커널 SVC 학습</h1>
+<p>sigmoidsvc = SVC(kernel=“sigmoid”, gamma=2, coef0=2) sigmoidsvc.fit(X_xor, y_xor)</p>
+</section>
+<section id="xor-데이터-결정-경계-시각화" class="level1">
+<h1>XOR 데이터 결정 경계 시각화</h1>
+<p>plot_xor(X_xor, y_xor, sigmoidsvc, “Sigmoid SVC”) plt.show()</p>
+<p>rbfsvc = SVC(kernel=“rbf”).fit(X_xor, y_xor) plot_xor(X_xor, y_xor, rbfsvc, “RBF SVC”) plt.show()</p>
+<p>plot_xor(X_xor, y_xor, SVC(kernel=“rbf”, gamma=2). fit(X_xor, y_xor), “RBF SVC (gamma=2)”) plt.show()</p>
+<p>plot_xor(X_xor, y_xor, SVC(kernel=“rbf”, gamma=50). fit(X_xor, y_xor), “RBF SVC (gamma=50)”) plt.show()</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

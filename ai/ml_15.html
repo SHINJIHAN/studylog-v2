@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-10-22">
 
-<title>StudyLog</title>
+<title>인공신경망 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,17 +72,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -92,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -115,107 +116,72 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#적응형-학습률" id="toc-적응형-학습률" class="nav-link active" data-scroll-target="#적응형-학습률">적응형 학습률</a></li>
+  <li><a href="#가중치-초기화" id="toc-가중치-초기화" class="nav-link" data-scroll-target="#가중치-초기화">가중치 초기화</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">인공신경망</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<!-- 탭 메뉴 -->
-<ul class="nav nav-tabs" id="mainTab" role="tablist">
-<li class="nav-item" role="presentation">
-<a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-</li>
-<li class="nav-item" role="presentation">
-<a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-</li>
-</ul>
-<div class="tab-content mt-3">
-<!-- Home Tab -->
-<div id="home" class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
-<p class="fs-5 mb-4">
-<strong>StudyLog</strong>는 학습 과정을 규칙적으로 기록하고 체계화합니다.
-</p>
-<div class="card-container d-flex flex-wrap gap-2">
-<!-- Data Analysis 카드 -->
-<a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-Data Analysis
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- AI·ML·DL 카드 -->
-<a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-AI·ML·DL
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 프로그래밍·개발 카드 -->
-<a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-프로그래밍·개발
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 컴퓨터 CG·HW 카드 -->
-<a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-컴퓨터 CG·HW
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 보안·네트워크 카드 -->
-<a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-보안·네트워크
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 학업·연구 카드 -->
-<a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-학업·연구
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 기타 카드 -->
-<a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-기타
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-</div>
-</div>
-<!-- Profile Tab -->
-<div id="profile" class="tab-pane fade" role="tabpanel" aria-labelledby="profile-tab">
-<p>
-프로필 탭 내용
-</p>
-</div>
-</div>
-<hr class="my-4">
-<p class="fs-6">
-이 웹사이트는 <a href="https://quarto.org/docs/websites" target="_blank" class="link">Quarto</a>를 이용해 제작되었습니다.
-</p>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<blockquote class="blockquote">
+<p>Reporting Date: November. 19, 2025</p>
+</blockquote>
+<p>머신러닝에서 최적화(optimization)는 곧 고차원 매개변수 공간(parameter space)에서 최소점을 탐색하는 문제이며, 이 관점에서 학습 알고리즘은 본질적으로 탐색 알고리즘이다.</p>
+<p>인공신경망의 맥락에서는 이를 학습 알고리즘이라 부르며, 가장 대표적인 접근이 확률적 경사하강법(Stochastic Gradient Descent, SGD)이다.</p>
+<p>SGD는 손실 함수(loss function)의 기울기를 소량의 미니배치(mini-batch)로 근사하여 계산하기 때문에 계산 비용이 낮고 대규모 데이터셋에서도 효율적이다. 그러나 이러한 근사적 기울기는 <strong>통계적 분산이 크기 때문에 갱신 경로가 불안정하게 진동</strong>한다.</p>
+<p>이 문제를 완화하기 위해 도입된 개념이 모멘텀(momentum)이다. 이는 물리학적 관점에서 관성(inertia)과 마찰력(friction)을 도입한 것으로, 갱신 벡터를 단순히 현재 기울기만으로 결정하지 않고 이전 갱신의 방향성을 누적해 속도 벡터를 형성한다.</p>
+<p>결과적으로 최적화 경로는 비평면적(local curvature)의 영향을 덜 받고 안정적으로 수렴하며, 협곡형 지형(ravine)에서 진동을 줄이는 데 효과적이다.</p>
+<section id="적응형-학습률" class="level2">
+<h2 class="anchored" data-anchor-id="적응형-학습률">적응형 학습률</h2>
+<p><code>adaptive learning rate</code> AdaGrad는 학습 과정에서 각 파라미터의 변화량에 따라 학습률을 자동 조정한다. 기울기의 제곱 누적합을 기반으로 학습률을 축소하기 때문에 자주 변하는 파라미터는 더 빠르게 학습률이 감소하고, 드물게 변하는 파라미터는 학습률이 상대적으로 유지된다. 이는 데이터의 기하학적 구조에 따라 비등방적(anisotropic) 최적화를 수행하는 효과가 있다.</p>
+<p>Adam(Adaptive Moment Estimation)은 모멘텀과 AdaGrad의 장점을 결합한 비선형 최적화 알고리즘으로, 1차 및 2차 모멘트(기울기의 평균과 분산)를 동시에 추정한다.</p>
+<p>AdaGrad처럼 학습률이 급격히 감소하여 학습이 조기 정지되는 문제를 완화하고, 모멘텀 기반 탐색보다 진동이 적으며 빠른 초기 수렴 속도를 갖는다. 실험적으로 Adam은 다양한 비정상적(non-stationary) 목적 함수에서 강건하며, 딥러닝 모델 전반에서 사실상 표준으로 사용된다.</p>
+<p>최적화와 독립적으로, 모델의 일반화 성능을 향상하기 위해 정규화 기법이 도입되며 대표적인 것이 L2 정규화(weight decay)이다. 이는 가중치를 작게 유지함으로써 오버피팅을 방지하고, 매개변수 공간에서 불필요한 자유도를 억제함으로써 더 안정적인 표현 학습을 유도한다. 이는 통계학적 관점에서는 리지 회귀(ridge regression)의 페널티 항과 동일한 역할을 한다.</p>
+</section>
+<section id="가중치-초기화" class="level2">
+<h2 class="anchored" data-anchor-id="가중치-초기화">가중치 초기화</h2>
+<p><code>weight initialization</code> 학습 안정성을 결정하는 중요한 요소.</p>
+<p>Xavier 초기화는 시그모이드 함수와 같은 대칭적 활성화 함수에서, 전방/역방 전파 시 분산이 일정하게 유지되도록 설계된 방식으로 표준편차를 (1/)에 비례하도록 설정한다.</p>
+<p>ReLU 계열 함수에서는 활성 뉴런 비율이 달라지기 때문에 분산 유지 조건이 다르게 정의되며, 이에 기반한 He 초기화는 표준편차를 ()로 확장하여 표현력을 높이고 초기 활성화의 비선형 왜곡을 방지한다.</p>
+<p>초기화가 중요한 이유는 깊은 신경망에서 발생하는 <strong>기울기 소실(vanishing gradient)</strong> 때문이다. 이는 활성화 함수의 포화 구간(saturation region)에서 기울기가 거의 0에 가까워지는 현상으로, 특히 시그모이드 함수는 입력이 조금만 크거나 작아도 기울기가 소멸한다. 이로 인해 초기 레이어는 거의 학습되지 않으며, 네트워크 전체가 비효율적으로 수렴한다. ReLU 함수는 양의 영역에서 기울기가 일정하게 유지되기 때문에 기울기 소실 문제를 근본적으로 완화하고, 깊은 모델의 학습을 가능하게 만든 핵심 요인이다.</p>
+<p>딥러닝 분야에서 비교 실험은 필수적이며, 다양한 최적화 알고리즘과 초기화 전략을 CIFAR-10과 같은 벤치마크 데이터셋에서 체계적으로 검증하는 과정은 모델 성능 평가의 표준 절차다. 이러한 데이터셋은 역사적으로 많은 연구자(예: 마빈 민스키와 관련된 초기 신경망 논쟁 이후의 연구 흐름)에 의해 발전해 왔으며, 현대적 딥러닝 모델의 성능 비교와 구조적 혁신을 검증하는 중요한 실험 환경을 제공한다.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

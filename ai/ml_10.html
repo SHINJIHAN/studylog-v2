@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-10-21">
 
-<title>StudyLog</title>
+<title>단계별 머신러닝 학습 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,18 +71,47 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -92,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -115,105 +145,129 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">단계별 머신러닝 학습</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
 
-<!-- 탭 메뉴 -->
-<ul class="nav nav-tabs" id="mainTab" role="tablist">
-<li class="nav-item" role="presentation">
-<a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-</li>
-<li class="nav-item" role="presentation">
-<a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-</li>
-</ul>
-<div class="tab-content mt-3">
-<!-- Home Tab -->
-<div id="home" class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
-<p class="fs-5 mb-4">
-<strong>StudyLog</strong>는 학습 과정을 규칙적으로 기록하고 체계화합니다.
-</p>
-<div class="card-container d-flex flex-wrap gap-2">
-<!-- Data Analysis 카드 -->
-<a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-Data Analysis
-</div>
-<div class="card-body">
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 21, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-</div>
-</a><p><a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- AI·ML·DL 카드 -->
-<a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-AI·ML·DL
-</div>
-<div class="card-body">
 
-</div>
-</a><p><a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 프로그래밍·개발 카드 -->
-<a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-프로그래밍·개발
-</div>
-<div class="card-body">
+</header>
 
-</div>
-</a><p><a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 컴퓨터 CG·HW 카드 -->
-<a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-컴퓨터 CG·HW
-</div>
-<div class="card-body">
 
-</div>
-</a><p><a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 보안·네트워크 카드 -->
-<a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-보안·네트워크
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 학업·연구 카드 -->
-<a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-학업·연구
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 기타 카드 -->
-<a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-기타
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-</div>
-</div>
-<!-- Profile Tab -->
-<div id="profile" class="tab-pane fade" role="tabpanel" aria-labelledby="profile-tab">
-<p>
-프로필 탭 내용
-</p>
-</div>
-</div>
-<hr class="my-4">
-<p class="fs-6">
-이 웹사이트는 <a href="https://quarto.org/docs/websites" target="_blank" class="link">Quarto</a>를 이용해 제작되었습니다.
-</p>
+<p>시그모이드, 소프트맥스, 다층 퍼셉트론 등에 대해 다루고자 한다.</p>
+<p>01 다중 회귀 Multiple Regression</p>
+<p>앞서 살펴본 단일 입력(단변량, single variable) 회귀모델은 하나의 독립 변수만을 고려하였다.</p>
+<p>그러나 실제 데이터 분석에서는 여러 입력값을 동시에 반영하는 다중 회귀 모델이 보다 현실적이고 효과적으로 활용된다.</p>
+<p>이 모델은 여러 독립 변수(feature)를 기반으로 종속 변수(target)를 예측하며, 복잡한 현실 세계의 관계를 선형적으로 근사할 수 있다.</p>
+<p>다중 회귀의 기본 구조는 단일 회귀와 동일하다. 입력 변수의 개수만 증가하고, 이에 대응하는 가중치(weight) 역시 벡터 형태로 확장된다.</p>
+<p><span class="math display">\[\hat{y} = w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b\]</span></p>
+<p>w_i: 각 특성(feature)에 대한 가중치, x_i: 입력 변수, b: 절편(bias)</p>
+<p>1 . 벡터와 행렬 기반 연산 입력 변수가 증가하더라도 손실함수의 계산 원리는 변하지 않는다. 다만, 계산의 복잡성이 높아지므로, 가중치와 입력값을 벡터 또는 행렬 형태로 표현된다.</p>
+<p><span class="math display">\[\mathbf{X} \in \mathbb{R}^{m \times n}, \quad \mathbf{w} \in \mathbb{R}^{n \times 1}, \quad \hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + \mathbf{b}\]</span></p>
+<p>m: 데이터 포인트(샘플)의 수 n: 특성(feature)의 수 이러한 행렬 표현을 통해 모든 샘플에 대한 예측을 단일 연산으로 수행할 수 있어 모델 학습 과정의 계산 효율성(computational efficiency)이 크게 향상된다.</p>
+<p>2 . 핵심 선형대수 연산 핵심 연산은 다음과 같다.</p>
+<p>① 내적(dot product)</p>
+<p>두 벡터의 방향과 크기를 비교하는 연산으로, 회귀에서는 예측값 계산 및 유사도 측정((cos θ))에 주로 활용된다.</p>
+<p>② 외적(cross product)</p>
+<p>두 벡터에 수직인 새로운 벡터를 생성하며, (sin θ)를 통해 방향성을 표현한다. 다만 외적은 회귀 분석이나 유사도 계산보다는 물리적 벡터 계산에서 주로 사용된다.</p>
+<p>고차원 연산과 병렬 처리 다중 입력 연산은 수많은 곱셈과 덧셈을 포함하므로, 입력 차원이 커질수록 연산 부하가 기하급수적으로 증가한다. 특히 이미지, 영상, 음성 등 대규모 데이터셋에서는 이 문제가 더욱 두드러진다.</p>
+<p>이러한 연산 복잡도를 해결하기 위해 병렬 연산(parallel computation)기법이 적용되며, 대표적으로 GPU가 사용된다.</p>
+<p>GPU는 수천 개의 코어를 이용해 행렬 및 벡터 연산을 동시에 수행하므로, 3차원 좌표 변환이나 2차원 이미지 처리 등 고속 연산 환경에서 탁월한 성능을 발휘한다.</p>
+<p>또한 CUDA와 같은 GPU 전용 병렬처리 라이브러리 사용 시 AI 모델 학습 과정에서 연산 속도를 획기적으로 향상시킬 수 있다.</p>
+<p>이와 같이 확장된 회귀모델의 기반에는 선형대수(linear algebra)가 자리하고 있으며, 모든 계산은 행렬 곱, 내적, 외적 등 선형대수적 연산 원리에 의해 수행된다.</p>
+<p>3 . 스케일링과 정규화 scaling &amp; normalization</p>
+<p>다중 회귀 모델의 학습 과정에서는 입력 데이터의 스케일 차이가 학습 안정성과 예측 정확도에 큰 영향을 미칠 수 있다.</p>
+<p>이를 방지하기 위해, 각 특성(feature)을 동일한 기준으로 조정하는 스케일링과 정규화 과정이 필수적이다.</p>
+<p>① 스케일링</p>
+<p>각 변수의 단위나 값의 범위 차이로 인해 특정 특성이 모델 학습 과정에서 과도하게 영향을 미치는 문제를 방지한다.</p>
+<p>예: 각 값에 대해 최대값 또는 범위를 기준으로 나누어 0~1 범위로 조정</p>
+<p>② 정규화</p>
+<p>Z-점수 정규화를 적용하여, 데이터를 평균 0, 표준편차 1의 정규분포로 변환하면 특성 간 스케일 불균형을 더욱 효과적으로 완화할 수 있다.</p>
+<p>예: 데이터가 타원형 분포를 가진 경우 각 값을 최대값으로 나누어 원형 형태로 정규화할 수 있다.</p>
+<p>이러한 변환을 수행하면 손실 함수의 등고선(contour)이 타원형에서 원형으로 바뀌어, 경사하강법의 수렴 속도와 안정성이 향상된다.</p>
+<p>즉, 모든 입력값을 동일한 기준으로 인식하도록 조정하여 모델이 보다 균형 잡힌 방식으로 최적화를 수행하게 만든다.</p>
+<p>참고로, 변동계수(CV)는 데이터의 상대적 분산을 평가하는 보조 지표로 활용될 수 있으나, 본 장에서는 필수 적용 사항은 아니다.</p>
+<p>02 분류와 비선형 함수의 개념 Classification &amp; Nonlinear Functions</p>
+<p>앞서 다중 및 다항 회귀를 통해 연속적인 수치값을 예측하는 모델 구조를 살펴보았다.</p>
+<p>그러나 실제 문제의 상당수는 단순한 수치 예측이 아닌, “이것이냐, 저것이냐”와 같은 범주형(class) 결과를 요구한다.</p>
+<p>이처럼 출력값이 명확히 구분되는 문제에서는 회귀(regression) 대신 분류(classification) 개념이 사용된다.</p>
+<p>그중에서도 두 가지 범주를 구분하는 가장 기본적인 형태가 이진 분류(binary classification) 이다.</p>
+<p>대표적인 활용 사례는 다음과 같다.</p>
+<p>스팸 메일 탐지: 스팸 / 정상 소셜 미디어 콘텐츠 노출 결정: 보이기 / 숨기기 신용카드 부정 거래 탐지: 정상 / 이상 MRI 영상 판독: 정상 / 비정상 이와 같이, 분류 문제는 연속적 수치 예측과 달리 출력값이 불연속적이고 범주형이라는 점에서 학습 방식과 손실 함수, 모델 설계 측면에서 특수성을 가진다.</p>
+<p>1 . 회귀에서 분류로의 전환 선형 회귀는 입력값의 선형 결합을 통해 연속적인 출력값을 생성한다.</p>
+<p>그러나 분류 문제에서는 출력이 특정한 범위 내에 속해야 하며, 즉 결과값이 “0 또는 1”, “긍정 혹은 부정”처럼 해석 가능한 확률 형태로 제한될 필요가 있다.</p>
+<p>예를 들어, 종양의 크기에 따라 악성(1)과 양성(0)을 분류하는 문제를 생각해보자.</p>
+<p>데이터에서 “크기 40 이상일 때 악성” 으로 정의하면, 단순 선형 모델은 30 ~ 40 사이에 결정 경계선(decision boundary)을 그어 두 범주를 구분할 수 있다.</p>
+<p>그러나 새로운 데이터에서 70 이상의 값이 등장하면, 기존 경계선이 더 이상 유효하지 않아 새로운 기준선 재설정 문제가 발생한다.</p>
+<p>이러한 한계를 해결하기 위해, 선형 출력값을 0 ~ 1 사이로 압축하여 확률적으로 해석 가능한 비선형 변환 함수(activation function)가 도입된다.</p>
+<p>그중 가장 대표적인 예가 시그모이드 함수이다.</p>
+<p>2 . 시그모이드 함수 Sigmoid Function</p>
+<p>시그모이드 함수는 실수 입력값 (z)를 받아 이를 0 ~ 1 사이의 실수 값으로 변환하는 비선형 함수이다.</p>
+<p><span class="math display">\[\sigma(z) = \frac{1}{1 + e^{-z}}\]</span></p>
+<p>여기서 (z)는 이전 장에서 다룬 선형 결합 (WX)에 해당한다. 즉, 회귀모델의 출력값을 시그모이드 함수에 통과시켜 확률(probability) 형태로 변환하는 과정이다.</p>
+<p>확률적 해석 가능</p>
+<p>입력값이 매우 크면 1에 근접 입력값이 매우 작으면 0에 근접 이 함수는 ” 연속적인 선형 출력을 상·하한이 존재하는 구간으로 압축하는 변환 ” 으로 이해할 수 있다.</p>
+<p>부드러운 결정 경계</p>
+<p>S자 곡선(S-shaped curve)을 형성하며, 입력값이 증가에 따라 악성일 확률이 점진적으로 증가한다. 선형 출력이 비선형적으로 압축되어, 부드러운 결정 경계를 제공한다.</p>
+<p>미분 연속성</p>
+<p>미분이 연속적이므로, 경사하강법과 같은 최적화 알고리즘에서 기울기 계산이 원활하다.</p>
+<p>이러한 특성 덕분에 시그모이드 함수는 암 진단(양성/음성), 이메일 스팸 분류(스팸/정상) 등 이진 분류 문제에서 확률 기반 의사결정을 수행하는 핵심 요소로 활용된다.</p>
+<p>3 . 하이퍼볼릭 탄젠트 함수 Hyperbolic tangent Function</p>
+<p>시그모이드 함수와 유사하게, 하이퍼볼릭 탄젠트(tanh) 함수도 입력값을 비선형적으로 변환하는 함수이다.</p>
+<p>이 함수는 다음과 같이 정의된다.</p>
+<p><span class="math display">\[\tanh(z) = \frac{e^{z} - e^{-z}}{e^{z} + e^{-z}}\]</span></p>
+<p>출력값은 -1 ~ 1 사이에 위치한다. 중심이 0 에 있어, 시그모이드보다 학습 과정에서 안정성이 높다. 예: 감정 분석에서 긍정(+1)과 부정(-1)을 구분, 좋아요/싫어요 같은 양방향 선택 구조를 다룰 때 유용하다.</p>
+<p>단, 음의 출력 범위를 포함하므로 연산적으로 시그모이드보다 약간 복잡하며, 데이터 특성에 따라 선택적으로 적용된다.</p>
+<p>비교표 함수 출력 범위 중심값 주 용도 장점 시그모이드 0 ~ 1 0.5 확률 기반 이진 분류 확률적 해석 용이, 단순 하이퍼볼릭 탄젠트 -1 ~ +1 0 양극적 분류(긍정/부정) 중심 0, 학습 안정성 높음 시그모이드와 tanh는 모두 선형 회귀 결과를 비선형적으로 변환하여 확률 또는 분류 경계를 생성하는 역할을 한다.</p>
+<p>이러한 활성화 함수의 도입은 회귀모델이 “연속 예측”에서 “범주 판별”로 확장되는 전환점이며, 이후의 심층신경망(Deep Neural Network) 구조에서도 핵심적 역할을 수행한다.</p>
+<p>03 다중 입력 확장</p>
+<p>1 . 가설 Hypothesis</p>
+<p>단일 입력 로지스틱 회귀에서처럼, 여러 입력(feature)을 동시에 고려할 경우에도 원리는 동일하다.</p>
+<p>입력값의 선형 결합 (z = WX + b)를 시그모이드 함수에 통과시키면 출력값이 0 ~ 1 사이의 확률로 변환된다.</p>
+<p><span class="math display">\[h(X) = \sigma(WX + b) = \frac{1}{1 + e^{-(WX+b)}}\]</span>​</p>
+<p>이 확률값은 주어진 입력이 특정 범주에 속할 가능성을 의미하며, 이를 통해 이진 분류 문제에서 직관적이고 안정적인 의사결정이 가능하다.</p>
+<p>2 . 다중 입력 확장 Multivariate Input</p>
+<p>현실 세계의 데이터는 단일 입력보다는 여러 독립 변수(feature)를 동시에 고려해야 하는 경우가 많다.</p>
+<p>다중 입력의 경우에도 선형 결합의 구조는 동일하며, 단지 입력 벡터와 가중치 벡터를 확장하여 계산한다.</p>
+<p><span class="math display">\[z = W_1 x_1 + W_2 x_2 + \dots + W_n x_n + b = WX + b\]</span></p>
+<p>이렇게 계산된 다중 입력 결과는 소프트맥스(Softmax) 함수를 통해 정규화될 수 있다.</p>
+<p><span class="math display">\[\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}\]</span></p>
+<p>소프트맥스는 각 범주의 확률 합이 1이 되도록 조정하며, 출력값이 여러 클래스 중 하나로 분류될 수 있도록 확률 기반 해석 제공</p>
+<p>다중 클래스 분류 문제에서 필수적인 역할을 수행한다.</p>
+<p>3 . 다중 클래스(Softmax + 원-핫) 확장 다중 클래스 문제에서는 각 클래스 k에 대해 선형 점수(score)를 계산하고 소프트맥스(Softmax)로 확률분포를 얻는다.</p>
+<p><span class="math display">\[s_k = w_k^\top x + b_k,\qquad p_k=\frac{e^{s_k}}{\sum_j e^{s_j}}\]</span></p>
+<p>손실은 다중 클래스 크로스엔트로피(원-핫 레이블 y 기준):</p>
+<p><span class="math display">\[J=-\frac{1}{m}\sum_{i=1}^m\sum_{k} y^{(i)}_k \log p_k^{(i)}\]</span>​</p>
+<p>구조적으로 퍼셉트론과 유사하며, 신경망(NN)의 전단계로 이해할 수 있다.</p>
+<p>4 . 다층 페셉트론 Multi-Layer Perceptron, MLP</p>
+<p>단일 로지스틱 회귀와 다중 입력 확장을 기반으로, 구조를 여러 층으로 확장하면 다층 퍼셉트론이 된다.</p>
+<p>각 층에서는 선형 변환과 비선형 활성화가 반복 적용되며, 입력 간의 복잡한 상호작용과 패턴을 학습할 수 있다.</p>
+<p>MLP는 심층 신경망(DNN)의 기본 단위로, 다층 구조를 통해 비선형적 결정 경계와 복잡한 데이터까지 패턴 학습이 가능하다.</p>
 
 
 

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="통계학: 파이썬을 이용한 분석">
+<meta name="dcterms.date" content="2024-07-11">
 
-<title>StudyLog</title>
+<title>6장: 확률분포 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,17 +73,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -92,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -102,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://sinjihan71.tistory.com/"> 
-<span class="menu-text"><img src="Tstory.png" style="width:15px;height:17px;"></span></a>
+<span class="menu-text"><img src="images/Tstory.png" style="width:15px;height:17px;"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -112,110 +114,167 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">6장: 확률분포</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>통계학: 파이썬을 이용한 분석 </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 11, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#확률변수" id="toc-확률변수" class="nav-link active" data-scroll-target="#확률변수">1. 확률변수</a></li>
+  <li><a href="#이산확률분포" id="toc-이산확률분포" class="nav-link" data-scroll-target="#이산확률분포">2. 이산확률분포</a>
+  <ul class="collapse">
+  <li><a href="#확률질량함수" id="toc-확률질량함수" class="nav-link" data-scroll-target="#확률질량함수">2-1. 확률질량함수</a></li>
+  </ul></li>
+  <li><a href="#이산확률변수의-평균과-표준편차" id="toc-이산확률변수의-평균과-표준편차" class="nav-link" data-scroll-target="#이산확률변수의-평균과-표준편차">3. 이산확률변수의 평균과 표준편차</a>
+  <ul class="collapse">
+  <li><a href="#기댓값" id="toc-기댓값" class="nav-link" data-scroll-target="#기댓값">3-1. 기댓값</a></li>
+  <li><a href="#모표준편차" id="toc-모표준편차" class="nav-link" data-scroll-target="#모표준편차">3-3. 모표준편차</a></li>
+  </ul></li>
+  <li><a href="#두-확률분포의-결합분포" id="toc-두-확률분포의-결합분포" class="nav-link" data-scroll-target="#두-확률분포의-결합분포">4. 두 확률분포의 결합분포</a>
+  <ul class="collapse">
+  <li><a href="#결합확률분포" id="toc-결합확률분포" class="nav-link" data-scroll-target="#결합확률분포">4-1. 결합확률분포</a></li>
+  <li><a href="#주변확률분포" id="toc-주변확률분포" class="nav-link" data-scroll-target="#주변확률분포">4-2. 주변확률분포</a></li>
+  </ul></li>
+  <li><a href="#공분산과-상관계수" id="toc-공분산과-상관계수" class="nav-link" data-scroll-target="#공분산과-상관계수">5. 공분산과 상관계수</a></li>
+  <li><a href="#공분산" id="toc-공분산" class="nav-link" data-scroll-target="#공분산">5-1. 공분산</a></li>
+  <li><a href="#상관계수" id="toc-상관계수" class="nav-link" data-scroll-target="#상관계수">5-2. 상관계수</a></li>
+  <li><a href="#두-확률변수의-독립성" id="toc-두-확률변수의-독립성" class="nav-link" data-scroll-target="#두-확률변수의-독립성">6. 두 확률변수의 독립성</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<!-- 탭 메뉴 -->
-<ul class="nav nav-tabs" id="mainTab" role="tablist">
-<li class="nav-item" role="presentation">
-<a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-</li>
-<li class="nav-item" role="presentation">
-<a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-</li>
-</ul>
-<div class="tab-content mt-3">
-<!-- Home Tab -->
-<div id="home" class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
-<p class="fs-5 mb-4">
-<strong>StudyLog</strong>는 학습 과정을 규칙적으로 기록하고 체계화합니다.
-</p>
-<div class="card-container d-flex flex-wrap gap-2">
-<!-- Data Analysis 카드 -->
-<a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-Data Analysis
-</div>
-<div class="card-body">
 
-</div>
-</a><p><a href="data-analysis.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- AI·ML·DL 카드 -->
-<a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-AI·ML·DL
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="ai-ml-dl.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 프로그래밍·개발 카드 -->
-<a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-프로그래밍·개발
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="prog-dev.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 컴퓨터 CG·HW 카드 -->
-<a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-컴퓨터 CG·HW
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="cg-hw.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 보안·네트워크 카드 -->
-<a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-보안·네트워크
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="cybersec.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 학업·연구 카드 -->
-<a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-학업·연구
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="r-and-d.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-<!-- 기타 카드 -->
-<a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;">
-<div class="card-header">
-기타
-</div>
-<div class="card-body">
-
-</div>
-</a><p><a href="miscellaneous.html" class="card bg-secondary mb-3" style="flex: 1 1 calc(33.333% - 0.66rem); text-decoration:none; color:inherit; box-sizing:border-box;"></a></p>
-</div>
-</div>
-<!-- Profile Tab -->
-<div id="profile" class="tab-pane fade" role="tabpanel" aria-labelledby="profile-tab">
-<p>
-프로필 탭 내용
-</p>
-</div>
-</div>
-<hr class="my-4">
-<p class="fs-6">
-이 웹사이트는 <a href="https://quarto.org/docs/websites" target="_blank" class="link">Quarto</a>를 이용해 제작되었습니다.
-</p>
+<p>5장에서 다룬 표본공간의 근원사건들은 특성을 표현하는 형태로 다뤘다.<br> 이제는 확률변수를 중심으로 실험의 수치적 결과에 대해 다루고자 한다.</p>
+<section id="확률변수" class="level2">
+<h2 class="anchored" data-anchor-id="확률변수">1. 확률변수</h2>
+<p>Random Variable<br></p>
+<p>각각의 근원사건들에 실수값을 “대응시키는 함수”이며 X, Y, … 등으로 표시한다.<br></p>
+<p>확률변수가 가질 수 있는 “값의 개수” 가 유한하거나<br> 무한이라도 “셀 수 있는 경우” 에 이를 “이산확률변수” 라고 한다.<br></p>
+<p>또한, 연속적인 구간에 속하는 모든 값을 다 가질 수 있는 “연속확률변수” 도 있다.<br></p>
+</section>
+<section id="이산확률분포" class="level2">
+<h2 class="anchored" data-anchor-id="이산확률분포">2. 이산확률분포</h2>
+<p>Discrete Probability Distribution<br></p>
+<p>확률변수가 갖는 값들과 그에 “대응하는 확률값” 을 나타내는 것으로,<br> 나열된 표나 수식으로 표현되며, 보통은 “확률변수 X 의 분포” 라고 한다.<br></p>
+<section id="확률질량함수" class="level3">
+<h3 class="anchored" data-anchor-id="확률질량함수">2-1. 확률질량함수</h3>
+<p>Probability Mass Function, PMF</p>
+<p>확률변수 X가 k개의 값 x₁, x₂, …, xk를 가질 때,<br> 그에 대응하는 확률을 f(x₁), f(x₂), …, f(xk)라고 하면 X의 확률분포는 다음과 같다:</p>
+<p>f(x)는 확률변수 X 가 값 x 를 갖게 되는 확률 P ( X = x ) 을 나타낸다:</p>
+<p>이산확률변수 X 의 확률변수는 다음 조건을 만족해야 한다:</p>
+<p>모든 확률은 0 이상 1 이하의 값을 가진다. 확률변수가 가질 수 있는 모든 값에 대한 확률의 합은 1 이다.</p>
+</section>
+</section>
+<section id="이산확률변수의-평균과-표준편차" class="level2">
+<h2 class="anchored" data-anchor-id="이산확률변수의-평균과-표준편차">3. 이산확률변수의 평균과 표준편차</h2>
+<section id="기댓값" class="level3">
+<h3 class="anchored" data-anchor-id="기댓값">3-1. 기댓값</h3>
+<p>Expected Value</p>
+<p>E ( X ) 는 확률변수 X 의 “기댓값(평균)”<br> 또는 X 가 갖는 확률분포의 “모평균” 이라고 한다.<br></p>
+<p>뮤( M , μ: 그리스 알파벳의 열두째 글자)</p>
+<p>3-2. 모분산 Population Variance<br></p>
+<p>편차 (즉, 각 값이 기대값에서 얼마나 떨어져 있는지)를 <strong>제곱</strong>하고,<br> 그 제곱된 값을 각 값이 발생할 확률로 <strong>가중평균</strong>하는 것이다.</p>
+<p>V a r ( X ) = ∑ ( 편차 ) ² × 확률:</p>
+<p>시그마(Σ, σ: 그리스어 알파벳의 열여덟째 글자)</p>
+<p>모분산의 간편식:</p>
+<p>기댓값을 알고 있다면, 직접적인 정의를 사용하지 않고 게산할 수 있다.</p>
+</section>
+<section id="모표준편차" class="level3">
+<h3 class="anchored" data-anchor-id="모표준편차">3-3. 모표준편차</h3>
+<p>Population Standard Deviation 모분산의 양의 제곱근으로 계산된다:</p>
+<p>모표준편차 ( σ ) 의 단위는 확률변수 X와 “동일” 하다. 반면 모분산 ( σ² ) 의 단위는 X 의 단위를 “제곱” 한 것이므로, 퍼진정도를 측정하는데 적절하지 않다.</p>
+<p>예를 들어, X 의 단위가 센티미터( cm )라면, 모분산 σ² 의 단위는 제곱센티미터( cm² )가 된다.</p>
+</section>
+</section>
+<section id="두-확률분포의-결합분포" class="level2">
+<h2 class="anchored" data-anchor-id="두-확률분포의-결합분포">4. 두 확률분포의 결합분포</h2>
+<p>하나의 실험에서도 2 개 이상의 측면에 대한 관측이 가능하다.<br> 이 경우 그 2 가지 특성 간의 관계 여부 및 그 관계 정도에 대해 분석할 수 있다.<br></p>
+<section id="결합확률분포" class="level3">
+<h3 class="anchored" data-anchor-id="결합확률분포">4-1. 결합확률분포</h3>
+<p>Joint Probability Distribution<br></p>
+<p>2개 이상의 확률변수가 동시에 특정한 값을 가질 확률을 나타내는 분포이다.</p>
+<p>2 개의 확률변수가 이산일 경우,</p>
+<p>X 가 취하는 값을 x₁, …, xm Y 가 취하는 값을 y₁, …, yn 이라고 할 때</p>
+<p>X 와 Y 의 결합확률분포는 모든 1 ≤ i ≤ m, 1 ≤ j ≤ n 에 대하여</p>
+<p>위 식을 구하므로써 결정되며, 다음과 같이 표현할 수 있다:</p>
+</section>
+<section id="주변확률분포" class="level3">
+<h3 class="anchored" data-anchor-id="주변확률분포">4-2. 주변확률분포</h3>
+<p>Marginal Probability Distribution<br></p>
+<p>결합확률분포에서 한 확률변수를 “고정” 하고 다른 변수의 분포를 고려하는 분포이다.<br> 이는 2 개 이상의 확률변수 중 하나에 대한 “단일 확률분포” 를 얻기 위해 사용한다:</p>
+<p>각각의 주변확률을 이용해서 하나의 변수 때와 마찬가지로 구하면 된다:</p>
+</section>
+</section>
+<section id="공분산과-상관계수" class="level2">
+<h2 class="anchored" data-anchor-id="공분산과-상관계수">5. 공분산과 상관계수</h2>
+</section>
+<section id="공분산" class="level2">
+<h2 class="anchored" data-anchor-id="공분산">5-1. 공분산</h2>
+<p>Covariance</p>
+<p>두 확률변수 X 와 Y 가 함께 변하는 정도를 측정한다.</p>
+<p>X, Y가 같은 방향으로 변화할 경우, (즉, 둘 다 증가하거나 둘 다 감소하는 경우) ( X − μX ​), ( Y − μY ​) 의 부호가 일치할 확률이 상대적으로 커진다. 따라서, 이에 대한 기댓값은 양수가 된다.</p>
+<p>X, Y가 다른 방향으로 변화할 경우, (즉, 한 변수가 증가할 때 다른 변수는 감소하는 경우) ( X − μX ​), ( Y − μY ​) 가 서로 다른 부호를 갖게 될 확률이 상대적으로 커진다. 따라서 이에 대한 기댓값은 음수가 될 것이다.</p>
+<p>X, Y 의 공분산은 아래와 같이 정의된다:</p>
+</section>
+<section id="상관계수" class="level2">
+<h2 class="anchored" data-anchor-id="상관계수">5-2. 상관계수</h2>
+<p>Correlation Coefficient<br></p>
+<p>두 확률변수 간의 선형 관계의 강도와 방향을 측정한다.<br> 이것은 공분산을 표준화한 형태로, −1 과 1 사이의 값을 가진다.</p>
+<p>상관계수의 성질:</p>
+<p>절댓값이 클수록 (1 또는 −1에 가까울수록) 점들은 기울기가 양수(또는 음수)인 직선에 가깝게 몰려 있다.<br> 0보다 값이 클 경우, 점들이 좌하에서 우상방향으로 띠를 형성한다.<br> 이때, 한 변수의 값이 크면 다른 변수의 값도 큰 경향을 가진다.</p>
+<p>정확한 선형관계 Y = aX + b 가 성립할 때, 상관계수의 값은 −1 또는 1 이다.</p>
+<p>X, Y 의 상관계수는 각 확률변수에 상수가 더해지거나 감해지는 것에 영향을 받지 않는다.<br> 상수가 곱해진 경우, 그 부호에만 영향을 받는다.</p>
+<p>상수 c 와 d 의 부호가 다르면 상관계수의 부호가 반대가 된다.</p>
+</section>
+<section id="두-확률변수의-독립성" class="level2">
+<h2 class="anchored" data-anchor-id="두-확률변수의-독립성">6. 두 확률변수의 독립성</h2>
+<p>2 개의 확률변수 X, Y 가 독립이 되기 위해서는<br> X, Y 가 취하는 모든 쌍의 값 ( xi, yi ) 에 대해 아래 식을 만족해야 한다.</p>
+<p>두 확률변수 X, Y 가 서로 독립일 때, 아래의 식이 성립한다:</p>
+<p>단, 공분산과 상관계수가 0 이라는 사실이 항상 두 변수가 독립이라는 것을 보장하지 않는다.<br> 이는 두 변수 간에 선형 관계가 없음을 의미하지만, 비선형 관계가 존재할 수 있다.</p>
+<p>두 확률변수가 독립일 경우,<br> 공분산이 0 이 되므로 합과 차의 분산을 쉽게 계산할 수 있다.</p>
+<p>분산과 공분산의 정의를 이용하면: 공분산 항을 제외하여 다음과 같이 나타낼 수 있다:</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
