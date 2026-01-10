@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="혼자 공부하는 머신러닝+딥러닝">
+<meta name="dcterms.date" content="2024-09-24">
+
+<title>회귀 알고리즘 &amp; 모델 규제 – StudyLog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">StudyLog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SHINJIHAN"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://sinjihan71.tistory.com/"> 
+<span class="menu-text"><img src="Tstory.png" style="width:15px;height:17px;"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#배열의-크기를-자동으로-맞추기" id="toc-배열의-크기를-자동으로-맞추기" class="nav-link active" data-scroll-target="#배열의-크기를-자동으로-맞추기">-1: 배열의 크기를 자동으로 맞추기</a></li>
+  <li><a href="#배열의-두-번째-차원을-1열로-설정" id="toc-배열의-두-번째-차원을-1열로-설정" class="nav-link" data-scroll-target="#배열의-두-번째-차원을-1열로-설정">1: 배열의 두 번째 차원을 1열로 설정</a></li>
+  <li><a href="#테스트-세트에-대한-예측을-만든다" id="toc-테스트-세트에-대한-예측을-만든다" class="nav-link" data-scroll-target="#테스트-세트에-대한-예측을-만든다">테스트 세트에 대한 예측을 만든다</a></li>
+  <li><a href="#테스트-세트에-대한-평균-절댓값-오차를-계산한다" id="toc-테스트-세트에-대한-평균-절댓값-오차를-계산한다" class="nav-link" data-scroll-target="#테스트-세트에-대한-평균-절댓값-오차를-계산한다">테스트 세트에 대한 평균 절댓값 오차를 계산한다</a></li>
+  <li><a href="#이웃의-갯수를-3으로-설정" id="toc-이웃의-갯수를-3으로-설정" class="nav-link" data-scroll-target="#이웃의-갯수를-3으로-설정">이웃의 갯수를 3으로 설정</a></li>
+  <li><a href="#모델을-다시-훈련" id="toc-모델을-다시-훈련" class="nav-link" data-scroll-target="#모델을-다시-훈련">모델을 다시 훈련</a></li>
+  <li><a href="#훈련-세트와-데이터-세트로-나누고-2차원-배열로-변환하기" id="toc-훈련-세트와-데이터-세트로-나누고-2차원-배열로-변환하기" class="nav-link" data-scroll-target="#훈련-세트와-데이터-세트로-나누고-2차원-배열로-변환하기">훈련 세트와 데이터 세트로 나누고 2차원 배열로 변환하기</a></li>
+  <li><a href="#최근접-이웃-개수를-3으로-하는-모델-훈련" id="toc-최근접-이웃-개수를-3으로-하는-모델-훈련" class="nav-link" data-scroll-target="#최근접-이웃-개수를-3으로-하는-모델-훈련">최근접 이웃 개수를 3으로 하는 모델 훈련</a></li>
+  <li><a href="#cm-농어의-이웃을-구한다" id="toc-cm-농어의-이웃을-구한다" class="nav-link" data-scroll-target="#cm-농어의-이웃을-구한다">50cm 농어의 이웃을 구한다</a></li>
+  <li><a href="#cm-농어의-이웃을-구한다-1" id="toc-cm-농어의-이웃을-구한다-1" class="nav-link" data-scroll-target="#cm-농어의-이웃을-구한다-1">100cm 농어의 이웃을 구한다</a></li>
+  <li><a href="#이전과-동일한-데이터" id="toc-이전과-동일한-데이터" class="nav-link" data-scroll-target="#이전과-동일한-데이터">이전과 동일한 데이터</a></li>
+  <li><a href="#훈련-세트와-테스트-세트-나누기" id="toc-훈련-세트와-테스트-세트-나누기" class="nav-link" data-scroll-target="#훈련-세트와-테스트-세트-나누기">훈련 세트와 테스트 세트 나누기</a></li>
+  <li><a href="#훈련-데이터를-표준화-평균-0-표준편차-1" id="toc-훈련-데이터를-표준화-평균-0-표준편차-1" class="nav-link" data-scroll-target="#훈련-데이터를-표준화-평균-0-표준편차-1">훈련 데이터를 표준화 (평균 0, 표준편차 1)</a></li>
+  <li><a href="#테스트-데이터를-훈련-데이터의-통계에-맞춰-표준화" id="toc-테스트-데이터를-훈련-데이터의-통계에-맞춰-표준화" class="nav-link" data-scroll-target="#테스트-데이터를-훈련-데이터의-통계에-맞춰-표준화">테스트 데이터를 훈련 데이터의 통계에 맞춰 표준화</a></li>
+  <li><a href="#배씩-늘려가며-훈련하기0.01-100" id="toc-배씩-늘려가며-훈련하기0.01-100" class="nav-link" data-scroll-target="#배씩-늘려가며-훈련하기0.01-100">10배씩 늘려가며 훈련하기(0.01 ~ 100)</a></li>
+  <li><a href="#동일한-간격으로-나타내기-위해-로그-함수로-바꾸어-지수로-표현" id="toc-동일한-간격으로-나타내기-위해-로그-함수로-바꾸어-지수로-표현" class="nav-link" data-scroll-target="#동일한-간격으로-나타내기-위해-로그-함수로-바꾸어-지수로-표현">동일한 간격으로 나타내기 위해 로그 함수로 바꾸어 지수로 표현</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">회귀 알고리즘 &amp; 모델 규제</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>혼자 공부하는 머신러닝+딥러닝 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 24, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>지도 학습의 한 종류인 회귀 문제를 이해하고 다양한 선형 회귀 알고리즘의 장단점에 대해 다루고자 한다.</p>
+<p>https://colab.research.google.com/github/rickiepark/hg-mldl/blob/master/3-1.ipynb</p>
+<p>03 - 1 . 최근접 이웃 회귀</p>
+<p>3-1 최근접 이웃 회귀.ipynb</p>
+<p>회귀 (regression) 지도 학습에서 중요한 개념 중 하나로, 주어진 데이터를 바탕으로 연속적인 값을 예측하는 문제를 해결한다.</p>
+<p>k–최근접 이웃(KNN) 회귀는 회귀 알고리즘 중 하나이다.</p>
+<p>이 알고리즘은 예측하려는 값이 주어졌을 때, 가까운 이웃들의 값을 평균 내어 결과를 추정하는 방식으로 작동한다.</p>
+<p>KNN은 단순하면서도 직관적인 알고리즘이기 때문에, 데이터의 패턴을 찾는 데 유용한 경우가 많다.</p>
+<p>예를 들어, 농어의 무게를 예측할 때, 특정 농어와 가까운 다른 농어들의 무게를 이용해 평균값을 예측하는 것이 KNN 회귀 방식이다.</p>
+<p>이 방법은 복잡한 계산을 요구하지 않지만, 데이터의 분포나 k 값 설정에 민감할 수 있다.</p>
+<p>회귀 문제에서는 예측하고자 하는 값이 숫자로 표현되며, 이는 여러 산업 분야에서 다양하게 활용될 수 있다.</p>
+<p>농어의 길이와 무게 데이터</p>
+<p>import numpy as np perch_length = np.array( [8.4, 13.7, 15.0, 16.2, 17.4, 18.0, 18.7, 19.0, 19.6, 20.0, 21.0, 21.0, 21.0, 21.3, 22.0, 22.0, 22.0, 22.0, 22.0, 22.5, 22.5, 22.7, 23.0, 23.5, 24.0, 24.0, 24.6, 25.0, 25.6, 26.5, 27.3, 27.5, 27.5, 27.5, 28.0, 28.7, 30.0, 32.8, 34.5, 35.0, 36.5, 36.0, 37.0, 37.0, 39.0, 39.0, 39.0, 40.0, 40.0, 40.0, 40.0, 42.0, 43.0, 43.0, 43.5, 44.0] )</p>
+<p>perch_weight = np.array( [5.9, 32.0, 40.0, 51.5, 70.0, 100.0, 78.0, 80.0, 85.0, 85.0, 110.0, 115.0, 125.0, 130.0, 120.0, 120.0, 130.0, 135.0, 110.0, 130.0, 150.0, 145.0, 150.0, 170.0, 225.0, 145.0, 188.0, 180.0, 197.0, 218.0, 300.0, 260.0, 265.0, 250.0, 250.0, 300.0, 320.0, 514.0, 556.0, 840.0, 685.0, 700.0, 700.0, 690.0, 900.0, 650.0, 820.0, 850.0, 900.0, 1015.0, 820.0, 1100.0, 1000.0, 1100.0, 1000.0, 1000.0] )</p>
+<p>이 데이터의 형태를 보기 위해, 산점도를 그리기</p>
+<p>import matplotlib.pyplot as plt plt.scatter(perch_length, perch_weight) plt.xlabel(‘length’) plt.ylabel(‘weight’) 더보기 더보기</p>
+<p>농어의 길이와 무게는 비례한다.</p>
+<p>데이터를 훈련 세트와 테스트 세트로 나누기</p>
+<p>from sklearn.model_selection import train_test_split train_input, test_input, train_target, test_target = train_test_split( perch_length, perch_weight, random_state = 42)</p>
+<p>train_input.shape, test_input.shape</p>
+<p>두 개의 배열을 2차원 배열로 변환</p>
+<p>train_input = train_input.reshape(-1, 1) test_input = test_input.reshape(-1, 1) train_input.shape, test_input.shape</p>
+<section id="배열의-크기를-자동으로-맞추기" class="level1">
+<h1>-1: 배열의 크기를 자동으로 맞추기</h1>
+</section>
+<section id="배열의-두-번째-차원을-1열로-설정" class="level1">
+<h1>1: 배열의 두 번째 차원을 1열로 설정</h1>
+<p>KNeighborsRegressor 모델을 생성하고 두 개의 데이터를 사용하여 학습시키는 과정</p>
+<p>from sklearn.neighbors import KNeighborsRegressor knr = KNeighborsRegressor() knr.fit(train_input, train_target)</p>
+<p>결정계수 (R², R-squared)</p>
+<p>SSres: 잔차 제곱합, SStot: 총 제곱합</p>
+<p>회귀 분석에서 모델의 예측 성능을 평가하는 지표 중 하나로, 모델이 주어진 데이터를 얼마나 잘 설명하는지를 나타낸다.</p>
+<p>결정계수는 0 ~ 1 사이의 값을 가지며, 1 에 가까울수록 모델이 데이터를 잘 설명하고, 0 에 가까울수록 설명력이 떨어진다는 의미이다.</p>
+<p>테스트 세트의 점수 확인</p>
+<p>knr.score(test_input, test_target)</p>
+<p>이 모델은 99%의 변동성을 설명할 수 있다.</p>
+<p>다만, 결정계수(R²)는 정확도처럼 직관적으로 해석하기는 조금 어려울 수 있다.</p>
+<p>단순히 맞고 틀린 것을 계산하는 지표가 아니기 때문에, “예측이 얼마나 정확한가”를 직관적으로 파악하기는 힘들다.</p>
+<p>즉, 99%의 값이 실제로 좋은 성능인지 여부는 문제의 특성에 따라 다를 수 있다.</p>
+<p>또한, 모든 데이터에서 완벽한 예측을 했는지 여부는 알 수 없고, 오차나 과적합 문제에 대한 구체적인 설명을 해주지 않는다.</p>
+<p>따라서, 모델의 성능을 더 명확히 평가하기 위해서는 추가적인 평가 지표가 필요하다.</p>
+<p>예측이 벗어난 정도를 알아보기 위해, 타겟과 예측한 값 사이의 차이를 계산 및 출력한다</p>
+<p>from sklearn.metrics import mean_absolute_error</p>
+</section>
+<section id="테스트-세트에-대한-예측을-만든다" class="level1">
+<h1>테스트 세트에 대한 예측을 만든다</h1>
+<p>test_prediction = knr.predict(test_input)</p>
+</section>
+<section id="테스트-세트에-대한-평균-절댓값-오차를-계산한다" class="level1">
+<h1>테스트 세트에 대한 평균 절댓값 오차를 계산한다</h1>
+<p>mae = mean_absolute_error(test_target, test_prediction) mae</p>
+<p>평균적으로 약 19g 정도 타겟값과 다르다는 것을 확인</p>
+<p>훈련 세트를 사용해 평가해보기 위해, score() 메서드에 훈련 세트를 전달하여 점수 출력하기</p>
+<p>knr.score(train_input, train_target)</p>
+<p>훈련 세트(96%)가 테스트 세트(99%)보다 낮은 점수임을 확인</p>
+<p>보통 훈련 세트에서의 성능이 (테스트 세트, 검증 세트에서의 성능보다) 더 높게 나오는 경우가 많다.</p>
+<p>그 이유는 모델이 훈련 세트에 직접 노출되어 그 데이터를 바탕으로 학습하기 때문이다. 훈련 세트에 최적화된 상태일 경우, 그 데이터에서의 성능은 당연히 높아질 수밖에 없다.</p>
+<p>위 경우, 훈련 세트의 점수가 낮게 나왔으므로 과소적합된 것이다.</p>
+<p>과대적합(overfitting) &amp; 과소적합(underfitting) 머신러닝에서 모델의 성능을 저하시키는 두 가지 주요 문제.</p>
+<ol type="1">
+<li>과대적합 (Overfitting) 과대적합은 모델이 훈련 데이터에 너무 과도하게 적응하여, 새로운 데이터(테스트 데이터)에는 잘 일반화되지 못하는 현상.</li>
+</ol>
+<p>즉, 모델이 훈련 데이터의 노이즈나 불필요한 패턴까지 학습하는 경우이다.</p>
+<ol type="1">
+<li><p>훈련 데이터에 대한 정확도는 매우 높지만, 테스트 데이터나 새로운 데이터에 대한 성능이 떨어진다.</p></li>
+<li><p>훈련 데이터의 세부 사항까지 모두 학습하므로, 복잡한 모델이나 파라미터 수가 많은 모델에서 자주 발생한다.</p></li>
+<li><p>모델이 데이터의 본질적인 패턴보다는 훈련 데이터에 특화된 규칙을 학습하는 문제를 일으킨다.</p></li>
+<li><p>과소적합 (Underfitting) 모델이 훈련 데이터를 충분히 학습하지 못해, 훈련 데이터와 테스트 데이터 모두에서 성능이 좋지 않은 상태.</p></li>
+</ol>
+<p>즉, 모델이 너무 단순해서 데이터의 패턴을 제대로 잡지 못하는 경우이다.</p>
+<ol type="1">
+<li><p>훈련 데이터에서조차 예측 성능이 낮다.</p></li>
+<li><p>모델이 데이터를 적절히 설명할 수 없을 정도로 너무 단순하거나 제한적인 구조를 가지고 있을 때 발생한다.</p></li>
+<li><p>훈련 데이터와 테스트 데이터에서 모두 성능이 낮게 나온다.</p></li>
+</ol>
+<p>모델이 너무 단순하므로, 복잡성을 높이기 위해 이웃의 개수 k를 줄여보기로 한다</p>
+</section>
+<section id="이웃의-갯수를-3으로-설정" class="level1">
+<h1>이웃의 갯수를 3으로 설정</h1>
+<p>knr.n_neighbors = 3</p>
+</section>
+<section id="모델을-다시-훈련" class="level1">
+<h1>모델을 다시 훈련</h1>
+<p>knr.fit(train_input, train_target) knr.score(train_input, train_target)</p>
+<p>훈련 세트의 점수가 높아진 것을 확인</p>
+<p>knr.score(test_input, test_target)</p>
+<p>테스트 세트의 점수가 낮아진 것을 확인</p>
+<p>위 과정을 통해, 과소적합 문제를 해결했고 두 세트 간에 점수 차이도 크지 않으므로 과대적합 문제도 없다.</p>
+<p>따라서, 성공적으로 회귀 모델을 훈련하였다.</p>
+<p>03 - 2 . 선형 회귀</p>
+<p>3-2 선형 회귀.ipynb</p>
+<p>Run, share, and edit Python notebooks</p>
+<p>colab.research.google.com # 이전과 동일한 데이터 import numpy as np perch_length = np.array( [8.4, 13.7, 15.0, 16.2, 17.4, 18.0, 18.7, 19.0, 19.6, 20.0, 21.0, 21.0, 21.0, 21.3, 22.0, 22.0, 22.0, 22.0, 22.0, 22.5, 22.5, 22.7, 23.0, 23.5, 24.0, 24.0, 24.6, 25.0, 25.6, 26.5, 27.3, 27.5, 27.5, 27.5, 28.0, 28.7, 30.0, 32.8, 34.5, 35.0, 36.5, 36.0, 37.0, 37.0, 39.0, 39.0, 39.0, 40.0, 40.0, 40.0, 40.0, 42.0, 43.0, 43.0, 43.5, 44.0] ) perch_weight = np.array( [5.9, 32.0, 40.0, 51.5, 70.0, 100.0, 78.0, 80.0, 85.0, 85.0, 110.0, 115.0, 125.0, 130.0, 120.0, 120.0, 130.0, 135.0, 110.0, 130.0, 150.0, 145.0, 150.0, 170.0, 225.0, 145.0, 188.0, 180.0, 197.0, 218.0, 300.0, 260.0, 265.0, 250.0, 250.0, 300.0, 320.0, 514.0, 556.0, 840.0, 685.0, 700.0, 700.0, 690.0, 900.0, 650.0, 820.0, 850.0, 900.0, 1015.0, 820.0, 1100.0, 1000.0, 1100.0, 1000.0, 1000.0] )</p>
+</section>
+<section id="훈련-세트와-데이터-세트로-나누고-2차원-배열로-변환하기" class="level1">
+<h1>훈련 세트와 데이터 세트로 나누고 2차원 배열로 변환하기</h1>
+<p>from sklearn.model_selection import train_test_split</p>
+<p>train_input, test_input, train_target, test_target = train_test_split( perch_length, perch_weight, random_state = 42)</p>
+<p>train_input = train_input.reshape(-1, 1) test_input = test_input.reshape(-1, 1)</p>
+</section>
+<section id="최근접-이웃-개수를-3으로-하는-모델-훈련" class="level1">
+<h1>최근접 이웃 개수를 3으로 하는 모델 훈련</h1>
+<p>from sklearn.neighbors import KNeighborsRegressor</p>
+<p>knr = KNeighborsRegressor(n_neighbors = 3) knr.fit(train_input, train_target)</p>
+<p>위 모델을 사용하여 길이 50cm 농어의 무게를 예측한다</p>
+<p>knr.predict([[50]])</p>
+<p>1,033g = 1.033kg으로 예측</p>
+<p>그러나 이 농어의 실제 무게는 더 많으므로, 이 농어를 산점도에 표시하고 최근접 이웃도 함께 시각화하기로 한다.</p>
+</section>
+<section id="cm-농어의-이웃을-구한다" class="level1">
+<h1>50cm 농어의 이웃을 구한다</h1>
+<p>distances, indexes = knr.kneighbors([[50]])</p>
+<p>plt.scatter(train_input, train_target) plt.scatter(train_input[indexes], train_target[indexes], marker = ‘D’) plt.scatter(50, 1033, marker = ‘^’) plt.xlabel(‘length’) plt.ylabel(‘weight’) 더보기 더보기</p>
+<p>50cm 농어에서 가장 가까운 것은 45cm 근방임을 확인</p>
+<p>위 샘플들의 무게를 평균한다.</p>
+<p>np.mean(train_target[indexes])</p>
+<p>모델이 예측한 값과 정확히 일치한다.</p>
+<p>따라서, 새로운 샘플이 훈련 세트의 범위를 벗어나면 엉뚱한 값을 예측할 수 있다.</p>
+<p>knr.predict([[100]])</p>
+<p>100cm인 농어도 1,033g으로 예측</p>
+<p>위 농어도 산점도에 표시하고 최근접 이웃도 함께 시각화하기로 한다.</p>
+</section>
+<section id="cm-농어의-이웃을-구한다-1" class="level1">
+<h1>100cm 농어의 이웃을 구한다</h1>
+<p>distances, indexes = knr.kneighbors([[100]])</p>
+<p>plt.scatter(train_input, train_target) plt.scatter(train_input[indexes], train_target[indexes], marker = ‘D’) plt.scatter(100, 1033, marker = ‘^’) plt.xlabel(‘length’) plt.ylabel(‘weight’) 더보기 더보기</p>
+<p>농어가 아무리 커도 무게는 고정됨을 확인</p>
+<p>이를 해결하려면 가장 큰 농어가 포함되도록 훈련 세트를 다시 구성해야 한다. 그러나 이러한 작업을 매번 반복하는 것은 번거로울 수 있다.</p>
+<p>따라서, 새로운 알고리즘을 적용해 보기로 한다.</p>
+<p>선형 회귀 (Linear Regression)</p>
+<p>직선의 방정식: y = ax + b 기울기는 계수(coefficient) &amp; 가중치(weight)라고도 부른다.</p>
+<p>독립 변수와 종속 변수 간의 선형 관계를 모델링하는 가장 기본적인 회귀 분석 방법이다.</p>
+<p>목표는 주어진 데이터를 기반으로 직선 을 그려서 종속 변수(예측하고자 하는 값)를 예측하는 것이다.</p>
+<p>선형 회귀 모델 훈련</p>
+<p>from sklearn.linear_model import LinearRegression</p>
+<p>lr = LinearRegression() lr.fit(train_input, train_target)</p>
+<p>50cm 농어에 대한 예측</p>
+<p>lr.predict([[50]])</p>
+<p>1,241g = 1.241kg으로 예측</p>
+<p>LinearRegression 클래스가 찾은 a, b를 출력</p>
+<p>lr.coef_, lr.intercept_</p>
+<p>농어의 길이가 15 ~ 50인 범위에 대해 직선을 그려본다</p>
+<p>plt.scatter(train_input, train_target) plt.plot([15, 50], [15<em>lr.coef_+lr.intercept_, 50</em>lr.coef_+lr.intercept_]) plt.scatter(50, 1241.8, marker=‘^’) plt.xlabel(‘length’) plt.ylabel(‘weight’) 더보기 더보기</p>
+<p>선형 회귀 알고리즘이 이 데이터셋에서 찾은 최적의 직선</p>
+<p>훈련 세트와 테스트 세트에 대한 R² 출력</p>
+<p>print(lr.score(train_input, train_target)) print(lr.score(test_input, test_target))</p>
+<p>전체적으로 과소적합되었음을 확인</p>
+<p>위 직선의 좌측 하단을 보면, 선이 0 이하로 내려가 있다. 하지만 0g 이하의 농어는 존재하지 않으므로, 이를 보완할 필요가 있다.</p>
+<p>다항 회귀 (Polynomial Regression)</p>
+<p>2차 다항 회귀 공식: y = ax² + bx + c</p>
+<p>선형 회귀의 확장으로, 데이터가 비선형적일 때 더 적합한 모델을 만들기 위해 사용된다.</p>
+<p>선형 회귀가 직선을 그리는 것과 달리, 다항 회귀는 곡선 을 그려 비선형 관계를 설명한다.</p>
+<p>새롭게 만든 데이터셋의 크기 확인</p>
+<p>train_poly = np.column_stack((train_input ** 2, train_input)) test_poly = np.column_stack((test_input ** 2, test_input)) train_poly.shape, test_poly.shape</p>
+<p>원래 특성인 길이를 제곱하여 왼쪽 열에 추가하였고, 그 결과 각각의 데이터 세트에 2개의 특성이 생겼다</p>
+<p>train_poly를 사용하여, 선형 회귀 모델을 다시 훈련</p>
+<p>lr = LinearRegression() lr.fit(train_poly, train_target) lr.predict([[50**2, 50]])</p>
+<p>이전에 훈련된 모델보다 더 높은 값을 예측</p>
+<p>이 모델이 훈련한 계수와 절편을 출력</p>
+<p>lr.coef_, lr.intercept_</p>
+<p>농어의 무게 = 1.01 × 농어의 길이² – 21.6 × 농어의 길이 + 116.05</p>
+<p>이전과 동일하게 훈련 세트의 산점도에 그래프로 그려보기</p>
+<p>point = np.arange(15, 50) plt.scatter(train_input, train_target) plt.plot(point, 1.01*point**2 - 21.6*point + 116.05) plt.scatter([50], [1574], marker=‘^’) plt.xlabel(‘length’) plt.ylabel(‘weight’) 더보기 더보기</p>
+<p>앞선 단순 선형 회귀 모델보다 훨씬 더 나은 예측 곡선이 그려졌다.</p>
+<p>훈련 세트와 테스트 세트에 대한 R² 출력</p>
+<p>print(lr.score(train_poly, train_target)) print(lr.score(test_poly, test_target))</p>
+<p>두 데이터 세트에 대한 점수가 높아졌다.</p>
+<p>다만, 훈련 세트의 점수가 더 낮아 여전히 과소적합 문제가 남아 있다. 또한, 전체 데이터 세트의 점수가 낮기 때문에 이를 개선할 필요가 있다.</p>
+<p>03 - 3 . 특성 공학과 규제</p>
+<p>3-3 특성 공학과 규제.ipynb</p>
+<p>Run, share, and edit Python notebooks</p>
+<p>colab.research.google.com</p>
+<p>다중 회귀 (Multiple Regression) 두 개 이상의 독립 변수를 사용하여 종속 변수를 예측하는 회귀 분석 기법.</p>
+<p>이 방법은 데이터에서 복잡한 관계를 모델링할 수 있는 유연성을 제공한다.</p>
+<p>그러나 다중 회귀는 다중 공선성(multi-collinearity) 문제가 발생할 수 있어, 독립 변수 간의 상관관계가 높으면 모델의 해석이 어려워질 수 있다.</p>
+<p>즉, 과대적합의 위험이 있으며, 모델이 너무 복잡해질 수 있다.</p>
+<p>또한, 독립 변수가 3개 이상이 되면, 시각적으로 표현하기 어려워진다.</p>
+<p>예를 들어, 4차원 이상의 데이터를 시각화하는 것은 사람의 직관으로는 불가능하다.</p>
+<p>특성 공학 (Feature Engineering) 데이터 전처리 과정에서 기존 데이터를 변형하거나 새로운 특성을 생성하여 모델의 성능을 향상시키는 기법.</p>
+<p>이는 머신러닝 모델이 데이터를 더 잘 이해하도록 돕는 중요한 과정이다.</p>
+<p>농어의 특성이 3개로 늘어나 데이터가 커졌기 때문에, 이를 복사해서 붙여넣는 것은 번거롭다.</p>
+<p>이 경우, 판다스를 사용하여 인터넷에서 농어 데이터를 내려받으면 된다.</p>
+<p>import pandas as pd df = pd.read_csv(‘https://bit.ly/perch_csv_data’) perch_full = df.to_numpy() perch_full</p>
+<p>이하 생략</p>
+</section>
+<section id="이전과-동일한-데이터" class="level1">
+<h1>이전과 동일한 데이터</h1>
+<p>import numpy as np perch_weight = np.array( [5.9, 32.0, 40.0, 51.5, 70.0, 100.0, 78.0, 80.0, 85.0, 85.0, 110.0, 115.0, 125.0, 130.0, 120.0, 120.0, 130.0, 135.0, 110.0, 130.0, 150.0, 145.0, 150.0, 170.0, 225.0, 145.0, 188.0, 180.0, 197.0, 218.0, 300.0, 260.0, 265.0, 250.0, 250.0, 300.0, 320.0, 514.0, 556.0, 840.0, 685.0, 700.0, 700.0, 690.0, 900.0, 650.0, 820.0, 850.0, 900.0, 1015.0, 820.0, 1100.0, 1000.0, 1100.0, 1000.0, 1000.0] )</p>
+</section>
+<section id="훈련-세트와-테스트-세트-나누기" class="level1">
+<h1>훈련 세트와 테스트 세트 나누기</h1>
+<p>from sklearn.model_selection import train_test_split train_input, test_input, train_target, test_target = train_test_split( perch_full, perch_weight, random_state = 42)</p>
+<p>사이킷런의 PolynomialFeatures 클래스를 사용하여 입력 데이터를 다항식 특성으로 변환하는 과정이다.</p>
+<p>PolynomialFeatures 클래스 위와 같은, 데이터 변환 클래스를 변환기(transformer)라고 한다. 이러한 변환 과정은 타겟 데이터의 유무와 관계없이 진행되며</p>
+<p>이를 통해, 모델에 더 적합한 형태로 만들거나, 성능을 향상시킨다.</p>
+<p>from sklearn.preprocessing import PolynomialFeatures poly = PolynomialFeatures() poly.fit([[2, 3]]) poly.transform([[2, 3]])</p>
+<p>2개의 특성: [2, 3] ⇨ 6(=4+2)개의 특성: [1, 2, 3, 4, 6, 9]</p>
+<p>위 모델에 대한 선형 방정식 더보기 더보기</p>
+<p>추가된 4가지 특성: 길이, 높이, 두께, 1</p>
+<p>절편(1)을 위한 항 제거</p>
+<p>poly = PolynomialFeatures(include_bias = False) poly.fit([[2, 3]]) poly.transform([[2, 3]])</p>
+<p>절편(1)이 제거된 것을 확인</p>
+<p>배열의 크기 확인</p>
+<p>poly.fit(train_input) train_poly = poly.transform(train_input) train_poly.shape</p>
+<p>데이터의 샘플 수 42개(훈련 샘플의 개수) / 각 샘플이 9개의 다항식 특성으로 확장</p>
+<p>9개의 특성이 어떤 과정으로 만들어졌는지 확인</p>
+<p>poly.get_feature_names_out()</p>
+<p>변환된 특성을 이용하여 다중 회귀 모델 훈련</p>
+<p>test_poly = poly.transform(test_input) # 데이터 세트 변환 from sklearn.linear_model import LinearRegression</p>
+<p>lr = LinearRegression() lr.fit(train_poly, train_target) lr.score(train_poly, train_target)</p>
+<p>모델이 훈련 데이터의 변동성을 약 99.03% 설명함을 의미</p>
+<p>테스트 세트의 점수 확인</p>
+<p>lr.score(test_poly, test_target)</p>
+<p>이전과 비교해 점수 상승은 없으나, 농어의 길이만 사용했을 때의 과소적합 문제는 해결되었다</p>
+<p>5제곱까지 특성을 만들어 다시 출력</p>
+<p>poly = PolynomialFeatures(degree = 5, include_bias = False) poly.fit(train_input) train_poly = poly.transform(train_input) test_poly = poly.transform(test_input) train_poly.shape</p>
+<p>특성이 무려 55개나 증가함을 확인</p>
+<p>선형 회귀 모델 다시 훈련</p>
+<p>lr.fit(train_poly, train_target) lr.score(train_poly, train_target)</p>
+<p>거의 완벽한 점수임을 확인</p>
+<p>테스트 세트의 점수 재확인</p>
+<p>lr.score(test_poly, test_target)</p>
+<p>매우 큰 음수값이 나온 것을 확인</p>
+<p>더 많은 특성을 통해 데이터의 복잡한 패턴과 비선형 관계를 더 잘 모델링할 수 있다는 장점이 있지만</p>
+<p>특성이 너무 많아지면, 모델이 훈련 데이터에 과적합될 위험이 커지며 이는 새로운 데이터에 대한 일반화 성능을 떨어뜨릴 수 있다.</p>
+<p>규제 (Regularization) 머신러닝 모델의 과적합(overfitting)을 방지하기 위해 사용되는 기술. 모델의 복잡성을 줄여 일반화 성능을 향상시키는 데 도움을 준다.</p>
+<p>이를 통해 모델이 훈련 데이터에 지나치게 맞춰지는 것을 방지하고, 새로운 데이터에 대한 예측 성능을 높일 수 있다.</p>
+<p>일반적으로 선형 회귀 모델에 규제를 적용할 때는, 계수 값의 크기가 서로 크게 다르지 않아야 한다.</p>
+<p>그러므로, 규제를 진행하기 전 정규화를 해야만 한다.</p>
+<p>훈련 데이터에 대해 평균과 표준편차를 계산</p>
+<p>from sklearn.preprocessing import StandardScaler ss = StandardScaler() ss.fit(train_poly)</p>
+</section>
+<section id="훈련-데이터를-표준화-평균-0-표준편차-1" class="level1">
+<h1>훈련 데이터를 표준화 (평균 0, 표준편차 1)</h1>
+<p>train_scaled = ss.transform(train_poly)</p>
+</section>
+<section id="테스트-데이터를-훈련-데이터의-통계에-맞춰-표준화" class="level1">
+<h1>테스트 데이터를 훈련 데이터의 통계에 맞춰 표준화</h1>
+<p>test_scaled = ss.transform(test_poly)</p>
+<p>릿지 회귀 &amp; 라쏘 회귀 둘 다 선형 회귀 모델에 규제를 적용하여 과적합을 방지하는 기법.</p>
+<p>릿지 회귀 (Ridge Regression)</p>
+<p>L2 정규화를 적용, 이는 모든 계수의 제곱합에 비례하는 패널티 추가</p>
+<p>모든 특성을 유지하지만, 계수의 크기를 작게 만들어 모델의 복잡성을 줄인다. 특성 간의 상관관계가 높은 경우, 규제를 통해 더 안정적인 모델을 만든다.</p>
+<p>주로 다중 공선성이 있는 데이터에서 효과적</p>
+<p>라쏘 회귀 (Lasso Regression) L1 정규화를 적용, 이는 모든 계수의 절댓값 합에 비례하는 패널티 추가</p>
+<p>일부 계수를 0으로 만들어 불필요한 특성을 선택적으로 제거하며, 이로 인한 모델의 해석성 향상</p>
+<p>자동으로 특성 선택을 수행하므로, 더 간결한 모델을 생성 가능 특히 고차원 데이터에서 유용하게 사용</p>
+<p>릿지 회귀 모델 훈련</p>
+<p>from sklearn.linear_model import Ridge</p>
+<p>ridge = Ridge() ridge.fit(train_scaled, train_target) print(ridge.score(train_scaled, train_target))</p>
+<p>이전 모델에 비해 점수가 낮아짐을 확인</p>
+<p>테스트 세트에 대한 점수 확인</p>
+<p>ridge.score(test_scaled, test_target)</p>
+<p>이전 음수값의 점수가 정상으로 돌아왔음을 확인</p>
+<p>위 모델들의 규제의 양은 하이퍼파라미터(alpha)를 통해 임의로 조절할 수 있다.</p>
+<p>alpha를 사용하여 L1 및 L2 정규화의 강도를 조절하며, 이 값이 클수록 규제의 강도가 강해지는 비례 관계가 나타난다.</p>
+<p>반대로 계수의 값은 작아지는 반비례 관계를 가지며, 결과적으로 과소적합이 발생할 수 있다.</p>
+<p>적절한 alpha값을 찾기 위해, R² 값을 그리기</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>train_score = [] test_score = []</p>
+</section>
+<section id="배씩-늘려가며-훈련하기0.01-100" class="level1">
+<h1>10배씩 늘려가며 훈련하기(0.01 ~ 100)</h1>
+<p>alpha_list = [0.001, 0.01, 0.1, 1, 10, 100] for alpha in alpha_list: ridge = Ridge(alpha = alpha) ridge.fit(train_scaled, train_target) train_score.append(ridge.score(train_scaled, train_target)) test_score.append(ridge.score(test_scaled, test_target))</p>
+</section>
+<section id="동일한-간격으로-나타내기-위해-로그-함수로-바꾸어-지수로-표현" class="level1">
+<h1>동일한 간격으로 나타내기 위해 로그 함수로 바꾸어 지수로 표현</h1>
+<p>plt.plot(np.log10(alpha_list), train_score) plt.plot(np.log10(alpha_list), test_score) plt.xlabel(‘alpha’) plt.ylabel(‘R^2’) 더보기 더보기</p>
+<p>적절한 alpha값으로 최종 모델 훈련</p>
+<p>ridge = Ridge(alpha = 0.1) ridge.fit(train_scaled, train_target)</p>
+<p>print(ridge.score(train_scaled, train_target)) print(ridge.score(test_scaled, test_target))</p>
+<p>이 모델은 두 데이터 세트의 점수가 모두 높고, 과대적합과 과소적합 사이의 균형을 맞추고 있다</p>
+<p>라쏘 모델 훈련</p>
+<p>from sklearn.linear_model import Lasso # 클래스 라쏘로 바꾸기 ↴ lasso = Lasso() # Ridge ⇨ Lasso lasso.fit(train_scaled, train_target) print(lasso.score(train_scaled, train_target)) print(lasso.score(test_scaled, test_target))</p>
+<p>라쏘 모델 또한 과대적합과 과소적합을 잘 억제하였다</p>
+<p>적절한 alpha값을 찾기 위해, R² 값을 그리기</p>
+<p>train_score = [] test_score = []</p>
+<p>alpha_list = [0.001, 0.01, 0.1, 1, 10, 100] for alpha in alpha_list: lasso = Lasso(alpha = alpha, max_iter = 10000) lasso.fit(train_scaled, train_target) train_score.append(lasso.score(train_scaled, train_target)) test_score.append(lasso.score(test_scaled, test_target))</p>
+<p>plt.plot(np.log10(alpha_list), train_score) plt.plot(np.log10(alpha_list), test_score) plt.xlabel(‘alpha’) plt.ylabel(‘R^2’) 더보기 더보기</p>
+<p>적절한 alpha값으로 최종 모델 훈련</p>
+<p>lasso = Lasso(alpha = 10) lasso.fit(train_scaled, train_target)</p>
+<p>print(lasso.score(train_scaled, train_target)) print(lasso.score(test_scaled, test_target))</p>
+<p>이 모델은 두 데이터 세트의 점수가 모두 높고, 과대적합을 잘 억제하였다.</p>
+<p>영향력이 적은 특성의 계수값을 0으로 만든다</p>
+<p>np.sum(lasso.coef_ == 0)</p>
+<p>라쏘 회귀가 40개의 특성의 계수를 0으로 만들고, 해당 특성들을 모델에서 제거</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/shinjihan\.github\.io\/studylog");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

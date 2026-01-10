@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-10-22">
 
-<title>Cyber-Security – StudyLog</title>
+<title>로지스틱 분류 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -131,17 +101,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cybersec.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +122,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,414 +142,90 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Cyber-Security</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(14)</span></div><div class="category" data-category="MQ==">1 <span class="quarto-category-count">(13)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
-
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1767977689538">
-<div class="thumbnail"><a href="./cs/cs_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/cs_01.html" class="no-external"></a>
-</h3>
-<div class="delink listing-description"><a href="./cs/cs_01.html" class="no-external">
-
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/cs_01.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="MQ==" data-listing-date-sort="1765378800000" data-listing-file-modified-sort="1767975899645" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="288">
-<div class="thumbnail"><a href="./cs/bn/bn_13.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_13.html" class="no-external">제목</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_13.html" class="no-external">
-네트워크 보안의 핵심은 세 가지 요소로 정의된다: <strong>기밀성(Confidentiality), 무결성(Integrity), 가용성(Availability)</strong>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_13.html" class="no-external">
-<div class="listing-date">
-Dec 11, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="MQ==" data-listing-date-sort="1764774000000" data-listing-file-modified-sort="1767975900874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="336">
-<div class="thumbnail"><a href="./cs/bn/bn_12.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_12.html" class="no-external">제목</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_12.html" class="no-external">
-OSI 모델의 표현 계층(Presentation Layer)은 데이터의 변환, 암호화, 압축 등 상위 애플리케이션 간 데이터 호환성을 보장하는 역할을 수행한다. 이를 통해 하드웨어 및 운영체제 독립성을 유지하고, 다양한 표현 방식을 표준화할 수 있다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_12.html" class="no-external">
-<div class="listing-date">
-Dec 4, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="MQ==" data-listing-date-sort="1764169200000" data-listing-file-modified-sort="1767975839132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="325">
-<div class="thumbnail"><a href="./cs/bn/bn_11.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_11.html" class="no-external">전송계층</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_11.html" class="no-external">
-전송계층은 신뢰성 있는 데이터 전송과 효율적인 네트워크 통신을 담당하는 계층으로, 다음 네 가지 핵심 역할을 수행한다:
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_11.html" class="no-external">
-<div class="listing-date">
-Nov 27, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="MQ==" data-listing-date-sort="1763564400000" data-listing-file-modified-sort="1767975813456" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="381">
-<div class="thumbnail"><a href="./cs/bn/bn_10.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_10.html" class="no-external">서브넷 마스크</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_10.html" class="no-external">
-IP 주소에서 네트워크와 호스트 영역을 명확히 <strong>구분</strong>하기 위한 핵심적인 <strong>비트 마스크</strong>이다. 이를 통해 네트워크 식별, 호스트 구분, 라우팅 효율화가 가능하며, <strong>IPv4 주소 체계에서 필수적인 구성 요소로 작동한다.</strong>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_10.html" class="no-external">
-<div class="listing-date">
-Nov 20, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="MQ==" data-listing-date-sort="1762959600000" data-listing-file-modified-sort="1767975775998" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="697">
-<div class="thumbnail"><a href="./cs/bn/bn_09.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_09.html" class="no-external">IP 프로토콜 및 QoS</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_09.html" class="no-external">
-<code>IP, Internet Protocol</code> 네트워크 계층에서 <strong>논리적 주소 지정</strong>과 <strong>패킷 전달</strong>을 담당하는 핵심 프로토콜이다. IP는 비연결성(connectionless)과 비신뢰성(unreliable)을 특징으로 하며, <strong>최선형 전달(best-effort delivery)</strong>을 제공한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_09.html" class="no-external">
-<div class="listing-date">
-Nov 13, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="MQ==" data-listing-date-sort="1762354800000" data-listing-file-modified-sort="1767975738703" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1314">
-<div class="thumbnail"><a href="./cs/bn/bn_08.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_08.html" class="no-external">라우팅(Routing)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_08.html" class="no-external">
-네트워크 계층(Network Layer)의 핵심 기능으로, 데이터 패킷이 출발지에서 목적지까지 도달하기 위한 <strong>최적의 경로를 결정</strong>하는 과정을 의미한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_08.html" class="no-external">
-<div class="listing-date">
-Nov 6, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="MQ==" data-listing-date-sort="1761145200000" data-listing-file-modified-sort="1767975629591" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="191">
-<div class="thumbnail"><a href="./cs/bn/bn_07.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_07.html" class="no-external">네트워크계층의이해</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_07.html" class="no-external">
-네트워크 계층의 핵심 기능 주소지정, 라우팅, 패킷 전달, 단편화와 재조립
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_07.html" class="no-external">
-<div class="listing-date">
-Oct 23, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="MQ==" data-listing-date-sort="1760540400000" data-listing-file-modified-sort="1767975577672" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="299">
-<div class="thumbnail"><a href="./cs/bn/bn_06.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_06.html" class="no-external">무선통신시스템의이해</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_06.html" class="no-external">
-IEEE 802.11 기술 유선 LAN 형태 이너넷 단점보완을 위해 기기가 AP와 연동해서 AC 또는 라우터를 통해서 인터넷 망을 주고 받는다. 연결 교모별 BSS, AP 없음 ESS, 다중 AP 연결 유형별 Ad Hoc, Infrastructure, 기술 발전의 세부규격들의 기준은 대부분 속도이다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_06.html" class="no-external">
-<div class="listing-date">
-Oct 16, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="MQ==" data-listing-date-sort="1759330800000" data-listing-file-modified-sort="1767975570522" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="171">
-<div class="thumbnail"><a href="./cs/bn/bn_05.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_05.html" class="no-external">데이터링크계층의핵심구조</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_05.html" class="no-external">
-LAN의 특징, (범위, 속도, 낮은 지연, 구조) IEEE 802가 LAN의 표준
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_05.html" class="no-external">
-<div class="listing-date">
-Oct 2, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="MQ==" data-listing-date-sort="1758726000000" data-listing-file-modified-sort="1767962422640" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="401">
-<div class="thumbnail"><a href="./cs/bn/bn_04.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_04.html" class="no-external">데이터 링크</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_04.html" class="no-external">
-데이터 링크가 왜 필요한가? 1. 물리계층의 한계 신호의 시작과 끝, 신호의 왜곡, 유실
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_04.html" class="no-external">
-<div class="listing-date">
-Sep 25, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="MQ==" data-listing-date-sort="1758121200000" data-listing-file-modified-sort="1767954501455" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="378">
-<div class="thumbnail"><a href="./cs/bn/bn_03.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_03.html" class="no-external">유선 통신망</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_03.html" class="no-external">
-01 유선망 예: 이더넷·전용회선
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_03.html" class="no-external">
-<div class="listing-date">
-Sep 18, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="MQ==" data-listing-date-sort="1757516400000" data-listing-file-modified-sort="1767953671341" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221">
-<div class="thumbnail"><a href="./cs/bn/bn_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_02.html" class="no-external">무선 통신망</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_02.html" class="no-external">
-물리계층 1. 물리적 연결 보장, 2. 데이터 전송 담당
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_02.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="MQ==" data-listing-date-sort="1756911600000" data-listing-file-modified-sort="1767976647519" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1318">
-<div class="thumbnail"><a href="./cs/bn/bn_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./cs/bn/bn_01.html" class="no-external">네트워크 개론</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MQ=='); return false;">1</div>
-
-</div>
-<div class="delink listing-description"><a href="./cs/bn/bn_01.html" class="no-external">
-네트워크 개론에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./cs/bn/bn_01.html" class="no-external">
-<div class="listing-date">
-Sep 4, 2025
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">로지스틱 분류</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 22, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>[주제] 에 대해 다루고자 한다.</p>
+<p>01 최적화 알고리즘</p>
+<p>Alec Radford’s animations for optimization algorithms</p>
+<p>Alec Radford has created some great animations comparing optimization algorithms SGD , Momentum , NAG , Adagrad , Adadelta , RMSprop (unfo…</p>
+<p>www.denizyuret.com 기본 SGD 외에 다음과 같은 변형을 자주 사용한다.</p>
+<p>SGD (확률적 경사하강) — 큰 데이터셋에 효율적 Momentum — 관성 도입으로 수렴 가속 및 진동 완화 AdaGrad — 좌표별 학습률 적응 Adam — 1차·2차 모멘트를 사용한 적응형 방법 (실무에서 널리 사용; 성능·안정성 우수)</p>
+<ol type="1">
+<li>모델 검증과 일반화 7.1 K-Fold 교차검증 모델 성능 평가를 위해 데이터를 K개의 폴드(fold)로 나누고, 순차적으로 하나의 폴드를 검증셋으로, 나머지를 학습셋으로 사용한다.</li>
+</ol>
+<p>데이터를 K등분 (예: 5-fold → 5등분) 각 iteration마다 서로 다른 폴드를 검증셋으로 지정 K번 반복 후 평균 성능 산출 특수 사례: LOOCV(Leave-One-Out CV)</p>
+<p>데이터 포인트 하나를 검증셋으로, 나머지를 학습셋으로 사용 데이터가 적을 때 모델 평가를 정밀하게 할 수 있음 7.2 학습률(Learning Rate)과 데이터 전처리 학습률은 경사하강법의 파라미터 갱신 속도를 조절하며, 과도하면 발산, 너무 작으면 수렴 속도가 느려진다. 데이터 전처리는 모델 안정성과 성능 향상에 중요하며, 일반적으로 정규화(normalization), 스케일링(scaling), 결측치 처리 등을 포함한다. 7.3 오버피팅 방지 모델이 학습 데이터에만 과적합되는 것을 방지하기 위해 다양한 전략을 사용한다.</p>
+<p>데이터 증강(Data Augmentation): 학습 데이터 변형을 통해 다양성을 확보 특징 수 축소(Feature Selection/Reduction): 불필요한 입력 제거 정규화(Regularization): L1/L2 정규화, 드롭아웃(Dropout) 등 이 과정을 통해 모델은 학습 데이터뿐 아니라 미지의 데이터에서도 일반화 성능을 발휘할 수 있다.</p>
+<p>03 퍼셉트론과 다층 신경망 Perceptron &amp;Multi-Layer Neural Network</p>
+<p>1 . 신경망의 구조와 활성화 함수 인공신경망(NN)은 생물학적 뉴런을 모사하여 입력 신호를 처리한다.</p>
+<p>입력 신호(x0,x1,…x_0, x_1, ​,x1​,…): 다른 뉴런(axon)으로부터 전달되는 신호 가중치(w0,w1,…w_0, w_1, ​,w1​,…): 각 신호의 중요도를 나타내며, 시냅스(synapse)와 유사 가중합(dendrite): 각 입력에 가중치를 곱한 후 합산 <span class="math display">\[z = \sum_i w_i x_i + b\]</span></p>
+<p>활성화 함수(Activation Function, f): 뉴런의 세포체(cell body)가 총합 입력을 해석하여 출력 신호 생성 <span class="math display">\[y = f(z) = f\Big(\sum_i w_i x_i + b\Big)\]</span></p>
+<p>출력 y는 다음 뉴런(axon)으로 전달되며, 이 신호가 0인지 1인지 또는 확률값인지 결정한다. 이 구조를 MLP이라고 하며, 다층 구성으로 비선형 문제를 해결할 수 있다.</p>
+<p>2 . 역사적 배경 Frank Rosenblatt (1957): 퍼셉트론(Perceptron) 제안 — 단층 신경망 기반의 이진 분류기 Widrow &amp; Hoff (1960): ADALINE(Adaptive Linear Neuron) / MADALINE — 가중치 적응 학습 규칙 제안 Widrow-Hoff Rule (Delta Rule) 가중치 학습 과정은 다음과 같다.</p>
+<p>가중치 초기화Wi(0)을 임의값으로 설정W_i(0) Wi​(0)을 임의값으로 설정 입력 패턴과 목표 출력 제시 출력 계산 (Hard Limiter) <span class="math display">\[y(t) = f_h\Big(\sum_{i=0}^{n-1} w_i(t) X_i(t) - \epsilon\Big)\]</span></p>
+<p>: 임계치 f_h​: 하드리미터 함수 가중치 갱신 <span class="math display">\[W_i(t+1) = W_i(t) + \alpha \,[\,d(t) - y(t)\,] X_i(t), \quad 0 \le i \le n-1\]</span></p>
+<p>: 학습률, 0 &lt; &lt; 1 d(t): 목표 출력값 실제 출력과 목표 출력이 일치하면 가중치는 변하지 않음 반복 수행 출력이 목표에 도달할 때까지 2~4단계 반복</p>
+<p>3 . 퍼셉트론을 통한 논리 연산 퍼셉트론은 기본적인 논리 게이트 연산을 구현할 수 있다.</p>
+<p>AND, OR 연산: 입력값의 가중합이 임계치(θ)를 초과하면 출력 1, 아니면 0 XOR 연산: 단층 퍼셉트론으로는 직선 결정경계로 구분 불가능 — 다층 퍼셉트론 필요 입력 X_0, X_1 ​AND OR XOR 0, 0 0 0 0 0, 1 0 1 1 1, 0 0 1 1 1, 1 1 1 0 AND: 위쪽 위치, 직선 결정 가능 OR: 아래쪽 위치, 직선 결정 가능 XOR: 직선 결정 불가, 곡선 또는 다층 구조 필요</p>
+<p>03 다층 퍼셉트론과 역전파 Backpropagation</p>
+<ol type="1">
+<li>초기 비관과 연구의 침체기 1969년, Marvin Minsky 교수와 Seymour Papert는 저서 Perceptrons에서 다음과 같이 지적했다.</li>
+</ol>
+<p>“멀티 레이어 퍼셉트론(Multi-Layer Perceptron)으로 구성하면 문제를 해결할 수는 있지만, 실제로 구현하는 사람은 아무도 없을 것이다.”</p>
+<p>이로 인해 퍼셉트론 연구는 <strong>첫 번째 머신러닝 침체기(Artificial Intelligence Winter)</strong>를 맞이하게 되었다.</p>
+<p>단층 퍼셉트론으로 XOR와 같은 비선형 문제를 해결할 수 없다는 한계 다층 구조의 학습 방법 부재 2. 역전파(Backpropagation)의 등장 1974년과 1982년, Paul Werbos는 다층 신경망의 학습 문제를 해결할 방법을 제안했으며, 1986년, Geoffrey Hinton 등이 이를 체계화하였다.</p>
+<p>핵심 아이디어: 순방향(forward)으로 출력과 실제값의 차이(오차)를 계산 출력층에서 입력층 방향으로 오차를 역전파(backpropagation) 하여 각 가중치를 조정 이로써 단층 퍼셉트론으로 해결할 수 없었던 XOR 등 비선형 문제도 학습 가능하게 되었다.</p>
+<ol start="3" type="1">
+<li>수학적 원리 다층 퍼셉트론에서 각 뉴런의 출력은 다음과 같이 정의된다.</li>
+</ol>
+<p>f=wx+bf = w x + bf=wx+b</p>
+<p>또는 단계적으로,</p>
+<p>g=wx,f=g+bg = w x, f = g + bg=wx,f=g+b</p>
+<p><strong>체인룰(Chain Rule)</strong>과 편미분을 이용하여, 출력 오차를 각 층의 가중치에 대해 분배한다. 미분의 기본 정의: ddxf(x)=lim⁡Δx→0f(x+Δx)−f(x)Δx f(x) = _{x } dxd​f(x)=Δx→0lim​Δxf(x+Δx)−f(x)​</p>
+<p>예제: 2차원 입력 x1,x2x_1, x_2x1​,x2​와 가중치 w=[5,−7,−11]w = [5, -7, -11]w=[5,−7,−11]일 경우 출력 [y1,y2]=[1,0,0][y_1, y_2] = [1,0,0][y1​,y2​]=[1,0,0]을 얻을 수 있으며, 각 가중치에 대한 기울기를 계산해 오차를 감소시키는 방향으로 업데이트한다. 4. 의미와 의의 역전파 알고리즘은 신경망 학습의 근간이 되었으며, 다층 퍼셉트론 구조는 XOR와 같은 비선형 문제 해결 가능 현재의 딥러닝 모델(Convolutional Neural Network, Transformer 등)도 이 원리를 확장한 것 즉, 단층 퍼셉트론에서 시작한 연구가 다층 구조와 역전파를 통해 현대 신경망의 기초로 발전하게 된 역사적 과정이다.</p>
+<p>①②③④⑤⑥⑦⑧⑨ ⋅ ⌎</p>
+<p>₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ⁱ ⁿ / ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ₋ / α β δ θ ε π μ σ Ω φ ω</p>
+<p>− ± × ∑ ∴ ≥ ≤ ≒ ≓ ⋯ ⋮ / ⇨ ←→↑↓↔︎↕ / ℉ ℃</p>
+<p>[출처]</p>
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

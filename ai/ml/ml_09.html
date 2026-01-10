@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-09-24">
+
+<title>경사하강법 (Gradient Descent) – StudyLog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">StudyLog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SHINJIHAN"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://sinjihan71.tistory.com/"> 
+<span class="menu-text"><img src="Tstory.png" style="width:15px;height:17px;"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">경사하강법 (Gradient Descent)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 24, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Reporting Date: October. 01, 2025 선형대수를 통한 기계학습의 수학적 기초와 최적화 원리에 대해 다루고자 한다.</p>
+<p>목차 01 지도학습의 기본원리 02 손실 함수와 최적화의 원리 03 경사하강법 04 손실 함수 최적화</p>
+<p>SCRIPT https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js 01 지도학습의 기본 원리 지도학습(SL)은 인공지능 학습 방법 중 가장 기초적이면서도 널리 사용되는 형태이다.</p>
+<p>지도학습에서는 입력값(input)과 그에 대응하는 정답값(output)이 모두 주어진 데이터를 바탕으로, 모델이 입력과 출력 간의 규칙을 학습한다.</p>
+<p>1 . 데이터셋의 구성과 의미 지도학습에 사용되는 데이터셋(dataset)은 이미 발생한 사건이나 관측 결과를 정리한 형태로, 각 데이터 샘플은 입력 변수(독립변수)와 이에 대응하는 결과 변수(종속변수)를 포함한다.</p>
+<p>즉, 데이터셋은 “입력과 출력이 모두 알려진 과거의 기록” 으로 AI 모델은 이러한 데이터로부터 입력과 출력 사이의 관계를 학습한다.</p>
+<p>학습 데이터에서 도출된 관계를 일반화하여 새로운 데이터에서도 올바른 예측을 수행할 수 있는 알고리즘을 찾는 것이 핵심 목표이다.</p>
+<p>모델은 학습 과정에서 단순한 암기가 아니라, 데이터에 내재된 규칙과 패턴을 포착해 새로운 상황에도 적용 가능한 일반적 모델을 만든다.</p>
+<p>이를 통해 미지의 입력값에 대해서도 합리적인 예측을 수행할 수 있다.</p>
+<p>2 . 데이터의 품질과 양의 중요성 정확하고 신뢰할 수 있는 모델을 얻기 위해서는 데이터셋의 양적 충족도와 질적 우수성이 필수적이다.</p>
+<p>양적 요인</p>
+<p>데이터 샘플의 수가 많을수록 다양한 패턴을 학습할 수 있으며, 모델이 학습 데이터에만 과도하게 적합되는 과적합 문제를 줄이는 데 도움이 된다.</p>
+<p>질적 요인</p>
+<p>데이터에 포함된 노이즈(noise)가 적고, 대표성 있는 다양한 사례를 포함할수록 실제 현상을 정확하게 반영할 수 있다.</p>
+<p>또한, 데이터 편향(bias)을 최소화하는 것이 중요하며, 이를 통해 모델이 특정 유형의 데이터에만 편향되지 않고 일반화 능력을 유지할 수 있다.</p>
+<p>결과적으로 지도학습에서 얻어지는 모델의 정확성과 신뢰성은 데이터의 양과 질, 다양성에 의해 결정된다.</p>
+<p>따라서 학습 데이터셋의 설계와 전처리 과정은 모델 성능을 좌우하는 핵심 요소라 할 수 있다.</p>
+<p>3 . 회귀 regression</p>
+<p>지도학습의 기본 구조를 가장 단순히 보여주는 예이다.</p>
+<p>회귀 문제에서는 입력값 ( x ) 와 출력값 ( y ) 가 주어질 때, 두 변수 간의 관계를 나타내는 함수적 표현을 학습한다.</p>
+<p>이를 위해 모델은 먼저 임의의 가중치(weight) ( w ) 와 절편(bias) ( b ) 를 설정하고, 가설 함수(hypothesis function)를 다음과 같이 정의한다.</p>
+<p><span class="math display">\[\hat{y} = wx + b\]</span></p>
+<p>이 함수는 주어진 데이터를 가장 잘 설명하는, 즉 오차가 최소화되는 최적의 직선(best-fit line)을 찾는 것을 목표로 한다.</p>
+<p>4 . 손실 함수와 학습의 핵심 원리 모델이 예측한 값 ()​와 실제 값 (y)의 차이를 오차(error)라고 하며, 모든 데이터의 오차를 합산 또는 평균하여 얻은 값을 손실(loss) 또는 비용 함수(cost function)라고 한다.</p>
+<p>손실 함수는 모델이 얼마나 부정확한지를 수치적으로 평가하는 척도이며, 이 값을 최소화하는 것이 곧 학습의 핵심 목표이다.</p>
+<p>가장 일반적인 예로, 평균제곱오차(MSE)는 다음과 같이 표현된다.</p>
+<p><span class="math display">\[L = \frac{1}{n} \sum_{i=1}^{n}(y_i - \hat{y}_i)^2\]</span></p>
+<p>모델은 학습 과정에서 이 손실 함수를 최소화하도록 가중치 ( w ) 와 절편 ( b ) 를 반복적으로 조정한다. 이 과정은 경사하강법과 같은 최적화 알고리즘을 통해 이루어진다.</p>
+<p>02 손실 함수와 최적화의 원리 모델 학습의 본질은 손실(loss)을 최소화하는 방향으로 파라미터(parameter)를 조정하는 과정이다.</p>
+<p>손실 함수는 모델의 예측값과 실제값 간의 차이를 수치적으로 평가하는 지표로, 학습의 목표는 이 차이를 가능한 한 작게 만드는 것이다.</p>
+<p>1 . 손실 함수 Loss Function</p>
+<p>모델의 예측 결과가 실제 데이터와 얼마나 다른지를 측정한다. 이 함수를 계산하는 방식에는 여러 가지가 있으며, 문제의 특성에 따라 적절한 형태가 선택된다.</p>
+<p>① L1 손실 (Mean Absolute Error, MAE)</p>
+<p>각 오차의 절댓값을 더한 뒤 평균한 손실이다.</p>
+<p><span class="math display">\[L_{1} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|\]</span></p>
+<p>특징: 이상치(outlier)에 덜 민감하며, 오차 분포가 고르게 반영된다. ② L2 손실 (Mean Squared Error, MSE)</p>
+<p>오차를 제곱한 뒤 평균하는 방식이다.</p>
+<p><span class="math display">\[L_{2} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\]</span></p>
+<p>특징: 제곱 연산으로 인해 큰 오차(이상치)에 더 큰 패널티를 부여한다. 응용: 회귀 문제에서 가장 널리 사용되는 손실 함수다.</p>
+<p>L2 손실의 특성과 이상치 민감성 L2 손실은 예측값과 실제값의 오차를 제곱하여 평균한 값으로 계산된다.</p>
+<p><span class="math display">\[L2 = \frac{1}{n} \sum (y_i - \hat{y_i})^2\]</span></p>
+<p>이 제곱 연산으로 인해 오차가 커질수록 손실값이 기하급수적으로 증가한다.</p>
+<p>따라서 데이터에 이상치가 존재할 경우, 그 점의 오차가 전체 손실값에 매우 큰 영향을 미친다.</p>
+<p>이로 인해 L2 손실을 사용하는 모델은 이상치에 민감하게 반응하며, 모델이 이상치 방향으로 왜곡될 가능성이 있다.</p>
+<p>반면 L1 손실은 오차의 절댓값을 사용하므로 오차가 커지더라도 선형적으로 증가한다. 따라서 L1 손실은 이상치의 영향을 상대적으로 덜 받으며 강건(robust) 하다고 평가된다.</p>
+<p>이러한 특성 때문에, L2 손실은 일반적인 데이터에서 더 매끄럽고 안정적인 최적화를 제공하지만, 이상치가 많은 데이터에는 부적합할 수 있다.</p>
+<p>반대로 L1 손실은 이상치가 많은 환경에서 더 신뢰할 수 있는 결과를 제공한다.</p>
+<p>[요약 비교] 구분 L1 손실 (MAE) L2 손실 (MSE) 계산 방식 오차의 절댓값 오차의 제곱 이상치 영향 작음 (강건함) 큼 (민감함) 손실 증가 특성 선형적 제곱적 (기하급수적) 주 용도 이상치가 많은 데이터 일반적인 데이터 대표적 활용 로버스트 회귀 선형회귀 MSE의 제곱근을 취하면 RMSE (Root Mean Squared Error)가 되며, 이는 실제 데이터의 단위와 동일한 척도를 제공하므로 결과 해석이 직관적이다.</p>
+<p><span class="math display">\[RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}\]</span>​</p>
+<p>2 . 손실 함수의 일반화 — Lₚ 노름 손실 함수는 일반적으로 Lₚ 노름(norm)의 형태로 확장할 수 있다. 이는 오차의 절댓값을 (p) 제곱하여 평균한 뒤, 다시 (p) 제곱근을 취하는 방식이다.</p>
+<p><span class="math display">\[L_p = \left( \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|^p \right)^{1/p}\]</span></p>
+<p>(p = 1) 일 때 L1 손실, (p = 2) 일 때 L2 손실로 귀결된다. (p) 값이 커질수록 큰 오차에 더 민감해진다.</p>
+<p>3 . 비선형 회귀와 손실 함수의 구분 다항 회귀(Polynomial Regression)는 손실 함수의 형태를 바꾸는 것이 아니다.</p>
+<p>입력 변수 (x) 에 대해 (x^2, x^3, ) 와 같은 고차항(feature)을 추가하여 모델의 가설 함수(hypothesis)를 비선형으로 확장함으로써 데이터의 비선형적 관계를 표현한다.</p>
+<p>즉, 손실 함수는 회귀 문제에서 그대로 사용되며(L1, L2 등), 모델이 복잡해짐에 따라 가설 함수가 비선형 구조를 가지게 되는 것이다.</p>
+<p>4 . 교차 엔트로피 손실 함수 Cross-Entropy Loss</p>
+<p>① 이진(Binary)</p>
+<p>이진 분류에서의 손실 함수는 다음과 같다.</p>
+<p><span class="math display">\[J(w,b)=-\frac{1}{m}\sum_{i=1}^{m}\big[\,y^{(i)}\log H(x^{(i)}) + (1-y^{(i)})\log(1-H(x^{(i)}))\,\big]\]</span></p>
+<p>실제값과 예측이 일치하면 손실이 0에 가깝고, 다르면 손실이 급격히 커진다.</p>
+<p>로그 형태이므로 확률이 극단적으로 틀릴수록 패널티가 커져 모델을 강하게 교정한다.</p>
+<p>② 범주형 또는 다중 클래스</p>
+<p>Categorical &amp; Multiclass</p>
+<p>회귀 문제에서 손실이 오차의 크기를 기반으로 계산되는 반면,</p>
+<p>분류(classification) 문제에서는 모델의 출력 확률 분포와 실제 정답 확률 분포 간의 차이를 평가한다.</p>
+<p>이때 주로 사용되는 것이 교차 엔트로피 손실이다.</p>
+<p><span class="math display">\[L = -\sum_{i=1}^{n} y_i \log(\hat{y}_i)\]</span></p>
+<p>의미: 모델의 예측 확률이 실제 정답에 가까울수록 손실 값이 작아진다. 특징: 다중 클래스 분류 문제에 특히 유용하다.</p>
+<p>5 . 최적화 Optimization</p>
+<p>손실 함수가 정의되면, 모델의 목표는 이 손실 함수를 최소화하는 파라미터(가중치 (w), 절편 (b))를 찾는 것이다.</p>
+<p>이처럼 손실을 최소로 만드는 방향으로 파라미터를 반복적으로 조정하는 과정을 최적화라 하며, 손실이 가장 작은 지점에서의 파라미터 조합을 최적해(optimal solution)라고 한다.</p>
+<p>손실 함수를 시각화하면, 가로축은 파라미터 w, 세로축은 손실값으로 나타나는 곡선 형태(일반적으로 2차 함수형태)로 표현된다.</p>
+<p>이때 모델이 손실을 줄이기 위해 이동해야 하는 방향을 수학적으로 계산하는 핵심 도구가 기울기(gradient)이다.</p>
+<p>기울기는 특정 지점에서의 손실 함수의 변화율로, 손실이 증가하거나 감소하는 방향성과 속도를 알려준다.</p>
+<p>따라서 최적화 과정은 기울기를 이용해 손실이 감소하는 방향으로 파라미터를 이동시키는 과정이라 할 수 있다.</p>
+<p>가장 널리 사용되는 최적화 방법은 경사하강법(Gradient Descent)이다.</p>
+<p>경사하강법은 손실 함수의 기울기를 계산한 뒤, 그 반대 방향(손실이 줄어드는 방향)으로 파라미터를 반복적으로 갱신한다.</p>
+<p>이를 수식으로 표현하면 다음과 같다.</p>
+<p><span class="math display">\[w := w - \eta \frac{\partial L}{\partial w}, \quad b := b - \eta \frac{\partial L}{\partial b}\]</span></p>
+<p>(:) 학습률(learning rate)로, 한 번의 갱신에서 얼마나 크게 이동할지를 결정한다. 학습률이 너무 크면 최적점을 지나쳐 발산할 수 있고, 너무 작으면 수렴 속도가 느려질 수 있다.</p>
+<p>따라서 적절한 학습률 설정은 최적화의 안정성과 효율성에 매우 중요하다.</p>
+<p>6 . 손실 최소화 &amp; 우도 최대화의 관계 손실 함수는 일반적으로 최소화(minimization)의 관점에서 정의되지만,</p>
+<p>확률적 접근에서는 반대로 우도(likelihood)를 최대화(maximization)하는 방식으로 동일한 목표를 달성할 수 있다.</p>
+<p>예: 최대우도추정(MLE): 주어진 데이터가 특정 파라미터 하에서 관측될 확률(우도)을 가장 크게 만드는 값을 찾는다.</p>
+<p><span class="math display">\[\max_{\theta} \mathcal{L}(\theta) \quad \Leftrightarrow \quad \min_{\theta} [-\log \mathcal{L}(\theta)]\]</span></p>
+<p>즉, 로그 함수의 단조 증가 성질에 따라 우도를 최대화하는 문제는 음의 로그 우도를 최소화하는 문제와 동일하다.</p>
+<p>따라서 실제 학습 과정에서는 (-())를 손실 함수로 정의하고 이를 최소화한다.</p>
+<p>지도학습과 대비되는 예시: 강화학습 지도학습과 달리 강화학습(RL)에서는 모델이 환경과 상호작용하며 얻는 보상(reward)을 최대화하는 방향으로 정책(policy)을 학습한다.</p>
+<p>즉, 손실 함수가 최소화의 대상이라면, 보상 함수는 그 반대 방향인 최대화의 대상이다.</p>
+<p>이처럼 AI의 학습 목표는 ’최소화’와 ’최대화’의 두 관점으로 표현될 수 있으며, 결국 이는 모두 가장 합리적(최적의) 매개변수 조합을 찾는 문제로 귀결된다.</p>
+<p>03 경사 하강법 Gradient Descent, GD</p>
+<p>기계학습에서 손실 함수를 최소화하여 모델의 파라미터 ((w, b))를 최적화하는 가장 기본적이면서 핵심적인 학습 알고리즘(Learning Algorithm)이다.</p>
+<p>1 . 기본 원리 모델 파라미터 (w)를 임의의 초기값으로 설정한다. 현재 파라미터에서 손실 함수 (L(w))를 미분하여 기울기를 계산한다. 손실이 감소하는 기울기의 반대 방향으로 (w)를 반복적으로 갱신(update)함으로써 최적점을 찾아간다.</p>
+<p>① 1차원(고등학교 수준) — 순간변화율(접선 기울기)</p>
+<p>함수 (f(x))에서 한 점 (x)의 순간변화율(도함수)는 다음과 같다.</p>
+<p><span class="math display">\[f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}\]</span></p>
+<p>이 값은 (x) 근처에서 함수의 선형 근사(접선)를 제공한다.</p>
+<p><span class="math display">\[f(x+h)\approx f(x)+f'(x)\cdot h\]</span></p>
+<p>즉, 접선은 ’그 점 근처에서 함수가 어떻게 움직이는지 선형적으로 근사한 직선’이다.</p>
+<p>② 다변수(머신러닝의 손실 함수) — 기울기(gradient)</p>
+<p>머신러닝에서는 (x) 하나가 아니라 여러 파라미터가 벡터 형태로 계산된다. 변수 벡터 (w^n)에 대한 손실 (L(w))의 기울기는 모든 편미분을 모은 모은 벡터로 정의된다.</p>
+<p><span class="math display">\[\nabla L(w) = \begin{bmatrix} \frac{\partial L}{\partial w_1}(w)\\[2mm] \frac{\partial L}{\partial w_2}(w)\\[1mm] \vdots\\ \frac{\partial L}{\partial w_n}(w) \end{bmatrix}.\]</span></p>
+<p>이 벡터은 각 좌표에서의 순간변화율을 모아 놓은 것이며, 함수가 가장 빠르게 증가하는 방향을 가리킨다.</p>
+<p>① 기울기와 이동 방향</p>
+<p>음수 기울기일 때 (L(w) &lt; 0) <span class="math display">\[w \leftarrow w - (-|\nabla L(w)|) = w + |\nabla L(w)|\]</span></p>
+<p>→ (w)의 값이 증가하여 기울기가 0이 되는 방향으로 이동한다.</p>
+<p>양수 기울기일 때 (L(w) &gt; 0) <span class="math display">\[w \leftarrow w - |\nabla L(w)| = w - |\nabla L(w)|\]</span></p>
+<p>→ (w)의 값이 감소하여 기울기가 0이 되는 방향으로 이동한다.</p>
+<p>즉, 기울기의 부호와 상관없이 항상 최소점으로 이동한다.</p>
+<p>② 학습률 ()의 역할</p>
+<p>학습률은 한 번 이동할 때의 크기를 조절한다.</p>
+<p><span class="math display">\[w \leftarrow w - \eta \nabla L(w)\]</span></p>
+<p>()가 작으면 한 걸음씩 천천히 이동 → 안정적 수렴 ()가 크면 한 번에 크게 이동 → 빠른 수렴 가능하지만, 최적점을 지나치거나 발산 위험 존재</p>
+<p>그래프 상에서 (w)를 점으로 보고, 접선 기울기가 0이 될 때까지 경사를 따라 한 걸음씩 내려가는 것으로 비유할 수 있다.</p>
+<p><span class="math display">\[w_t = w_{t-1} - \eta \nabla L(w_{t-1})\]</span></p>
+<p>(w_t:)​ t 번째 반복에서의 파라미터 (L(w_{t-1}):) 손실 함수의 기울기 (:) 학습률(learning rate), 한 번에 이동하는 크기 학습률은 알고리즘 성능에 중요한 영향을 미친다.</p>
+<p>너무 크면: 최적해를 지나치거나 발산할 수 있다. 너무 작으면: 수렴 속도가 느려 학습 시간이 길어진다.</p>
+<p>Mastering Gradient Descent: Optimizing Neural Networks with Precision(Omkar Hankare)</p>
+<p>2 . 하이퍼파라미터 hyperparameter</p>
+<p>학습률과 같이 학습 과정에서 사용자가 설정하는 조정 가능한 값들.</p>
+<p>하이퍼파라미터의 적절한 선택은 학습 효율과 모델 성능에 큰 영향을 준다. 이를 최적화하는 과정을 하이퍼파라미터 튜닝(tuning)이라고 한다.</p>
+<p>경사하강법의 효율과 안정성을 높이기 위해 다양한 전략이 사용된다.</p>
+<p>① 학습률 스케줄링(learning rate scheduling) : 학습이 진행됨에 따라 학습률을 점진적으로 조정하여 안정적 수렴 유도</p>
+<p>② 모멘텀(Momentum) : 이전 기울기의 일부를 반영하여 진동을 줄이고 수렴 속도를 향상</p>
+<p>③ 적응적 학습률(Adam, RMSProp 등) : 각 파라미터별로 학습률을 자동 조정</p>
+<p>④ 배치 크기(batch size) 및 반복 횟수(epochs) : 한 번에 처리하는 데이터 양과 학습 반복 횟수를 조절</p>
+<p>이러한 전략들을 적절히 활용하면, 다양한 데이터셋과 모델 구조에서도 손실 함수를 보다 효과적이고 안정적으로 최소화할 수 있다.</p>
+<p>Tensorflow — Neural Network Playground</p>
+<p>Tinker with a real neural network right here in your browser.</p>
+<p>playground.tensorflow.org</p>
+<p>3 . 볼록 함수 convex function</p>
+<p>아래로 볼록인 손실 함수에서 특히 안정적이고 효율적이다.</p>
+<p>아래로 볼록한 함수에서는 국소 최소값(local minimum)이 곧 전역 최소값(global minimum)이므로, 경사하강법이 수렴하면 최적해를 확보할 수 있다.</p>
+<p>반면, 비볼록(non-convex) 함수나 위로 볼록한 함수에서는 여러 국소 최소값, 안장점(saddle point)이 존재할 수 있어, 경사하강법이 항상 전역 최적해에 도달한다고 보장할 수 없다.</p>
+<p>따라서 최적화를 설계할 때는 가능한 아래로 볼록한 형태를 사용하는 것이 안정적이다.</p>
+<p>4 . 경사하강법의 직관적 이해 경사하강법은 손실 함수의 순간 변화율(기울기)을 이용하여 파라미터를 작은 단위로 조정하고, 손실이 낮은 방향으로 이동시킨다.</p>
+<p>비유하자면, 물이 자연스럽게 낮은 곳으로 흐르는 과정과 유사하다. 손실이 높은 지역에서 낮은 지역으로 점진적으로 이동하며, 손실 함수가 최소인 지점에 도달하는 원리다.</p>
+<p>04 손실 함수 최적화 Loss Function Optimization</p>
+<p>기계학습의 대부분의 모델은 대규모 데이터를 효율적으로 처리하기 위해 벡터(vector)와 행렬(matrix) 형태로 데이터를 표현한다.</p>
+<p>이러한 수학적 구조화는 계산 효율을 극대화하며, 모델 학습 과정을 선형대수적 관점에서 체계적으로 해석할 수 있게 한다.</p>
+<p>1 . 선형 모델의 행렬 표현 단일 입력값 (x)를 사용하는 경우, 가설 함수는 다음과 같이 정의된다.</p>
+<p><span class="math display">\[\hat{y} = w x + b\]</span></p>
+<p>(w)는 가중치(weight) (b)는 절편(bias) 그러나 실제 데이터는 다수의 관측치와 다차원 특성(feature)을 포함하므로, 입력 데이터를 행렬 형태로 확장한다.</p>
+<p><span class="math display">\[\mathbf{X} \in \mathbb{R}^{m \times n}\]</span></p>
+<p>(m:) 데이터 포인트의 개수 (샘플 수) (n:) 각 데이터의 특성(feature) 수 이에 대응하는 가중치 벡터는</p>
+<p><span class="math display">\[\mathbf{w} \in \mathbb{R}^{n \times 1}\]</span></p>
+<p>로 정의되며, 전체 예측값은 다음과 같이 행렬 연산으로 계산된다.</p>
+<p><span class="math display">\[\hat{\mathbf{y}} = \mathbf{X}\mathbf{w} + \mathbf{b}\]</span></p>
+<p>이 표현은 모든 데이터 샘플에 대해 한 번의 행렬 연산으로 예측을 수행할 수 있어, 계산 효율성과 모델 학습 속도를 크게 향상시킨다.</p>
+<p>2 . 손실 함수의 수학적 정의 손실 함수는 예측값과 실제값 간의 차이를 수치적으로 표현한다. 선형 회귀에서 가장 일반적으로 사용되는 손실 함수는 평균제곱오차(MSE)이며, 다음과 같이 정의된다.</p>
+<p><span class="math display">\[L(\mathbf{w}, b) = \frac{1}{m} \sum_{i=1}^{m} (\hat{y}_i - y_i)^2\]</span></p>
+<p>혹은 벡터 연산 형태로 나타내면,</p>
+<p><span class="math display">\[L(\mathbf{w}) = \frac{1}{m} (\mathbf{X}\mathbf{w} - \mathbf{y})^\top (\mathbf{X}\mathbf{w} - \mathbf{y})\]</span></p>
+<p>이 손실 함수를 최소화하는 방향으로 파라미터 와 (b)를 조정하는 것이 모델 학습의 핵심이다.</p>
+<p>3 . 행렬 연산 행렬 기반의 모델 학습에서는 다양한 연산이 사용된다. 대표적인 세 가지 연산은 다음과 같다.</p>
+<p>① 엘리먼트 와이즈 프로덕트 (Element-wise Product)</p>
+<p>각 행렬의 동일 위치 원소끼리 곱하는 연산으로, Hadamard product라 불리며 기호 ()로 나타낸다.</p>
+<p><span class="math display">\[\mathbf{A} \odot \mathbf{B} = \begin{bmatrix} a_{11}b_{11} &amp; a_{12}b_{12} \\ a_{21}b_{21} &amp; a_{22}b_{22} \end{bmatrix}\]</span></p>
+<p>② 내적 (Dot Product)</p>
+<p>두 벡터의 대응 원소를 곱해 합산한 값으로, 스칼라를 생성한다.</p>
+<p><span class="math display">\[\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{n}\]</span></p>
+<p>③ 외적 (Cross Product)</p>
+<p>3차원 벡터 (, ^3)에 대해 두 벡터에 모두 수직인 벡터를 산출하는 연산이다.</p>
+<p>4 . 스케일링과 정규화의 필요성 데이터의 단위나 값의 범위가 서로 다른 경우, 특정 특성이 모델 학습 과정에서 불균형하게 영향을 미칠 수 있다. 이러한 문제를 방지하기 위해 스케일링(scaling) 또는 정규화(normalization)를 적용한다.</p>
+<p>① Min–Max 스케일링</p>
+<p>각 특성 xjx_jxj​을 0과 1 사이의 값으로 선형 변환한다.</p>
+<p><span class="math display">\[x_j^{(\text{scaled})} = \frac{x_j - \min(x_j)}{\max(x_j) - \min(x_j)}\]</span></p>
+<p>② Z-점수 정규화(Standardization)</p>
+<p>평균과 표준편차를 이용하여 데이터를 정규분포 형태로 변환한다.</p>
+<p><span class="math display">\[x_j^{(\text{norm})} = \frac{x_j - \mu_j}{\sigma_j}\]</span></p>
+<p>이러한 변환을 수행하면 손실 함수의 등고선(contour)이 타원형에서 원형으로 변화하여, 모든 특성이 최적화 과정에서 동일한 비중으로 반영된다.</p>
+<p>그 결과, 경사하강법(Gradient Descent) 등 최적화 알고리즘의 수렴 속도와 안정성이 향상된다.</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/shinjihan\.github\.io\/studylog");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="혼자 공부하는 머신러닝+딥러닝">
+<meta name="dcterms.date" content="2024-09-22">
+
+<title>데이터 다루기 – StudyLog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">StudyLog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/SHINJIHAN"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://sinjihan71.tistory.com/"> 
+<span class="menu-text"><img src="Tstory.png" style="width:15px;height:17px;"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#훈련-세트-테스트-세트" id="toc-훈련-세트-테스트-세트" class="nav-link active" data-scroll-target="#훈련-세트-테스트-세트">02 - 1 . 훈련 세트 &amp; 테스트 세트</a></li>
+  <li><a href="#도미-14빙어-49개의-샘플" id="toc-도미-14빙어-49개의-샘플" class="nav-link" data-scroll-target="#도미-14빙어-49개의-샘플">35(도미) + 14(빙어) = 49개의 샘플</a></li>
+  <li><a href="#사용하는-특성-길이-무게-2개" id="toc-사용하는-특성-길이-무게-2개" class="nav-link" data-scroll-target="#사용하는-특성-길이-무게-2개">사용하는 특성: 길이 &amp; 무게 ⇨ 2개</a></li>
+  <li><a href="#섞인-인덱스의-처음-35개로-훈련-데이터를-만듦" id="toc-섞인-인덱스의-처음-35개로-훈련-데이터를-만듦" class="nav-link" data-scroll-target="#섞인-인덱스의-처음-35개로-훈련-데이터를-만듦">섞인 인덱스의 처음 35개로 훈련 데이터를 만듦</a></li>
+  <li><a href="#훈련-데이터에-대응되는-타깃값도-동일하게-선택" id="toc-훈련-데이터에-대응되는-타깃값도-동일하게-선택" class="nav-link" data-scroll-target="#훈련-데이터에-대응되는-타깃값도-동일하게-선택">훈련 데이터에 대응되는 타깃값도 동일하게 선택</a></li>
+  <li><a href="#섞인-인덱스에서-35번째-이후를-테스트-데이터로-설정" id="toc-섞인-인덱스에서-35번째-이후를-테스트-데이터로-설정" class="nav-link" data-scroll-target="#섞인-인덱스에서-35번째-이후를-테스트-데이터로-설정">섞인 인덱스에서 35번째 이후를 테스트 데이터로 설정</a></li>
+  <li><a href="#타깃-데이터도-동일하게-나눔" id="toc-타깃-데이터도-동일하게-나눔" class="nav-link" data-scroll-target="#타깃-데이터도-동일하게-나눔">타깃 데이터도 동일하게 나눔</a></li>
+  <li><a href="#훈련-세트-산점도" id="toc-훈련-세트-산점도" class="nav-link" data-scroll-target="#훈련-세트-산점도">훈련 세트 산점도</a></li>
+  <li><a href="#테스트-세트-산점도" id="toc-테스트-세트-산점도" class="nav-link" data-scroll-target="#테스트-세트-산점도">테스트 세트 산점도</a></li>
+  <li><a href="#x축과-y축에-대한-라벨" id="toc-x축과-y축에-대한-라벨" class="nav-link" data-scroll-target="#x축과-y축에-대한-라벨">x축과 y축에 대한 라벨</a></li>
+  <li><a href="#아래-산점도를-통해-도미와-빙어가" id="toc-아래-산점도를-통해-도미와-빙어가" class="nav-link" data-scroll-target="#아래-산점도를-통해-도미와-빙어가">아래 산점도를 통해, 도미와 빙어가</a></li>
+  <li><a href="#각각의-세트에-잘-섞였음을-알-수-있다." id="toc-각각의-세트에-잘-섞였음을-알-수-있다." class="nav-link" data-scroll-target="#각각의-세트에-잘-섞였음을-알-수-있다.">각각의 세트에 잘 섞였음을 알 수 있다.</a></li>
+  <li><a href="#이전에-만든-모델-객체-사용하기" id="toc-이전에-만든-모델-객체-사용하기" class="nav-link" data-scroll-target="#이전에-만든-모델-객체-사용하기">이전에 만든 모델 객체 사용하기</a></li>
+  <li><a href="#생선의-길이와-무게를-열-단위로-합침" id="toc-생선의-길이와-무게를-열-단위로-합침" class="nav-link" data-scroll-target="#생선의-길이와-무게를-열-단위로-합침">생선의 길이와 무게를 열 단위로 합침</a></li>
+  <li><a href="#train_test_split" id="toc-train_test_split" class="nav-link" data-scroll-target="#train_test_split">train_test_split:</a></li>
+  <li><a href="#입력된-데이터의-약-25를-테스트-세트로-분리" id="toc-입력된-데이터의-약-25를-테스트-세트로-분리" class="nav-link" data-scroll-target="#입력된-데이터의-약-25를-테스트-세트로-분리">입력된 데이터의 약 25%를 테스트 세트로 분리</a></li>
+  <li><a href="#나머지-75를-훈련-세트로-사용" id="toc-나머지-75를-훈련-세트로-사용" class="nav-link" data-scroll-target="#나머지-75를-훈련-세트로-사용">나머지 75%를 훈련 세트로 사용</a></li>
+  <li><a href="#개의-배열-반환" id="toc-개의-배열-반환" class="nav-link" data-scroll-target="#개의-배열-반환">4개의 배열 반환</a></li>
+  <li><a href="#train_input-36-2" id="toc-train_input-36-2" class="nav-link" data-scroll-target="#train_input-36-2">train_input: (36, 2)</a></li>
+  <li><a href="#test_input-13-2" id="toc-test_input-13-2" class="nav-link" data-scroll-target="#test_input-13-2">test_input: (13, 2)</a></li>
+  <li><a href="#train_target-36" id="toc-train_target-36" class="nav-link" data-scroll-target="#train_target-36">train_target: (36, )</a></li>
+  <li><a href="#test_target-13" id="toc-test_target-13" class="nav-link" data-scroll-target="#test_target-13">test_target: (13, )</a></li>
+  <li><a href="#도미1빙어0-3514-2.51" id="toc-도미1빙어0-3514-2.51" class="nav-link" data-scroll-target="#도미1빙어0-3514-2.51">도미(1):빙어(0) = 35:14 = 2.5:1</a></li>
+  <li><a href="#test_target의-비율-3.31" id="toc-test_target의-비율-3.31" class="nav-link" data-scroll-target="#test_target의-비율-3.31">test_target의 비율 = 3.3:1</a></li>
+  <li><a href="#샘플링-편향이-나타나므로" id="toc-샘플링-편향이-나타나므로" class="nav-link" data-scroll-target="#샘플링-편향이-나타나므로">샘플링 편향이 나타나므로,</a></li>
+  <li><a href="#클래스-비율에-맞게-데이터를-재분할-해야-한다." id="toc-클래스-비율에-맞게-데이터를-재분할-해야-한다." class="nav-link" data-scroll-target="#클래스-비율에-맞게-데이터를-재분할-해야-한다.">클래스 비율에 맞게 데이터를 재분할 해야 한다.</a></li>
+  <li><a href="#stratify-fish_target" id="toc-stratify-fish_target" class="nav-link" data-scroll-target="#stratify-fish_target">stratify = fish_target:</a></li>
+  <li><a href="#각-클래스의-비율이-훈련-세트와-테스트-세트에" id="toc-각-클래스의-비율이-훈련-세트와-테스트-세트에" class="nav-link" data-scroll-target="#각-클래스의-비율이-훈련-세트와-테스트-세트에">각 클래스의 비율이 훈련 세트와 테스트 세트에</a></li>
+  <li><a href="#동일하게-유지되도록-데이터를-분할한다" id="toc-동일하게-유지되도록-데이터를-분할한다" class="nav-link" data-scroll-target="#동일하게-유지되도록-데이터를-분할한다">동일하게 유지되도록 데이터를 분할한다</a></li>
+  <li><a href="#결과적으로-빙어가-1개-증가하여" id="toc-결과적으로-빙어가-1개-증가하여" class="nav-link" data-scroll-target="#결과적으로-빙어가-1개-증가하여">결과적으로 빙어가 1개 증가하여</a></li>
+  <li><a href="#테스트-세트의-비율이-2.251이-되었다" id="toc-테스트-세트의-비율이-2.251이-되었다" class="nav-link" data-scroll-target="#테스트-세트의-비율이-2.251이-되었다">테스트 세트의 비율이 2.25:1이 되었다</a></li>
+  <li><a href="#axis-0" id="toc-axis-0" class="nav-link" data-scroll-target="#axis-0">axis = 0:</a></li>
+  <li><a href="#행row-방향-세로-방향으로" id="toc-행row-방향-세로-방향으로" class="nav-link" data-scroll-target="#행row-방향-세로-방향으로">행(row) 방향, 세로 방향으로</a></li>
+  <li><a href="#이동하며-각-열의-평균을-계산" id="toc-이동하며-각-열의-평균을-계산" class="nav-link" data-scroll-target="#이동하며-각-열의-평균을-계산">이동하며, 각 열의 평균을 계산</a></li>
+  <li><a href="#차원이-맞지-않는-배열을-자동으로" id="toc-차원이-맞지-않는-배열을-자동으로" class="nav-link" data-scroll-target="#차원이-맞지-않는-배열을-자동으로">차원이 맞지 않는 배열을 자동으로</a></li>
+  <li><a href="#조정하여-연산을-가능하게-하는-기능" id="toc-조정하여-연산을-가능하게-하는-기능" class="nav-link" data-scroll-target="#조정하여-연산을-가능하게-하는-기능">조정하여 연산을 가능하게 하는 기능</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">데이터 다루기</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>혼자 공부하는 머신러닝+딥러닝 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 22, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>머신러닝 알고리즘에 주입할 데이터를 준비하는 방법을 배우고, 데이터 형태가 알고리즘에 미치는 영향에 대해 다루고자 한다.</p>
+<section id="훈련-세트-테스트-세트" class="level1">
+<h1>02 - 1 . 훈련 세트 &amp; 테스트 세트</h1>
+<p>2-1. 훈련 데이터와 테스트 데이터</p>
+<p>https://colab.research.google.com/github/rickiepark/hg-mldl/blob/master/2-1.ipynb#scrollTo=Z-iCt9zHilaa</p>
+<p>지도 학습 (supervised learning) 입력 데이터(input)와 그에 해당하는 정답(target, label)이 필요하다.</p>
+<p>모델은 주어진 입력과 정답을 사용하여 학습하고, 새로운 입력에 대해 정확한 예측을 할 수 있도록 훈련된다.</p>
+<p>용어 정의</p>
+<p>비지도 학습 (unsupervised learning) 정답이 없이 입력 데이터만 사용하여 패턴을 찾는다. 주로 군집화나 차원 축소 등의 작업에 사용된다.</p>
+<p>훈련 세트를 이용해 모델이 데이터를 학습하는 과정 ≒ 학생이 시험을 준비하는 과정</p>
+<p>훈련 세트와 테스트 세트가 동일할 경우, 모델은 이미 답을 알고 있으므로 100%의 정확도를 달성할 수 있다.</p>
+<p>그러나, 이는 학생이 시험 전에 문제와 답을 미리 알고 있는 것과 같기에 실제 성능을 평가하는 방식으로는 적절하지 않다.</p>
+<p>따라서, 모델의 성능을 올바르게 평가하려면 훈련에 사용한 데이터와는 다른 데이터(테스트 세트)를 사용하여 평가해야 한다.</p>
+<p>이를 통해 모델이 실제로 새로운 데이터에서 얼마나 잘 예측하는지를 측정할 수 있다.</p>
+<p>일반적으로 데이터셋을 준비할 때,</p>
+<p>훈련 데이터(training set)와 테스트 데이터(test set)로 나누는 것이 일반적이며, 이외에도 검증 데이터(validation set)를 추가로 사용하는 경우도 있다.</p>
+<p>이것은 모델이 학습한 패턴을 일반화하는 능력을 평가할 수 있게 되어, 과적합(overfitting)을 방지하고, 실제 환경에서의 성능을 더 정확하게 반영할 수 있다.</p>
+<p>도미와 빙어의 데이터를 합친 하나의 파이썬 리스트</p>
+<p>fish_length = [25.4, 26.3, 26.5, 29.0, 29.0, 29.7, 29.7, 30.0, 30.0, 30.7, 31.0, 31.0, 31.5, 32.0, 32.0, 32.0, 33.0, 33.0, 33.5, 33.5, 34.0, 34.0, 34.5, 35.0, 35.0, 35.0, 35.0, 36.0, 36.0, 37.0, 38.5, 38.5, 39.5, 41.0, 41.0, 9.8, 10.5, 10.6, 11.0, 11.2, 11.3, 11.8, 11.8, 12.0, 12.2, 12.4, 13.0, 14.3, 15.0]</p>
+<p>fish_weight = [242.0, 290.0, 340.0, 363.0, 430.0, 450.0, 500.0, 390.0, 450.0, 500.0, 475.0, 500.0, 500.0, 340.0, 600.0, 600.0, 700.0, 700.0, 610.0, 650.0, 575.0, 685.0, 620.0, 680.0, 700.0, 725.0, 720.0, 714.0, 850.0, 1000.0, 920.0, 955.0, 925.0, 975.0, 950.0, 6.7, 7.5, 7.0, 9.7, 9.8, 8.7, 10.0, 9.9, 9.8, 12.2, 13.4, 12.2, 19.7, 19.9]</p>
+<p>각 생선의 길이와 무게를 하나의 리스트로 담은 2차원 리스트</p>
+</section>
+<section id="도미-14빙어-49개의-샘플" class="level1">
+<h1>35(도미) + 14(빙어) = 49개의 샘플</h1>
+</section>
+<section id="사용하는-특성-길이-무게-2개" class="level1">
+<h1>사용하는 특성: 길이 &amp; 무게 ⇨ 2개</h1>
+<p>fish_data = [[l, w] for l, w in zip(fish_length, fish_weight)] fish_target = [1]<em>35 + [0]</em>14 # 훈련 데이터: 35, 테스트 데이터: 14</p>
+<p>모델 객체 만들기</p>
+<p>from sklearn.neighbors import KNeighborsClassifier kn = KNeighborsClassifier()</p>
+<p>샘플링 편향 (sampling bias) 데이터가 고르게 섞이지 않아서 발생하는 문제.</p>
+<p>테스트 세트에 빙어만 포함되어 있고, 훈련 세트에 도미만 있을 경우, 모델은 도미만 학습하게 되어, 테스트 세트에서 무조건 도미로 예측하게 되며,</p>
+<p>이는 올바른 평가가 되지 않는다.</p>
+<p>이 문제를 해결하기 위해서는 데이터를 섞어서(train-test split) 훈련 세트와 테스트 세트에 도미와 빙어가 골고루 포함되도록 해야 한다.</p>
+<p>Numpy 나 scikit-learn을 사용하여 데이터를 무작위로 섞을 수 있으며, Numpy 에 경우, 고차원 배열 제작하고, 이를 조작할 수 있는 도구를 제공한다.</p>
+<p>생선 데이터를 2차원 Numpy 배열로 변환하기</p>
+<p>import numpy as np</p>
+<p>input_arr = np.array(fish_data) target_arr = np.array(fish_target)</p>
+<p>print(input_arr)</p>
+<p>이하 생략</p>
+<p>배열의 크기 확인하기</p>
+<p>input_arr.shape # (샘플 수, 특성 수)</p>
+<p>49개의 샘플과 2개의 특성</p>
+<p>주어진 배열을 무작위로 섞기</p>
+<p>np.random.seed(42) # 난수 생성기 시드 고정 index = np.arange(49) # 0부터 48까지의 숫자 배열 생성 np.random.shuffle(index) # 배열을 무작위로 섞음 index</p>
+<p>무작위로 섞인 인덱스를 사용해 전체 데이터를 훈련 세트와 테스트 세트로 나누기</p>
+</section>
+<section id="섞인-인덱스의-처음-35개로-훈련-데이터를-만듦" class="level1">
+<h1>섞인 인덱스의 처음 35개로 훈련 데이터를 만듦</h1>
+<p>train_input = input_arr[index[:35]]</p>
+</section>
+<section id="훈련-데이터에-대응되는-타깃값도-동일하게-선택" class="level1">
+<h1>훈련 데이터에 대응되는 타깃값도 동일하게 선택</h1>
+<p>train_target = target_arr[index[:35]]</p>
+</section>
+<section id="섞인-인덱스에서-35번째-이후를-테스트-데이터로-설정" class="level1">
+<h1>섞인 인덱스에서 35번째 이후를 테스트 데이터로 설정</h1>
+<p>test_input = input_arr[index[35:]]</p>
+</section>
+<section id="타깃-데이터도-동일하게-나눔" class="level1">
+<h1>타깃 데이터도 동일하게 나눔</h1>
+<p>test_target = target_arr[index[35:]]</p>
+<p>import matplotlib.pyplot as plt</p>
+</section>
+<section id="훈련-세트-산점도" class="level1">
+<h1>훈련 세트 산점도</h1>
+<p>plt.scatter(train_input[:, 0], train_input[:, 1])</p>
+</section>
+<section id="테스트-세트-산점도" class="level1">
+<h1>테스트 세트 산점도</h1>
+<p>plt.scatter(test_input[:, 0], test_input[:, 1])</p>
+</section>
+<section id="x축과-y축에-대한-라벨" class="level1">
+<h1>x축과 y축에 대한 라벨</h1>
+<p>plt.xlabel(‘length’) plt.ylabel(‘weight’)</p>
+</section>
+<section id="아래-산점도를-통해-도미와-빙어가" class="level1">
+<h1>아래 산점도를 통해, 도미와 빙어가</h1>
+</section>
+<section id="각각의-세트에-잘-섞였음을-알-수-있다." class="level1">
+<h1>각각의 세트에 잘 섞였음을 알 수 있다.</h1>
+<p>파란색: 훈련 세트, 주황색: 테스트 세트</p>
+<p>k–최근접 이웃(k–Nearest Neighbors, KNN) 알고리즘을 사용하여 모델을 훈련하고, 테스트 세트에서 그 성능을 평가하기</p>
+</section>
+<section id="이전에-만든-모델-객체-사용하기" class="level1">
+<h1>이전에 만든 모델 객체 사용하기</h1>
+<p>kn = kn.fit(train_input, train_target) kn.score(test_input, test_target)</p>
+<p>100%의 정확도</p>
+<p>주어진 테스트 데이터에 대해 각 샘플이 어느 클래스에 속하는지 예측한 결과를 반환</p>
+<p>kn.predict(test_input)</p>
+<p>예측 결과를 실제 정답(test_target)과 비교하기</p>
+<p>test_target</p>
+<p>테스트 세트에 대한 예측 결과가 정답과 일치한다.</p>
+<p>02 - 2 . 훈련 세트 &amp; 테스트 세트</p>
+<p>2-2. 데이터 전처리</p>
+<p>Run, share, and edit Python notebooks</p>
+<p>colab.research.google.com # 이전과 동일한 데이터 fish_length = [25.4, 26.3, 26.5, 29.0, 29.0, 29.7, 29.7, 30.0, 30.0, 30.7, 31.0, 31.0, 31.5, 32.0, 32.0, 32.0, 33.0, 33.0, 33.5, 33.5, 34.0, 34.0, 34.5, 35.0, 35.0, 35.0, 35.0, 36.0, 36.0, 37.0, 38.5, 38.5, 39.5, 41.0, 41.0, 9.8, 10.5, 10.6, 11.0, 11.2, 11.3, 11.8, 11.8, 12.0, 12.2, 12.4, 13.0, 14.3, 15.0]</p>
+<p>fish_weight = [242.0, 290.0, 340.0, 363.0, 430.0, 450.0, 500.0, 390.0, 450.0, 500.0, 475.0, 500.0, 500.0, 340.0, 600.0, 600.0, 700.0, 700.0, 610.0, 650.0, 575.0, 685.0, 620.0, 680.0, 700.0, 725.0, 720.0, 714.0, 850.0, 1000.0, 920.0, 955.0, 925.0, 975.0, 950.0, 6.7, 7.5, 7.0, 9.7, 9.8, 8.7, 10.0, 9.9, 9.8, 12.2, 13.4, 12.2, 19.7, 19.9]</p>
+<p>두 개 이상의 1차원 배열을 열(column) 단위로 결합하여 2차원 배열 만들기</p>
+<p>import numpy as np</p>
+</section>
+<section id="생선의-길이와-무게를-열-단위로-합침" class="level1">
+<h1>생선의 길이와 무게를 열 단위로 합침</h1>
+<p>fish_data = np.column_stack((fish_length, fish_weight)) print(fish_data[:5])</p>
+<p>각 행마다 2개의 열(길이, 무게)</p>
+<p>각 생선이 도미인지 빙어인지 나타내는 라벨(타깃값)을 담고 있다</p>
+<p>fish_target = np.concatenate((</p>
+<pre><code># 도미: 1, 빙어: 0
+np.ones(35), np.zeros(14)))</code></pre>
+<p>fish_target</p>
+<p>사이킷런(sklearn)으 훈련 세트와 테스트 세트로 나누기</p>
+<p>from sklearn.model_selection import train_test_split</p>
+<p>train_input, test_input, train_target, test_target = train_test_split( fish_data, fish_target, random_state = 42)</p>
+<p>train_input.shape, test_input.shape</p>
+</section>
+<section id="train_test_split" class="level1">
+<h1>train_test_split:</h1>
+</section>
+<section id="입력된-데이터의-약-25를-테스트-세트로-분리" class="level1">
+<h1>입력된 데이터의 약 25%를 테스트 세트로 분리</h1>
+</section>
+<section id="나머지-75를-훈련-세트로-사용" class="level1">
+<h1>나머지 75%를 훈련 세트로 사용</h1>
+</section>
+<section id="개의-배열-반환" class="level1">
+<h1>4개의 배열 반환</h1>
+</section>
+<section id="train_input-36-2" class="level1">
+<h1>train_input: (36, 2)</h1>
+</section>
+<section id="test_input-13-2" class="level1">
+<h1>test_input: (13, 2)</h1>
+</section>
+<section id="train_target-36" class="level1">
+<h1>train_target: (36, )</h1>
+</section>
+<section id="test_target-13" class="level1">
+<h1>test_target: (13, )</h1>
+<p>4개의 배열 반환</p>
+<p>훈련 세트와 테스트 세트의 타깃 데이터 크기 확인하기</p>
+<p>train_target.shape, test_target.shape</p>
+<p>훈련 세트와 테스트 세트 샘플의 클래스 비율 확인하기</p>
+<p>test_target</p>
+</section>
+<section id="도미1빙어0-3514-2.51" class="level1">
+<h1>도미(1):빙어(0) = 35:14 = 2.5:1</h1>
+</section>
+<section id="test_target의-비율-3.31" class="level1">
+<h1>test_target의 비율 = 3.3:1</h1>
+</section>
+<section id="샘플링-편향이-나타나므로" class="level1">
+<h1>샘플링 편향이 나타나므로,</h1>
+</section>
+<section id="클래스-비율에-맞게-데이터를-재분할-해야-한다." class="level1">
+<h1>클래스 비율에 맞게 데이터를 재분할 해야 한다.</h1>
+<p>클래스 비율에 맞게 데이터 재분할하기</p>
+<p>train_input, test_input, train_target, test_target = train_test_split( fish_data, fish_target, stratify = fish_target, random_state = 42)</p>
+<p>test_target</p>
+</section>
+<section id="stratify-fish_target" class="level1">
+<h1>stratify = fish_target:</h1>
+</section>
+<section id="각-클래스의-비율이-훈련-세트와-테스트-세트에" class="level1">
+<h1>각 클래스의 비율이 훈련 세트와 테스트 세트에</h1>
+</section>
+<section id="동일하게-유지되도록-데이터를-분할한다" class="level1">
+<h1>동일하게 유지되도록 데이터를 분할한다</h1>
+</section>
+<section id="결과적으로-빙어가-1개-증가하여" class="level1">
+<h1>결과적으로 빙어가 1개 증가하여</h1>
+</section>
+<section id="테스트-세트의-비율이-2.251이-되었다" class="level1">
+<h1>테스트 세트의 비율이 2.25:1이 되었다</h1>
+<p>k–최근접 이웃(k–Nearest Neighbors, KNN) 알고리즘을 사용하여 모델을 훈련하고, 테스트 세트에서 그 성능을 평가하기</p>
+<p>from sklearn.neighbors import KNeighborsClassifier</p>
+<p>kn = KNeighborsClassifier() kn.fit(train_input, train_target) kn.score(test_input, test_target)</p>
+<p>100%의 정확도</p>
+<p>올바르게 분류하는지 확인하기</p>
+<p>kn.predict([[25, 150]]) # 도미(1) 샘플</p>
+<p>올바르게 예측하지 않음</p>
+<p>이 샘플을 다른 데이터와 함께 산점도로 나타내기</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>plt.scatter(train_input[:,0], train_input[:,1]) plt.scatter(25, 150, marker=‘^’) # 삼각형(△) plt.xlabel(‘length’) plt.ylabel(‘weight’)</p>
+<p>샘플은 도미 데이터 주변에 있으나, 모델은 빙어 데이터와 가깝다고 판단</p>
+<p>k–최근접 이웃(KNN) 알고리즘은 새로운 샘플의 클래스를 예측할 때, 해당 샘플 주변의 이웃 샘플들 중 다수인 클래스를 예측값으로 사용한다.</p>
+<p>이 샘플 주변의 이웃들을 알아보려면, KNeighborsClassifier 클래스의 kneighbors() 메서드를 사용할 수 있다.</p>
+<p>이 메서드는 지정한 샘플에서 가장 가까운 이웃들의 거리와 이웃 샘플의 인덱스를 반환한다. 기본적으로, n_neighbors 파라미터의 값은 5로 설정되어 있어, 각 샘플에 대해 5개의 이웃이 반환된다.</p>
+<p>훈련 데이터 중 이웃 샘플을 따로 구분해 그리기</p>
+<p>distances, indexes = kn.kneighbors([[25, 150]])</p>
+<p>plt.scatter(train_input[:,0], train_input[:,1]) plt.scatter(25, 150, marker=‘^’) # 삼각형(△) plt.scatter(train_input[indexes,0], train_input[indexes,1], marker = ‘D’) # 마름모(◇) plt.xlabel(‘length’) plt.ylabel(‘weight’)</p>
+<p>삼각형 샘플과 가까운 5개의 이웃 샘플이 초록 마름모로 표시</p>
+<p>5개의 샘플에 대한 데이터 확인</p>
+<p>train_input[indexes], train_target[indexes]</p>
+<p>가장 가까운 생선 4개가 빙어(0)인 것을 확인</p>
+<p>문제의 원인 파악을 위한, distances 배열 출력</p>
+<p>distances</p>
+<p>각 값은 해당 이웃까지의 거리를 의미</p>
+<p>위에서 출력된 거리를 그래프에 대입하여 비교</p>
+<p>범위 차이가 문제의 요인임을 확인</p>
+<p>따라서, x축의 범위를 y축과 동일하게 조정</p>
+<p>plt.scatter(train_input[:,0], train_input[:,1]) plt.scatter(25, 150, marker=‘^’) plt.scatter(train_input[indexes,0], train_input[indexes,1], marker = ‘D’) plt.xlim((0, 1000)) # 범위 조정 plt.xlabel(‘length’) plt.ylabel(‘weight’)</p>
+<p>위와 같이, 두 특성(길이와 무게)의 스케일이 다르면, k–최근접 이웃(KNN)과 같은 거리 기반 알고리즘에서 문제가 발생할 수 있다.</p>
+<p>이 경우, 특성 값의 범위가 큰 변수(무게)가 모델에 더 큰 영향을 미치게 된다. 산점도가 거의 수직으로 나타난 것도 그 이유이다.</p>
+<p>이를 해결하려면 특성 스케일링(Feature Scaling)을 적용하여, 두 특성의 값을 동일한 범위로 맞추는 것이 좋다.</p>
+<p>일반적으로 표준화(standardization) 또는 정규화(normalization)를 사용하며, 이러한 작업은 데이터 전처리(Data Preprocessing)의 일환이다.</p>
+<p>표준화의 대표적인 예시로, 표준점수(Z-score)가 있다.</p>
+<p>각 데이터가 평균으로부터 얼마나 떨어져 있는지를 나타내는 지표로, 데이터의 분포가 평균을 기준으로 얼마나 퍼져 있는지를 평가하는 데 유용하다.</p>
+<p>표준점수 계산을 위한, 평균과 표준편차 계산 및 출력</p>
+<p>mean = np.mean(train_input, axis = 0) std = np.std(train_input, axis = 0) mean, std # 평균, 표준편차</p>
+</section>
+<section id="axis-0" class="level1">
+<h1>axis = 0:</h1>
+</section>
+<section id="행row-방향-세로-방향으로" class="level1">
+<h1>행(row) 방향, 세로 방향으로</h1>
+</section>
+<section id="이동하며-각-열의-평균을-계산" class="level1">
+<h1>이동하며, 각 열의 평균을 계산</h1>
+<p>평균을 빼고, 표준편차로 나누어 표준점수로 변환</p>
+<p>train_scaled = (train_input - mean) / std # ↪ 브로드캐스팅(broadcasting): # NumPy에서 배열 간의 연산을 할 때,</p>
+</section>
+<section id="차원이-맞지-않는-배열을-자동으로" class="level1">
+<h1>차원이 맞지 않는 배열을 자동으로</h1>
+</section>
+<section id="조정하여-연산을-가능하게-하는-기능" class="level1">
+<h1>조정하여 연산을 가능하게 하는 기능</h1>
+<p>plt.scatter(train_scaled[:,0], train_scaled[:,1]) plt.scatter(25, 150, marker=‘^’) plt.xlabel(‘length’) plt.ylabel(‘weight’)</p>
+<p>우측 상단에 샘플 하나가 홀로 존재</p>
+<p>동일한 비율을 변환하지 않으면, 계산과정에서 값의 범위가 크게 달라진다. 따라서, 동일한 기준을 적용하여, 다시 산점도를 그린다.</p>
+<p>new = ([25, 150] - mean) / std # 새로 추가된 샘플의 길이와 무게를 표준화</p>
+<p>plt.scatter(train_scaled[:,0], train_scaled[:,1]) plt.scatter(new[0], new[1], marker=‘^’) plt.xlabel(‘length’) plt.ylabel(‘weight’)</p>
+<p>x축과 y축의 범위가 바뀜</p>
+<p>위 데이터셋으로 k–최근접 이웃 모델을 훈련한다</p>
+<p>kn.fit(train_scaled, train_target)</p>
+<p>모델 평가</p>
+<p>test_scaled = (test_input - mean) / std kn.score(test_scaled, test_target)</p>
+<p>100%의 정확도</p>
+<p>모델이 새로 추가된 샘플을 정확히 예측하는지 확인</p>
+<p>kn.predict([new])</p>
+<p>25cm, 150g의 생선을 도미로 예측하는 데 성공</p>
+<p>이 샘플의 k–최근접 이웃을 구하고, 산점도를 그린다</p>
+<p>distances, indexes = kn.kneighbors([new])</p>
+<p>plt.scatter(train_scaled[:,0], train_scaled[:,1]) plt.scatter(new[0], new[1], marker = ‘^’) plt.scatter(train_scaled[indexes,0], train_scaled[indexes,1], marker = ‘D’) plt.xlabel(‘length’) plt.ylabel(‘weight’)</p>
+<p>삼각형 샘플과 가까운 5개의 이웃 샘플이 모두 도미인 것을 확인</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/shinjihan\.github\.io\/studylog");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

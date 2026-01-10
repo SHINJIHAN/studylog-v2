@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-11-27">
 
-<title>제목 – StudyLog</title>
+<title>전송계층 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,17 +72,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -91,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -114,39 +116,142 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#transport-layer" id="toc-transport-layer" class="nav-link active" data-scroll-target="#transport-layer">01 Transport Layer</a>
+  <ul class="collapse">
+  <li><a href="#세그먼트화segmentation" id="toc-세그먼트화segmentation" class="nav-link" data-scroll-target="#세그먼트화segmentation">1. 세그먼트화(Segmentation)</a></li>
+  <li><a href="#전송-제어transmission-control" id="toc-전송-제어transmission-control" class="nav-link" data-scroll-target="#전송-제어transmission-control">2. 전송 제어(Transmission Control)</a></li>
+  <li><a href="#흐름-제어flow-control" id="toc-흐름-제어flow-control" class="nav-link" data-scroll-target="#흐름-제어flow-control">3. 흐름 제어(Flow Control)</a></li>
+  <li><a href="#다중화multiplexing" id="toc-다중화multiplexing" class="nav-link" data-scroll-target="#다중화multiplexing">4. 다중화(Multiplexing)</a></li>
+  <li><a href="#전송-계층-프로토콜" id="toc-전송-계층-프로토콜" class="nav-link" data-scroll-target="#전송-계층-프로토콜">5. 전송 계층 프로토콜</a></li>
+  <li><a href="#tcp-연결-설정-과정" id="toc-tcp-연결-설정-과정" class="nav-link" data-scroll-target="#tcp-연결-설정-과정">6. TCP 연결 설정 과정</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">제목</h1>
-</div>
-<div class="quarto-title-meta">
+<h1 class="title">전송계층</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>About this blog</p>
+  </div>
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://linkedin.com" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 27, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="transport-layer" class="level1">
+<h1>01 Transport Layer</h1>
+<p>전송계층은 신뢰성 있는 데이터 전송과 효율적인 네트워크 통신을 담당하는 계층으로, 다음 네 가지 핵심 역할을 수행한다:</p>
+<ol type="1">
+<li>세그먼트화(Segmentation)</li>
+<li>전송 제어(Transmission Control)</li>
+<li>흐름 제어(Flow Control)</li>
+<li>다중화(Multiplexing)</li>
+</ol>
+<section id="세그먼트화segmentation" class="level3">
+<h3 class="anchored" data-anchor-id="세그먼트화segmentation">1. 세그먼트화(Segmentation)</h3>
+<p>세그먼트화는 상위 계층에서 전송되는 데이터를 작은 단위로 나누고, 수신 측에서 이를 재조립하는 과정이다.</p>
+<ul>
+<li><strong>송신 측</strong>: 큰 데이터 스트림을 효율적 전송을 위해 작은 세그먼트로 분할</li>
+<li><strong>수신 측</strong>: 세그먼트를 원래 데이터 스트림으로 재조립하여 상위 계층에 전달</li>
+</ul>
+<p><strong>목적</strong>: 전송 효율성 증가, 오류 복구 용이, 신뢰성 있는 데이터 전달 보장</p>
+</section>
+<section id="전송-제어transmission-control" class="level3">
+<h3 class="anchored" data-anchor-id="전송-제어transmission-control">2. 전송 제어(Transmission Control)</h3>
+<p>전송 제어는 송신자와 수신자 간의 신뢰성 있는 데이터 전송을 보장한다.</p>
+<ul>
+<li><strong>오류 제어(Error Control)</strong>: 전송 중 발생한 데이터 손상이나 손실을 검출하고, 재전송 요청을 통해 데이터 무결성을 확보</li>
+<li><strong>혼잡 제어(Congestion Control)</strong>: 네트워크 과부하 시 전송 속도를 조절하여 혼잡을 방지하고 성능 저하 최소화</li>
+</ul>
+</section>
+<section id="흐름-제어flow-control" class="level3">
+<h3 class="anchored" data-anchor-id="흐름-제어flow-control">3. 흐름 제어(Flow Control)</h3>
+<p>흐름 제어는 데이터 전송 속도를 조절하여 수신 측 버퍼 오버플로를 방지하고 네트워크 혼잡을 줄인다.</p>
+<ul>
+<li><strong>Stop-and-Wait 방식</strong>: 송신 측에서 한 패킷 전송 후 수신 측 확인 응답을 기다린 후 다음 패킷 전송</li>
+<li><strong>슬라이딩 윈도우(Sliding Window) 방식</strong>: 여러 패킷을 연속 전송하고 수신 측의 확인 응답을 통해 전송을 관리</li>
+</ul>
+</section>
+<section id="다중화multiplexing" class="level3">
+<h3 class="anchored" data-anchor-id="다중화multiplexing">4. 다중화(Multiplexing)</h3>
+<p>다중화는 여러 애플리케이션 계층 데이터를 하나의 전송 채널로 통합하는 과정이다. 각 세그먼트에는 식별용 <strong>포트 번호</strong>를 포함하여 수신 측에서 올바른 애플리케이션으로 전달된다.</p>
+<ul>
+<li><strong>포트(Port)</strong>: IP 주소 내 논리적 통신 지점, 애플리케이션 식별 및 데이터 분배 역할</li>
+<li><strong>소켓(Socket)</strong>: 실제 데이터 송수신 통로 제공. 서버와 클라이언트 간 세션 연결 관리</li>
+</ul>
+</section>
+<section id="전송-계층-프로토콜" class="level3">
+<h3 class="anchored" data-anchor-id="전송-계층-프로토콜">5. 전송 계층 프로토콜</h3>
+<section id="tcptransmission-control-protocol" class="level4">
+<h4 class="anchored" data-anchor-id="tcptransmission-control-protocol">5.1 TCP(Transmission Control Protocol)</h4>
+<ul>
+<li>연결 지향형 프로토콜</li>
+<li>신뢰성 있는 데이터 전달 및 순서 유지, 흐름 제어 및 혼잡 제어 지원</li>
+<li>3-way handshake를 통한 연결 설정</li>
+<li>사용 사례: 웹, 이메일, 파일 전송 등</li>
+<li>헤더 구조: 복잡하지만 신뢰성 확보에 필수적</li>
+</ul>
+</section>
+<section id="udpuser-datagram-protocol" class="level4">
+<h4 class="anchored" data-anchor-id="udpuser-datagram-protocol">5.2 UDP(User Datagram Protocol)</h4>
+<ul>
+<li>비연결형 프로토콜</li>
+<li>빠른 전송 속도, 최소 헤더 구조, 신뢰성 보장 없음</li>
+<li>사용 사례: 스트리밍, 실시간 게임</li>
+<li>헤더 구조: 송수신 포트, 길이, 체크섬 등 최소 정보 포함</li>
+</ul>
+</section>
+</section>
+<section id="tcp-연결-설정-과정" class="level3">
+<h3 class="anchored" data-anchor-id="tcp-연결-설정-과정">6. TCP 연결 설정 과정</h3>
+<p>TCP 연결은 3-way handshake를 통해 이루어진다:</p>
+<ol type="1">
+<li><strong>SYN</strong>: 클라이언트 → 서버, 연결 요청</li>
+<li><strong>SYN-ACK</strong>: 서버 → 클라이언트, 연결 수락 및 응답</li>
+<li><strong>ACK</strong>: 클라이언트 → 서버, 연결 확정</li>
+</ol>
+<p>각 단계에서 <strong>시퀀스 번호(Seq)</strong>와 <strong>확인 응답 번호(Ack)</strong>를 사용하여 신뢰성을 유지하며, 데이터 흐름과 재전송 관리를 지원한다.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

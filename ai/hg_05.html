@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="혼자 공부하는 머신러닝+딥러닝">
+<meta name="dcterms.date" content="2024-10-05">
 
-<title>제목 – StudyLog</title>
+<title>트리 알고리즘 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,17 +73,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -91,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -114,39 +117,221 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#사이킷런-1.0-버전-아래에서는-다음-라인의-주석을-해제하고-실행하세요." id="toc-사이킷런-1.0-버전-아래에서는-다음-라인의-주석을-해제하고-실행하세요." class="nav-link active" data-scroll-target="#사이킷런-1.0-버전-아래에서는-다음-라인의-주석을-해제하고-실행하세요.">사이킷런 1.0 버전 아래에서는 다음 라인의 주석을 해제하고 실행하세요.</a></li>
+  <li><a href="#from-sklearn.experimental-import-enable_hist_gradient_boosting" id="toc-from-sklearn.experimental-import-enable_hist_gradient_boosting" class="nav-link" data-scroll-target="#from-sklearn.experimental-import-enable_hist_gradient_boosting">from sklearn.experimental import enable_hist_gradient_boosting</a></li>
+  <li><a href="#pip-install-lightgbm" id="toc-pip-install-lightgbm" class="nav-link" data-scroll-target="#pip-install-lightgbm">!pip install lightgbm</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">제목</h1>
-</div>
-<div class="quarto-title-meta">
+<h1 class="title">트리 알고리즘</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">1</div>
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>About this blog</p>
+  </div>
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://twitter.com" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">Twitter</span>
-  </a>
-  <a href="https://linkedin.com" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>혼자 공부하는 머신러닝+딥러닝 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>트리 알고리즘, 하이퍼파라미터 튜닝 실습, 그리고 앙상블 모델에 대해 다루고자 한다.</p>
+<p>05 - 1 . 결정 트리</p>
+<p>5-1 결정 트리.ipynb</p>
+<p>https://colab.research.google.com/github/rickiepark/hg-mldl/blob/master/5-1.ipynb</p>
+<p>와인 샘플 데이터 불러오기.</p>
+<p>import pandas as pd wine = pd.read_csv(‘https://bit.ly/wine_csv_data’)</p>
+<p>처음 5개의 샘플 확인.</p>
+<p>전체 와인 데이터에서 화이트 와인을 골라내는 문제.</p>
+<p>각 열 데이터 확인 및 누락된 데이터 확인.</p>
+<p>wine.info()</p>
+<p>열에 대한 간략한 통계량 출력.</p>
+<p>wine.describe()</p>
+<p>훈련 세트와 데스트 세트로 나누기.</p>
+<p>data = wine[[‘alcohol’, ‘sugar’, ‘pH’]].to_numpy() target = wine[‘class’].to_numpy()</p>
+<p>from sklearn.model_selection import train_test_split train_input, test_input, train_target, test_target = train_test_split( data, target, test_size = 0.2, random_state = 42)</p>
+<p>print(train_input.shape, test_input.shape)</p>
+<p>훈련 세트 전처리.</p>
+<p>from sklearn.preprocessing import StandardScaler</p>
+<p>ss = StandardScaler() ss.fit(train_input)</p>
+<p>train_scaled = ss.transform(train_input) test_scaled = ss.transform(test_input)</p>
+<p>from sklearn.linear_model import LogisticRegression</p>
+<p>lr = LogisticRegression() lr.fit(train_scaled, train_target)</p>
+<p>print(lr.score(train_scaled, train_target)) print(lr.score(test_scaled, test_target))</p>
+<p>점수가 높지 않음을 확인.</p>
+<p>학습한 계수와 절편 출력.</p>
+<p>print(lr.coef_, lr.intercept_)</p>
+<p>결정 트리 정확도 평가하기.</p>
+<p>from sklearn.tree import DecisionTreeClassifier dt = DecisionTreeClassifier(random_state = 42) dt.fit(train_scaled, train_target)</p>
+<p>print(dt.score(train_scaled, train_target)) print(dt.score(test_scaled, test_target))</p>
+<p>노트가 어떤 특성으로 이뤄졌는지 확인하기.</p>
+<p>import matplotlib.pyplot as plt from sklearn.tree import plot_tree</p>
+<p>plt.figure(figsize = (10,7)) plot_tree(dt)</p>
+<p>plt.figure(figsize = (10,7)) plot_tree(dt, max_depth = 1, filled = True, feature_names = [‘alcohol’, ‘sugar’, ‘pH’])</p>
+<p>불순도</p>
+<p>정보이득</p>
+<p>가지치기</p>
+<p>최대 3개의 노드까지 성장히기.</p>
+<p>dt = DecisionTreeClassifier(max_depth = 3, random_state = 42) dt.fit(train_scaled, train_target)</p>
+<p>print(dt.score(train_scaled, train_target)) print(dt.score(test_scaled, test_target))</p>
+<p>함수로 그리기.</p>
+<p>plt.figure(figsize = (20,15)) plot_tree(dt, filled = True, feature_names = [‘alcohol’, ‘sugar’, ‘pH’])</p>
+<p>다시 훈련하기.</p>
+<p>dt = DecisionTreeClassifier(max_depth = 3, random_state = 42) dt.fit(train_input, train_target)</p>
+<p>print(dt.score(train_input, train_target)) print(dt.score(test_input, test_target))</p>
+<p>특성값을 표준점수로 바꾸지 않기.</p>
+<p>plt.figure(figsize = (20,15)) plot_tree(dt, filled = True, feature_names = [‘alcohol’, ‘sugar’, ‘pH’])</p>
+<p>특성 중요도 출력하기.</p>
+<p>print(dt.feature_importances_)</p>
+<p>dt = DecisionTreeClassifier(min_impurity_decrease = 0.0005, random_state = 42) dt.fit(train_input, train_target)</p>
+<p>print(dt.score(train_input, train_target)) print(dt.score(test_input, test_target))</p>
+<p>plt.figure(figsize = (20,15)) plot_tree(dt, filled = True, feature_names = [‘alcohol’, ‘sugar’, ‘pH’])</p>
+<p>05 - 2 . 교차 검증 &amp; 그리드 서치</p>
+<p>5-2 교차 검증과 그리드 서치.ipynb</p>
+<p>Run, share, and edit Python notebooks</p>
+<p>colab.research.google.com import pandas as pd wine = pd.read_csv(‘https://bit.ly/wine_csv_data’)</p>
+<p>data = wine[[‘alcohol’, ‘sugar’, ‘pH’]].to_numpy() target = wine[‘class’].to_numpy()</p>
+<p>from sklearn.model_selection import train_test_split</p>
+<p>train_input, test_input, train_target, test_target = train_test_split( data, target, test_size=0.2, random_state=42)</p>
+<p>sub_input, val_input, sub_target, val_target = train_test_split( train_input, train_target, test_size=0.2, random_state=42)</p>
+<p>print(sub_input.shape, val_input.shape)</p>
+<p>모델 평가하기.</p>
+<p>from sklearn.tree import DecisionTreeClassifier</p>
+<p>dt = DecisionTreeClassifier(random_state=42) dt.fit(sub_input, sub_target)</p>
+<p>print(dt.score(sub_input, sub_target)) print(dt.score(val_input, val_target))</p>
+<p>교차 검증</p>
+<p>from sklearn.model_selection import cross_validate import pandas as pd</p>
+<p>scores = cross_validate(dt, train_input, train_target) scores_df = pd.DataFrame(scores) scores_df</p>
+<p>최상의 검증 점수.</p>
+<p>import numpy as np print(np.mean(scores[‘test_score’]))</p>
+<p>교차 검증.</p>
+<p>from sklearn.model_selection import StratifiedKFold scores = cross_validate(dt, train_input, train_target, cv = StratifiedKFold()) print(np.mean(scores[‘test_score’]))</p>
+<p>교차 검증.</p>
+<p>splitter = StratifiedKFold(n_splits = 10, shuffle=True, random_state=42) scores = cross_validate(dt, train_input, train_target, cv=splitter) print(np.mean(scores[‘test_score’]))</p>
+<p>하이퍼파라미터 튜닝 딕셔너리 만들기.</p>
+<p>from sklearn.model_selection import GridSearchCV params = {‘min_impurity_decrease’: [0.0001, 0.0002, 0.0003, 0.0004, 0.0005]} gs = GridSearchCV(DecisionTreeClassifier(random_state=42), params, n_jobs=-1) gs.fit(train_input, train_target)</p>
+<p>dt = gs.best_estimator_ print(dt.score(train_input, train_target))</p>
+<p>print(gs.best_params_)</p>
+<p>0.0001이 가장 좋은 값으로 선택.</p>
+<p>5번의 교차 검증.</p>
+<p>print(gs.cv_results_[‘mean_test_score’])</p>
+<p>최상의 매개변수로 만 검증 점수의 조합.</p>
+<p>best_index = np.argmax(gs.cv_results_[‘mean_test_score’]) print(gs.cv_results_[‘params’][best_index])</p>
+<p>지정하기.</p>
+<p>params = {‘min_impurity_decrease’: np.arange(0.0001, 0.001, 0.0001), ‘max_depth’: range(5, 20, 1), ‘min_samples_split’: range(2, 100, 10) }</p>
+<p>gs = GridSearchCV(</p>
+<pre><code>DecisionTreeClassifier(random_state = 42), 
+params, n_jobs = -1)</code></pre>
+<p>gs.fit(train_input, train_target)</p>
+<p>최상의 매개변수 조합확인.</p>
+<p>print(gs.best_params_)</p>
+<p>최상의 교차 검증 점수 확인.</p>
+<p>print(np.max(gs.cv_results_[‘mean_test_score’]))</p>
+<p>랜덤서치</p>
+<p>from scipy.stats import uniform, randint rgen = randint(0, 10) rgen.rvs(10)</p>
+<p>샘플링 숫자 늘리기.</p>
+<p>np.unique(rgen.rvs(1000), return_counts=True)</p>
+<p>10개의 실수 추출.</p>
+<p>ugen = uniform(0, 1) ugen.rvs(10)</p>
+<p>탐색.</p>
+<p>params = {‘min_impurity_decrease’: uniform(0.0001, 0.001), ‘max_depth’: randint(20, 50), ‘min_samples_split’: randint(2, 25), ‘min_samples_leaf’: randint(1, 25), }</p>
+<p>from sklearn.model_selection import RandomizedSearchCV</p>
+<p>gs = RandomizedSearchCV( DecisionTreeClassifier(random_state = 42), params,n_iter = 100, n_jobs = -1, random_state = 42) gs.fit(train_input, train_target)</p>
+<p>매개변수에 지정.</p>
+<p>gs.best_params_</p>
+<p>최고의 교차 검증 점수 확인.</p>
+<p>print(np.max(gs.cv_results_[‘mean_test_score’]))</p>
+<p>테스트 세트의 성능 확인.</p>
+<p>dt = gs.best_estimator_ print(dt.score(test_input, test_target))</p>
+<p>gs = RandomizedSearchCV( DecisionTreeClassifier(splitter = ‘random’, random_state = 42), params, n_iter = 100, n_jobs = -1, random_state = 42 ) gs.fit(train_input, train_target)</p>
+<p>gs.best_params_</p>
+<p>print(np.max(gs.cv_results_[‘mean_test_score’]))</p>
+<p>dt = gs.best_estimator_ print(dt.score(test_input, test_target))</p>
+<p>05 - 3 . 트리의 앙상블</p>
+<p>5-3 트리의 앙상블.ipynb</p>
+<p>Run, share, and edit Python notebooks</p>
+<p>colab.research.google.com import numpy as np import pandas as pd from sklearn.model_selection import train_test_split</p>
+<p>wine = pd.read_csv(‘https://bit.ly/wine_csv_data’)</p>
+<p>data = wine[[‘alcohol’, ‘sugar’, ‘pH’]].to_numpy() target = wine[‘class’].to_numpy()</p>
+<p>train_input, test_input, train_target, test_target = train_test_split( data, target, test_size=0.2, random_state=42)</p>
+<p>from sklearn.model_selection import cross_validate from sklearn.ensemble import RandomForestClassifier</p>
+<p>rf = RandomForestClassifier(n_jobs=-1, random_state=42) scores = cross_validate(rf, train_input, train_target, return_train_score=True, n_jobs=-1)</p>
+<p>print(np.mean(scores[‘train_score’]), np.mean(scores[‘test_score’]))</p>
+<p>rf.fit(train_input, train_target) print(rf.feature_importances_)</p>
+<p>rf = RandomForestClassifier(oob_score=True, n_jobs=-1, random_state=42)</p>
+<p>rf.fit(train_input, train_target) print(rf.oob_score_)</p>
+<p>from sklearn.ensemble import ExtraTreesClassifier et = ExtraTreesClassifier(n_jobs=-1, random_state=42) scores = cross_validate(et, train_input, train_target, return_train_score=True, n_jobs=-1)</p>
+<p>print(np.mean(scores[‘train_score’]), np.mean(scores[‘test_score’]))</p>
+<p>et.fit(train_input, train_target) print(et.feature_importances_)</p>
+<p>from sklearn.ensemble import GradientBoostingClassifier</p>
+<p>gb = GradientBoostingClassifier(random_state=42) scores = cross_validate(gb, train_input, train_target, return_train_score=True, n_jobs=-1)</p>
+<p>print(np.mean(scores[‘train_score’]), np.mean(scores[‘test_score’]))</p>
+<p>gb = GradientBoostingClassifier(n_estimators=500, learning_rate=0.2, random_state=42) scores = cross_validate(gb, train_input, train_target, return_train_score=True, n_jobs=-1)</p>
+<p>print(np.mean(scores[‘train_score’]), np.mean(scores[‘test_score’]))</p>
+<p>gb.fit(train_input, train_target) print(gb.feature_importances_)</p>
+<section id="사이킷런-1.0-버전-아래에서는-다음-라인의-주석을-해제하고-실행하세요." class="level1">
+<h1>사이킷런 1.0 버전 아래에서는 다음 라인의 주석을 해제하고 실행하세요.</h1>
+</section>
+<section id="from-sklearn.experimental-import-enable_hist_gradient_boosting" class="level1">
+<h1>from sklearn.experimental import enable_hist_gradient_boosting</h1>
+<p>from sklearn.ensemble import HistGradientBoostingClassifier</p>
+<p>hgb = HistGradientBoostingClassifier(random_state=42) scores = cross_validate(hgb, train_input, train_target, return_train_score=True, n_jobs=-1)</p>
+<p>print(np.mean(scores[‘train_score’]), np.mean(scores[‘test_score’]))</p>
+<p>from sklearn.inspection import permutation_importance</p>
+<p>hgb.fit(train_input, train_target) result = permutation_importance(hgb, train_input, train_target, n_repeats=10, random_state=42, n_jobs=-1) print(result.importances_mean)</p>
+<p>result = permutation_importance(hgb, test_input, test_target, n_repeats=10, random_state=42, n_jobs=-1) print(result.importances_mean)</p>
+<p>hgb.score(test_input, test_target)</p>
+<p>from xgboost import XGBClassifier</p>
+<p>xgb = XGBClassifier(tree_method=‘hist’, random_state=42) scores = cross_validate(xgb, train_input, train_target, return_train_score=True, n_jobs=-1)</p>
+<p>print(np.mean(scores[‘train_score’]), np.mean(scores[‘test_score’]))</p>
+</section>
+<section id="pip-install-lightgbm" class="level1">
+<h1>!pip install lightgbm</h1>
+<p>from lightgbm import LGBMClassifier lgb = LGBMClassifier(random_state = 42) scores = cross_validate(lgb, train_input, train_target, return_train_score = True, n_jobs = -1) print(np.mean(scores[‘train_score’]), np.mean(scores[‘test_score’]))</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

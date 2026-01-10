@@ -56,41 +56,54 @@
   {
     "listing": "/ai-ml-dl.html",
     "items": [
-      "/ai/ml_16.html",
-      "/ai/ml_11.html",
-      "/ai/ml_12.html",
-      "/ai/ml_13.html",
-      "/ai/ml_14.html",
-      "/ai/ml_15.html",
-      "/ai/ml_17.html",
-      "/ai/ml_10.html",
-      "/ai/ml_07.html",
-      "/ai/ml_08.html",
-      "/ai/ml_09.html",
-      "/ai/ml_03.html",
-      "/ai/ml_04.html",
-      "/ai/ml_05.html",
-      "/ai/ml_06.html",
-      "/ai/ml_01.html",
-      "/ai/ml_02.html"
+      "/ai/ml/ml_16.html",
+      "/ai/ml/ml_11.html",
+      "/ai/ml/ml_12.html",
+      "/ai/ml/ml_13.html",
+      "/ai/ml/ml_14.html",
+      "/ai/ml/ml_15.html",
+      "/ai/ml/ml_17.html",
+      "/ai/ml/ml_10.html",
+      "/ai/ml/ml_07.html",
+      "/ai/ml/ml_08.html",
+      "/ai/ml/ml_09.html",
+      "/ai/ml/ml_03.html",
+      "/ai/ml/ml_04.html",
+      "/ai/ml/ml_05.html",
+      "/ai/ml/ml_06.html",
+      "/ai/ml/ml_01.html",
+      "/ai/ml/ml_02.html",
+      "/ai/hg_05.html",
+      "/ai/hg_04.html",
+      "/ai/hg_03.html",
+      "/ai/hg_02.html"
     ]
   },
   {
     "listing": "/cybersec.html",
     "items": [
-      "/cs/bn_13.html",
-      "/cs/bn_12.html",
-      "/cs/bn_11.html",
-      "/cs/bn_10.html",
-      "/cs/bn_09.html",
-      "/cs/bn_08.html",
-      "/cs/bn_07.html",
-      "/cs/bn_06.html",
-      "/cs/bn_05.html",
-      "/cs/bn_04.html",
-      "/cs/bn_03.html",
-      "/cs/bn_02.html",
-      "/cs/bn_01.html"
+      "/cs/cs_01.html",
+      "/cs/bn/bn_13.html",
+      "/cs/bn/bn_12.html",
+      "/cs/bn/bn_11.html",
+      "/cs/bn/bn_10.html",
+      "/cs/bn/bn_09.html",
+      "/cs/bn/bn_08.html",
+      "/cs/bn/bn_07.html",
+      "/cs/bn/bn_06.html",
+      "/cs/bn/bn_05.html",
+      "/cs/bn/bn_04.html",
+      "/cs/bn/bn_03.html",
+      "/cs/bn/bn_02.html",
+      "/cs/bn/bn_01.html"
+    ]
+  },
+  {
+    "listing": "/cg-hw.html",
+    "items": [
+      "/ch/uno_02.html",
+      "/ch/cg_01.html",
+      "/ch/uno_01.html"
     ]
   }
 ]
