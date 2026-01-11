@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-11-07">
 
-<title>cg-hw – StudyLog</title>
+<title>섬유 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,125 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">섬유</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 7, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>섬유의 전반적인 개념과 합성 섬유에 대해 다루고자 한다.</p>
+<p>01 천연 섬유</p>
+<ol type="1">
+<li>면 (Cotton, 綿) 목화나무의 열매에서 얻어지며, 부드럽고 통기성이 뛰어난 특성을 가지고 있다.</li>
+</ol>
+<p>그러나 물에 젖으면 구김이 잘 생기고 주름이 쉽게 지기 때문에 관리가 필요한다.</p>
+<ol start="2" type="1">
+<li><p>모 (Wool, 毛) 양털에서 얻어지며, 뛰어난 보온성과 따뜻함을 제공한다. 하지만 빨래 후 사이즈가 줄어드는 경향이 있다.</p></li>
+<li><p>비단 (Silk, 絲) 누에고치에서 얻은 섬유로, 부드럽고 고급스럽고 아름다우며 고급 의류에 자주 사용된다. 그러나 내구성이 비교적 약하고, 세탁 시 손상되기 쉬운 단점이 있다.</p></li>
+</ol>
+<p>또한, 가격이 상대적으로 높다.</p>
+<p>02 합성 섬유 석탄이나 석유를 원료로 하여 화학적 과정을 통해 제조된다.</p>
+<p>이 과정은 환경에 영향을 미칠 수 있지만, 내구성이 뛰어나고 다양한 용도로 사용된다. 천연섬유에 비해 땀과 습기를 잘 흡수하지 않으며 정전기가 발생하기 쉽지만, 세탁 후 빨리 마르는 장점이 있다.</p>
+<p>1935년, 듀폰에서 월리스 캐로더스와 그의 연구팀이 최초의 합성섬유인 나일론(Nylon)을 개발한다. 웰스(S. Wells)와 로젠타울(E. Rosenbaum) 등 과학자들도 이 연구에 기여했다.</p>
+<p>이는 합성섬유 산업에 큰 전환점을 가져왔다.</p>
+<p>1938년 2월, 듀폰 회사는 기존의 돼지 털 대신 나일론을 처음으로 칫솔의 솔 소재로 상용화였다.</p>
+<p>위생적이고 내구성이 뛰어난 특성으로 칫솔 산업에 큰 영향을 미쳤다.</p>
+<p>돼지 털을 사용한 칫솔은 위생에 문제가 있을 수 있었고, 알레르기나 세균 번식 우려도 존재했기 때문에,</p>
+<p>나일론은 훨씬 개선된 대체물로 자리잡았다.</p>
+<p>1940년 5월 15일, 나일론을 사용한 스타킹이 판매되었다.</p>
+<p>단순히 피부를 가리는 용도에 그쳤던 이전의 스타킹과 달리, 각선미를 강조하고, 더욱 편안하며 내구성이 뛰어났다.</p>
+<p>나일론 스타킹은 여성들로부터 큰 호응을 얻었고, 출시 몇 시간 만에 400만 켤레가 팔리는 기록을 세웠다.</p>
+<p>또한, 피부를 완전히 가리지 않는 특성 때문에, 미용과 패션에 대한 새로운 문화를 창출했다.</p>
+<p>발래방에서는 나일론을 사용한 빨래망 등이 실용적으로 사용되었으며, 특히 나일론 스타킹은 여성들의 패션 아이템으로 자리잡았고, 그로 인해 미용과 패션에 대한 관심이 높아졌다.</p>
+<p>군사적인 용도로도 큰 변화를 일으켰다.</p>
+<p>낙하산의 천, 군용 텐트, 밧줄, 타이어 등 다양한 군사 장비에 사용되었다. 특히, 내구성과 경량성이 중요한 군사 분야에서 중요한 역할을 하였다.</p>
+<p>그러나, 나일론은 일상적인 의류에는 다소 불편할 수 있다. 이는 통기성이 부족하고, 유연성이나 편안함이 떨어지기 때문이다.</p>
+<p>1941년, 석유에서 추출하여 폴리에스터(Polyester) 섬유를 개발한다. 1946년, 영국에서 첫 상품화가 되었고, 1953년, 미국의 듀폰에서 본격적으로 상업화가 시작했다.</p>
+<p>일반적인 옷감으로 널리 사용되며, 내구성, 주름 방지 특성, 색상 유지력이 뛰어나 일상복 및 여러 의류에 많이 사용된다.</p>
+<p>생산이 용이하고, 세탁 후 형태가 잘 유지되며 내마모성이 높아 의류 산업에서 중요한 역할을 한다.</p>
+<p>또한, 의류용으로 적합한 특성을 보유하고 있어, 현재 합성섬유 시장의 큰 비중(약 3분의 2)을 차지하고 있다.</p>
+<p>1950년, 미국의 듀폰사는 석유에서 추출한 아크릴(Acrylic) 섬유를 “Orlon”이라는 제품명으로 생산하기 시작했다. 가볍고 부드러우며, 보온성이 뛰어나 겨울 의류나 따뜻한 옷감에 많이 사용된다. 이는 양털의 특성을 가지면서 가격이 저렴하고 세탁이 용이한 장점이 있다.</p>
+<p>그러나 여름 의류나 다양한 용도에 적합하지는 않으며, 통기성이 떨어질 수 있다.</p>
+<p>결과적으로, 합성 섬유는 천연 섬유에 비해 생산이 용이하고, 관리와 유지보수가 쉬워 대중적인 선택이 되고 있다.</p>
+<p>03 기타 합성 섬유</p>
+<ol type="1">
+<li>폴리우레탄 (Polyurethane)</li>
+</ol>
+<p>신축성이 뛰어나며, 적은 양으로도 우수한 효과를 낼 수 있다.</p>
+<p>이 소재는 활동성과 편안함을 중시하는 스포츠웨어나 레깅스, 수영복과 같은 기능성 의류에 많이 사용된다.</p>
+<p>’스판덱스(Spandex)’라는 상표명으로도 알려져 있으며, 이는 고가의 상표명으로 사용된다. 이는 폴리우레탄 기반이지만 특수한 가공을 통해 더욱 높은 탄성과 내구성을 제공한다.</p>
+<p>고무보다 뛰어난 내구성을 가지며, 최대 5배까지 늘어나도 원래 상태로 복귀하는 우수한 신축성을 가졌다.</p>
+<p>또한, 산과 알칼리에 대한 높은 내화학성을 가지며, 주로 다른 섬유와 혼합되어 사용된다.</p>
+<ol start="2" type="1">
+<li>아라미드 (Aramid, Aromatic Polyamides)</li>
+</ol>
+<p>극한 환경에서도 잘 견디는 내열성과 강한 물성을 가진 합성 섬유. 고온과 마모에 강하며, 내화학성이 높고, 강철의 5배에 달하는 강도, 나일론의 10배에 이르는 신축성, 경량성, 그리고 우수한 난연성을 가진다.</p>
+<p>이로 인해 중장비용 로프, 산업용 보호 의류와 장갑, 소방복, 방탄 재킷, 방탄 헬멧 등 다양한 용도에 활용되고 있다.</p>
+<p>1973년, 듀폰에서 개발한 파라 아라미드 섬유 제품인 케블라(Kevlar)가 있다.</p>
+<p>일반 아라미드 섬유의 강화 버전인 파라 아라미드 섬유는 방탄 조끼, 방검복, 우주 장비 등에서 활용된다.</p>
+<p>머시룸 효과 (Mushroom Effect)</p>
+<p>재료가 특정 충격을 받을 때 형태가 버섯 모양으로 퍼지는 특성.</p>
+<p>주로 방탄복과 같은 보호 장비에서 충격을 완화하고 흡수하는 데 쓰이며, 충격이 가해지는 순간 표면적을 넓혀 피해를 최소화하는 원리로 작용한다.</p>
+<ol start="3" type="1">
+<li>부직포 (不織布, Non-woven Fabric)</li>
+</ol>
+<p>섬유를 직조하지 않고 랜덤하게 배치한 섬유를 접착제로 붙여 만든 소재.</p>
+<p>직물과 달리 부직포는 신축성이 거의 없으며, 내구성이 낮아 약한 힘에도 쉽게 찢어질 수 있다.</p>
+<p>그러나, 가볍고 통기성이 뛰어나며 보온성도 우수한 특성으로 인해 다양한 1회용 용도로 많이 사용되며, 대표적으로 마스크에 활용된다.</p>
+<p>이는 직물에 비해 구조가 불규칙하고 미세한 면적이 많아 미세 이물질이 잘 통과하지 못하기 때문이다.</p>
+<p>부직포는 미세먼지를 막는 2차 필터 역할을 하며, 정전기 처리된 3차 필터가 초미세먼지를 걸러낸다.</p>
+<p>정전기는 약 8 ~ 9시간이 지나면 사라져 초미세먼지 차단 효과가 떨어지므로, 미세먼지가 심한 날에는 새 마스크를 사용하는 것이 좋다.</p>
+<p>이와 같은 원리로 포장지에도 정전기 유지 기능을 적용하여 이물질 방지 효과를 높이고 있다.</p>
+<p>원료로는 주로 폴리에스터(Polyester)와 폴리프로필렌(Polypropylene) 같은 섬유가 사용된다.</p>
+<ol start="4" type="1">
+<li>탄소 섬유 강화 플라스틱 (CFRP, Carbon Fiber Reinforced Polymer)</li>
+</ol>
+<p>강도 대비 가벼운 무게가 특징으로, 자동차 경량화 및 에너지 효율성을 위해 널리 사용되고 있다.</p>
+<p>예를 들어, 전기차 배터리는 평균 400 ~ 540kg에 달하는데, 이처럼 무거운 배터리는 차량의 전기 소모를 늘리고 타이어 마모를 가속화시킨다.</p>
+<p>이를 해결하기 위해 자동차 제조업체는 CFRP를 사용해 차량의 무게를 줄이고 있다.</p>
+<p>CFRP는 플라스틱에 탄소 섬유를 직물 형태로 붙이는 과정을 반복해 복잡한 모양을 제작할 수 있다.</p>
+<p>초기에는 골프채와 낚싯대 같은 스포츠 장비에 주로 사용되었으나, 현재는 F1 경주용 자동차, 고압 가스통, 보잉 787에도 활용되고 있다.</p>
+<p>예를 들어, BMW i7(2022)에서는 충돌 시 강한 힘을 받는 부위를 제외한 나머지 차체에 탄소 섬유를 적용해 경량화를 실현했다.</p>
+<p>이처럼 탄소 섬유는 차량 경량화뿐 아니라 항공, 스포츠, 우주 기술 분야에서도 중요한 역할을 하고 있다.</p>
+<p>자율 비행 개인 항공기(OPPAV)와 같은 차세대 항공기에서도 활용되지만, 배터리 소모량이 많아 현재 상용화에는 한계가 있다.</p>
+<p>또한, 내구성을 활용하여 수소연료 보관용 고압 수소통 제작에도 사용된다.</p>
+<p>런닝화의 경우 나이키(Nike)가 탄소 섬유 플레이트를 최초로 도입하였으며, 현재 전 세계 운동화 생산 시장에서 약 42%의 점유율을 보유하고 있다.</p>
 
 
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

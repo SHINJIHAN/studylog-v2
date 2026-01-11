@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-11-07">
 
-<title>cg-hw – StudyLog</title>
+<title>고무 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,164 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">고무</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 7, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>고무의 전반적인 개념과 합성 고무에 대해 다루고자 한다.</p>
+<p>01 발견</p>
+<p>기원전 1600년경, 중남미 지역의 올멕 문명에서 고무를 처음으로 사용한 흔적이 발견된다.</p>
+<p>(이 고무는 Hevea brasiliensis에서 추출한 라텍스를 의미.)</p>
+<p>고무는 의식용 물품, 방수 재료, 공놀이 등에 활용되었다.</p>
+<p>기원전 200년 ~ 기원후 900년경, 마야 문명이 고무를 더욱 광범위하게 활용했다.</p>
+<p>마야인들은 천연 라텍스를 채취한 뒤, 나무의 수액과 섞어 탄성과 내구성이 높은 고무를 만들어 사용했다.</p>
+<p>이것은 주로 방수 의복, 공놀이(Pok-Ta-Pok), 의식적 도구 제작 등에 사용되었다.</p>
+<p>14세기 ~ 15세기경, 아즈텍 문명이 마야 문명을 계승해 고무 사용을 지속했다.</p>
+<p>아즈텍인들은 고무로 만든 공을 종교적 의식과 여가 활동에 사용했으며,</p>
+<p>고무나무가 자생하는 열대 지역과 활발히 교류했다.</p>
+<p>1493 ~ 1496년, 크리스토퍼 콜럼버스의 두 번째 항해 중</p>
+<p>(Christopher Columbus, 1450–1506)</p>
+<p>카리브해 지역(히스파니올라, 쿠바, 자메이카 등)을 탐험하며 원주민들이 사용하는 고무 공을 목격했다.</p>
+<p>그는 이를 유럽으로 가져갔지만, 당시 유럽에서는 고무의 실질적 용도를 이해하지 못했다.</p>
+<p>16세기 초반, 스페인 탐험가들이 중앙아메리카와 남아메리카에서 아즈텍 및 마야 문명을 접하며 고무 사용법과 그 제작 과정을 보고했다.</p>
+<p>스페인 사제와 학자들이 고무의 특징과 활용법을 유럽에 기록으로 남기기 시작했다.</p>
+<p>02 고무의 활용 및 어원</p>
+<p>1770년, 영국의 화학자 조지프 프리스틀리</p>
+<p>(Joseph Priestley, 1733–1804)</p>
+<p>고무를 지우개로 사용하는 법을 발견하며 유럽에서 고무의 실용성이 주목받기 시작했다.</p>
+<p>‘Rubber’ 의 어원 고무의 영어 명칭인 ’Rubber’는 18세기 후반에 처음 사용되었다.</p>
+<p>이는 고무의 주요 초기 용도가 연필 자국을 문질러 지우는 도구(지우개)였기 때문이다.</p>
+<p>당시 연필로 쓴 글씨를 지우기 위해 고무를 문질러 사용하는 방식에서 ‘Rub’이라는 단어가 연관되었고, 이로 인해 고무는 ’Rubber’ 라는 이름을 얻었다.</p>
+<p>지우개의 영어 명칭 영국식 영어에서는 ’Rubber’라는 단어가 여전히 지우개를 의미한다.</p>
+<p>반면, 미국식 영어에서는 ‘Eraser’ 가 지우개를 뜻하며, ’Rubber’는 일반적으로 고무를 가리키는 단어로 사용된다.</p>
+<p>‘Eraser’ 의 어원 라틴어 ‘Eradere’ 에서 유래했다.</p>
+<p>’ e - ’ 는 ‘out’ (밖으로), ‘radere’ 는 ‘scrape’(긁다, 문지르다)라는 의미이다.</p>
+<p>합쳐서 ‘eradere’는 ’긁어서 없애다’ 를 뜻하며, 영어로는 ‘erase’(지우다)로 발전했다.</p>
+<p>‘Eraser’ 는 ‘지우는 도구’ 를 의미하며, 18세기 후반부터 사용되기 시작했다.</p>
+<p>‘고무’ 의 어원 프랑스어 ‘gomme’(고므), 네덜란드어 ‘gomm’(곰), 그리고 일본어 ‘ゴム’(고무)에서 유래되었다.</p>
+<p>여기서 ’gomme’는 고무나무 수지를 뜻하는 ’rubber’와 관련이 있으며, 이 단어들이 한국어로 넘어오면서 현재의 ’고무’라는 단어로 정착하게 되었다.</p>
+<p>영어에서 ’gum’과 독일어의 ’Gummi’는 고무와 유사한 성질을 가진 물질을 의미하는 단어로,</p>
+<p>고무와 관련된 의미에서 유래하였지만, 이들 단어는 고무의 원래 의미인 ’고무나무 수지’와는 다소 차이가 있다.</p>
+<p>고무나무의 수지나 그것을 인공적으로 흉내낸 합성 고무는 한국어로 고무라고 불리며, 일반적인 나무 수지에는 껌이나 검이라는 단어를 사용한다.</p>
+<p>씹는 껌(gum)은 치클나무의 수지에서 추출된 물질로, 영어의 gum과 그 어원은 동일하지만, 우리는 이를 껌이라고 따로 구분하여 부르고 있다.</p>
+<p>즉, ‘껌’ 과 ‘고무’ 의 어원은 같지만, 그 의미와 사용에 차이가 있다.</p>
+<p>03 가황 고무 (Vulcanized Rubber)</p>
+<p>1823년, 영국의 발명가인 찰스 매킨토시</p>
+<p>(Charles Macintosh, 1766–1843)</p>
+<p>그는 석탄 타르에서 얻은 나프타(naphtha)를 사용해 고무를 녹이고, 이를 천 사이에 삽입하는 방법으로 방수 섬유을 만들었다.</p>
+<p>매킨토시 코트 (Macintosh Coat)</p>
+<p>매킨토시가 발명한 방수 섬유는 곧 의류 제작에 활용되어 최초의 비옷(Raincoat)가 탄생했다.</p>
+<p>이 코트는 특히 비가 자주 내리는 날씨에서 유용한 의류로 인기를 끌었다. 그러나 천연 고무를 이용한 방수 섬유는 너무 뻣뻣해 실용성이 떨어졌다.</p>
+<p>미국의 발명가인 찰스 굿이어</p>
+<p>(Charles Goodyear, 1800–1860)</p>
+<p>그는 고무의 가황법을 발명하며 고무의 산업적 활용이 본격화되었다.</p>
+<p>1839년, 천연 고무에 유황을 첨가하여 가황 고무를 발명했으며, 이로 인해 고무의 내구성, 탄력성, 안정성이 크게 향상되었다.</p>
+<p>1844년, 미국에서 가황고무 기술에 대한 특허를 획득했다. 그러나 당시 영국에서는 특허를 등록하지 못했다.</p>
+<p>영국에서는 이미 핸콕이 가황 고무와 관련된 특허를 등록한 상태였기 때문이다.</p>
+<p>영국의 발명가 토머스 핸콕</p>
+<p>(Thomas Hancock, 1786–1865)</p>
+<p>1820년대, 핸콕은 고무를 더 잘 가공할 수 있는 기술을 연구하면서 “매스티케이터(masticator)”라는 고무 연화 기계를 개발했다.</p>
+<p>1843년, 핸콕은 독립적으로 가황고무를 발명했다.</p>
+<p>그는 유황과 고무를 가열하여 고무의 내구성과 탄성을 개선하는 방법을 발견하고, 영국에서 이를 특허로 등록했다.</p>
+<p>이후 가황 고무를 매킨토시 코트에 적용하여 악취를 제거하고 기능을 개선하였다.</p>
+<p>굿이어와 핸콕의 분쟁 굿이어는 가황 고무 발명의 권리를 주장했으나,</p>
+<p>토머스 핸콕은 가황 고무 기술을 독립적으로 개발해 1843년 영국에서 특허를 먼저 등록한 상태였다.</p>
+<p>이로 인해 굿이어는 영국에서 법적 우위를 확보하지 못했으며, 유럽 시장에서 가황 고무 기술을 상업화할 권리를 잃게 되었다.</p>
+<p>결국 재정적인 문제와 특허 분쟁으로 인해 그의 회사는 파산했고, 굿이어는 한 많은 삶을 살다 1860년 쓸쓸히 생을 마감했다.</p>
+<p>1830년대 초, Liverpool Rubber사는 고무로 만든 신발 밑창인 Sand Shoes를 출시했다.</p>
+<p>이는 고무 산업 초기의 중요한 상업적 성공 사례로 여겨진다.</p>
+<p>04 고무의 응용</p>
+<p>방수용품과 타이어 고무는 그 탄력성과 방수 특성 덕분에 방수용품에 많이 사용된다.</p>
+<p>특히, 비옷이나 우산 등에 사용되는 천연 고무는 비로부터 보호하는 데 큰 역할을 한다.</p>
+<p>또한, 고무는 자동차 타이어와 같은 고성능 제품에도 필수적으로 쓰인다.</p>
+<p>1887년, 스코틀랜드의 발명가인 존 보이드 던롭</p>
+<p>(John Boyd Dunlop, 1840–1942)</p>
+<p>최초의 공기 주입식 자전거 타이어를 발명한다.</p>
+<p>자신의 아들이 자전거를 타는 동안 불편을 겪자, 공기 주입식 타이어를 발명하여 충격을 완화하고 주행 성능을 개선하는 방법을 고안했다.</p>
+<p>이는 자전거 타이어 역사에 큰 획을 그은 발명이었습니다.</p>
+<p>1891년, 프랑스의 기업가인 앙드레 미쉐린과 에두아르 미쉐린</p>
+<p>(André Michelin, 1853–1931) (Édouard Michelin, 1859–1940)</p>
+<p>그들은 탈착식 공기 주입식 자전거 타이어를 발명한다.</p>
+<p>같은 해 9월, 프랑스의 사이클 스타 샤를 테롱이</p>
+<p>(Charles Terront, 1857–1932)</p>
+<p>파리-브레스트-파리(Paris-Brest-Paris) 자전거 경주에서 사용하여 우승함으로써 그 우수성이 입증되었다.</p>
+<p>1889년, 형제는 프랑스 클레르몽페랑에서 미쉐린(Michelin) 회사를 설립하며 타이어 산업의 선구자로 자리 잡았다. 이후 자동차용 타이어를 포함한 다양한 혁신을 통해 타이어 기술을 발전시켰다.</p>
+<p>그들이 개발한 타이어는 공기를 주입하여 탄력을 제공하고, 탈부착이 가능한 설계로 유지보수가 편리한 점에서 혁신적이었다.</p>
+<p>오늘날 우리가 사용하는 현대적인 타이어와 유사한 형태로, 자동차와 자전거의 타이어 기술을 혁신적으로 발전시켰다.</p>
+<p>1895년, 미쉐린 형제는 최초의 공기 주입식 자동차용 타이어를 발명한다.</p>
+<p>이 타이어는 차량의 무게를 효과적으로 지탱하고 주행 중 충격을 흡수하여 안정성과 편안함을 크게 향상시켰다.</p>
+<p>같은 해, 이 타이어를 장착한 차량이 파리-보르도(Paris-Bordeaux) 자동차 경주에 출전하며 기술력을 입증했다.</p>
+<p>타이어 생산의 중요성 자동차 기업들이 타이어 생산에 중점을 두는 이유는 차량의 성능과 안전에 직접적인 영향을 미치기 때문이다.</p>
+<p>타이어는 도로와의 접촉을 담당하며, 자동차의 주행 성능, 연비, 제동력 등에 중요한 역할을 한다.</p>
+<p>스니커즈 (Sneakers)</p>
+<p>고무 밑창을 사용한 운동화로, 20세기 초반부터 인기를 끌었다.</p>
+<p>고무 밑창은 착용감을 높이고 내구성을 강화하며, 스포츠와 일상적인 활동에서 모두 사용되기 좋은 특성을 가지고 있다.</p>
+<p>스니커즈의 발전은 패션 아이템으로도 큰 영향을 미쳤다.</p>
+<p>05 석유 및 정유 산업의 발전 19세기 말부터 20세기 초, 석유 산업과 정유 산업이 급격히 발전하면서, 다양한 화학 제품이 생산되기 시작했다.</p>
+<p>특히, 석유화학 산업의 발전은 합성 고무를 비롯한 여러 고분자 물질의 생산을 가능하게 했다.</p>
+<p>합성 고무는 천연 고무에 비해 가격이 저렴하고, 다양한 특성을 갖출 수 있어 산업 전반에서 중요한 역할을 하게 되었다.</p>
+<p>1909년, 독일의 화학자 프리드리히 호프만</p>
+<p>(Friedrich Hofmann, 1866–1956)</p>
+<p>Bayer에서 그의 동료들과 함께 합성 고무인 폴리이소프렌(Polyisoprene) 개발한다.</p>
+<p>폴리메틸이소프렌(Polyisoprene) 기반으로 만들어졌으며, 천연 고무를 대체하려는 시도의 시작이었다.</p>
+<p>초기 합성 고무는 천연 고무에 비해 품질이 낮고, 물리적 특성이 제한적이었다.</p>
+<p>특히, 내구성과 탄성이 부족하여 상용화에 어려움을 겪었다.</p>
+<p>제1차 세계 대전(1914-1918) 동안, 주로 동남아시아 지역에서 공급되는 천연 고무의 수급이 어려워졌다.</p>
+<p>전쟁으로 인해 교역이 제한되었고, 이를 대체할 수 있는 합성 고무의 수요가 급증했다.</p>
+<p>1차 세계 대전 후, 석유화학 공업이 발전하면서 합성 고무 생산이 가능해졌다.</p>
+<p>특히, 석유에서 얻을 수 있는 화학 물질을 통해 더 나은 품질의 합성 고무를 만들 수 있는 기술이 발전하였다.</p>
+<p>1920년대 초, 부타디엔(butadiene)을 이용한 합성 고무 기술이 개발되었다.</p>
+<p>’스타이렌-부타디엔 고무’와 같은 고무 제품의 생산이 가능해졌다.</p>
+<p>(SBR, Styrene-Butadiene Rubber)</p>
+<p>이로 인해 고무의 특성이 개선되었고, 자동차 타이어 등 다양한 산업 분야에서 사용되기 시작했다.</p>
+<p>1930년대, 미국의 듀폰(DuPont)사의 윌리스 캐러더스가 개발한</p>
+<p>(Wallace Carothers, 1896–1937)</p>
+<p>네오프렌(Neoprene)이 등장하며 내구성과 특성이 크게 개선되었다.</p>
+<p>이는 합성 고무의 일종으로, 주로 자동차 타이어와 같은 산업용 제품에 사용될 수 있는 물질로 상업화되었다.</p>
+<p>또한, 내열성, 내화학성, 내유성 등을 갖춘 고무로, 다양한 산업 분야에서 널리 사용된다.</p>
+<p>골프공 소재 (1) 폴리부타디엔 (Polybutadiene) 고무의 탄력성과 내구성을 향상시켜 골프공의 충격을 잘 흡수하도록 돕는다. 이는 골프공의 비거리와 안정성에 중요한 영향을 미친다.</p>
+<ol start="2" type="1">
+<li><p>아이온 노머 (Ionomer) 골프공의 표면에 사용되며, 내구성이 뛰어나고 스핀이 잘 걸리게 해준다. 고강도와 내마모성이 뛰어나 골프공의 성능을 높이는 데 기여한다.</p></li>
+<li><p>엘라스토머 (Elastomer) 고무의 유연성과 탄성을 높여 골프공의 품질을 향상시킨다. 이는 골프공의 내구성과 비거리 향상에 중요한 역할을 한다.</p></li>
+</ol>
 
 
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

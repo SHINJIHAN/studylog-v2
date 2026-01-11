@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-10-25">
 
-<title>cg-hw – StudyLog</title>
+<title>건축 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,156 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">건축</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 25, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>건축, 부식 방지, 특수 합금, 폭죽 및 마그네슘에 대해 다루고자 한다.</p>
+<p>01 H 형강</p>
+<ol type="1">
+<li>철근 콘크리트 건축물 취성을 가진 콘크리트와 연성을 가진 철근을 결합하여 강도를 높인 구조물이다.</li>
+</ol>
+<p>하지만 초고층 건물에서는 밑바닥이 막대한 하중을 받으므로, 이러한 구조로만 지을 경우 바닥이 견디지 못할 수 있다.</p>
+<p>이를 해결하기 위해 H 형강을 사용한다.</p>
+<ol start="2" type="1">
+<li>H 형강 건축물 철을 H자 형태로 만든 구조물로, 강도가 뛰어나며 하중을 효과적으로 분산시킬 수 있다.</li>
+</ol>
+<p>덕분에 초고층 건물에서 안전성을 보장할 수 있는 중요한 자재로 활용된다.</p>
+<p>역할 고층 건물에서는 기둥이 1차적인 지지 역할을 담당하고, 내력벽 형태의 콘크리트가 이를 보조하여 2차적인 지지를 제공한다.</p>
+<p>특히 H형강은 각 부분이 균등한 하중을 받으므로 구조적으로 안정성이 뛰어나다.</p>
+<p>활용 이러한 구조를 채택하면 건물의 옆면을 얇은 유리나 금속판으로 마감할 수 있어 전체적인 무게를 줄이는 동시에 미관을 개선할 수 있다.</p>
+<p>그 결과, 고층 건물의 외관은 투명하고 세련된 모습이 되며, 이러한 설계 방식은 일반 아파트보다 상업용 건물에서 더욱 자주 사용된다.</p>
+<p>유리 사용의 장점으로는 자연광을 극대화할 수 있다는 점과 도시 경관과의 조화를 이루어 시각적 효과를 더할 수 있다는 점이 있다.</p>
+<ol start="3" type="1">
+<li>인장강도 시험 재료의 인장강도를 측정하기 위해 시험편을 일정한 속도로 인장하여 파단되는 힘을 측정한다.</li>
+</ol>
+<p>이로써 재료의 강도와 변형 특성을 평가할 수 있다.</p>
+<p>02 희생 양극법 (Sacrificial Anode Method)</p>
+<p>이 방법은 금속 구조물의 부식을 방지하기 위해 사용된다.</p>
+<p>철이 산소와 결합하는 과정에서 전자를 주기에 부식이 발생하는데, 이를 막기 위해 마그네슘과 같은 더 전자를 잘 주는 금속을 사용한다.</p>
+<p>마그네슘이 철 대신 산화됨으로써 철 구조물의 부식이 방지된다.</p>
+<ol type="1">
+<li><p>강철 기름통 강철로 만들어진 기름 통은 희생 양극법을 적용하여 산소 이온과 마그네슘 이온 (Mg²⁺)이 결합하여 부식이 방지된다.</p></li>
+<li><p>선박 선박의 경우, 아연판을 부착하여 아연이 희생 양극으로 작용하게 하여 선체의 부식을 방지한다.</p></li>
+</ol>
+<p>아연(Zn)이 산화되면서 철의 부식을 보호하는 원리이다.</p>
+<p>03 내후성강 (Atmosphere Corrosion Resisting Steel)</p>
+<p>녹이 쓰는 것에 대한 저항성이 뛰어난 금속이다.</p>
+<p>일반적인 철강은 산소와 수분에 노출될 경우 표면에서부터 산화되어 부식이 시작되지만,</p>
+<p>내후성강은 특수한 성질을 가지고 있어 부식 방지가 가능하다.</p>
+<ol type="1">
+<li>원리 내후성강의 표면에 녹이 생기면, 초기에는 갈라진 틈으로 산소가 침투하여 부식이 계속될 수 있다. 그러나 내후성강은 특정 조건에서 치밀한 산화층을 형성한다.</li>
+</ol>
+<p>이 산화층은 표면을 덮는 막처럼 작용하며, 단단하고 촘촘하여 산소나 습기가 금속 내부로 침투하는 것을 차단한다.</p>
+<p>그 결과, 강철 내부는 산소와 접촉하지 않아 부식이 멈추게 된다.</p>
+<p>이러한 자기보호 특성 덕분에 내후성강은 일반 강철보다 부식에 강하고, 훨씬 더 오래 사용할 수 있다.</p>
+<ol start="2" type="1">
+<li>색 변화 내후성강의 초기 색상은 노란색에서 시작하여 시간이 지나면서 갈색으로 변하는데,</li>
+</ol>
+<p>이는 디자인적으로도 매력적인 요소가 될 수 있다.</p>
+<ol start="3" type="1">
+<li>환경적 장점 내후성강은 부식이 발생해도 물과 접촉할 경우 환경을 오염시키지 않는 장점이 있다. 반면, 석유화학 제품으로 만들어진 페인트는 물과 접촉할 때 오염을 유발할 수 있다.</li>
+</ol>
+<p>따라서, 내후성강은 외부 환경에 대한 내구성을 제공하면서도 환경 보호 측면에서도 긍정적인 선택이 될 수 있다.</p>
+<p>04 스테인리스 (Stainless)</p>
+<ol type="1">
+<li><p>해리 브리얼리(Harry Brearley) 그는 1913년 영국에서 12 ~ 25%의 크롬(Cr)을 첨가해 녹이 잘 슬지 않는 강철을 발견하며 스테인리스강 개발의 시초가 되었다.</p></li>
+<li><p>전쟁에서의 부적합성 총기는 화약의 폭발로 발생하는 강렬한 압력이 탄환을 발사하는 원리이다. 이 과정에서는 강철이 필요했으며, 스테인리스강은 주요 재료로 사용되지 않았다.</p></li>
+</ol>
+<p>일부 부품(예: 총열, 총기 부속물 등)에서 활용된 사례도 존재하지만, 그 사용은 전반적인 총기 생산에서 큰 비중을 차지하지는 않았다.</p>
+<ol start="3" type="1">
+<li>스테인리스강의 활용 제2차 세계대전이 끝난 후 외과 수술에 필수적인 도구로서 사용되기 시작했다. 스테인리스강은 부식에 대한 저항성이 뛰어나 외과 수술 도구에 적합했다.</li>
+</ol>
+<p>은, 황동 식기 및 높은 온도의 소독이 필요한 의료기구는 모두 스테인리스강으로 대체되었다.</p>
+<p>하지만 관리가 소홀해지면 여전히 녹이 쓸 수 있다.</p>
+<ol start="4" type="1">
+<li>우주 탐사에서의 사용 현대 우주선에서는 스테인리스강이 일부 구조물에 사용되지만, 더 강력한 출력과 성능을 제공하는 합금이 필요하다.</li>
+</ol>
+<p>예를 들어, 스타쉽(Starship)의 엔진은 누리호 엔진보다 10배 더 높은 성능을 자랑하며,</p>
+<p>이를 위해 값싸고 무거운 스테인리스강 대신 고온에서 잘 견디는 고성능 합금이 사용된다.</p>
+<p>05 티타늄 (Titanium) 가벼우면서도 강도가 철과 비슷하여, 강력하면서도 경량의 특성을 가지고 있다.</p>
+<p>이러한 특성 덕분에 다양한 분야에서 응용되고 있다. 내식성이 뛰어나고, 오래 보존될 수 있는 장점을 가지고 있다.</p>
+<p>비용 티타늄은 TiO₂에서 산소(O₂)를 분리하는 과정이 어려워 비싸다. 이 때문에 티타늄을 활용한 제품은 가격이 상대적으로 높다.</p>
+<p>용도 (1) 티타늄은 생체적합성이 뛰어나 의료용 임플란트 재료로 많이 사용된다.</p>
+<ol start="2" type="1">
+<li><p>항공기와 전투기에서도 티타늄이 사용된다. 이는 강도와 가벼운 무게가 중요한 비행기 구조에 적합하기 때문이다.</p></li>
+<li><p>티타늄을 활용한 형상 기억 합금은 특정 온도에서 원래 형태로 되돌아가는 특성이 있어,</p></li>
+</ol>
+<p>의료 기기 및 로봇 공학 등 다양한 분야에 응용된다.</p>
+<p>06 니티놀 (Ni ti nol) 니켈(Ni)과 티타늄(Ti)의 합금으로, 두 원소가 1:1의 비율로 조합된 고급 소재이다.</p>
+<p>1961년 미 해군병기연구소(NOL) W. Buehler가 개발하였다.</p>
+<p>이름은 니켈(Nickel)과 티타늄(Titanium)의 조합과 그 개발이 이루어진 Navy의 Naval Ordnance Laboratory에서 유래되었다.</p>
+<p>이 소재는 형상 기억 합금으로 분류된다.</p>
+<p>즉, 특정 온도에서 원래의 형태로 돌아갈 수 있는 특성을 가지고 있다. 니티놀은 100만 번 변형되어도 형태를 회복할 수 있는 뛰어난 특성을 보여준다.</p>
+<p>범용성 및 비용 니티놀은 그 뛰어난 특성에도 불구하고, 가격이 비싸서 범용성이 제한적이다. 대신, 더 저렴한 대체 합금으로 구리(Cu)와 같은 금속을 사용하여 유사한 성질을 구현하는 경우가 많다.</p>
+<p>용도 (1) 우주 발사체의 접이식 안테나에 사용된다. 발사 후 열을 가하면 펼쳐지는 특성을 이용한다.</p>
+<ol start="2" type="1">
+<li><p>치열 교정기와 같은 의료 기기에서 사용되며, 형태 기억 특성을 활용하여 변형이 용이하다.</p></li>
+<li><p>자동차의 스노우 체인에도 사용되며, 추운 환경에서도 유연하게 작동할 수 있는 장점을 제공한다.</p></li>
+<li><p>니티놀의 특성을 이용하여 라인을 잡아주는 핀 등 다양한 패션 아이템에도 응용된다.</p></li>
+</ol>
+<p>07 폭죽 하단에 화약이 위치해 있으며, 내부에는 다양한 화학 물질이 포함되어 있다.</p>
+<p>작동 원리 폭죽이 점화되면 하단의 화약이 연소하며 가스를 발생시킨다. 생성된 가스가 폭죽을 하늘로 쏘아 올린다.</p>
+<p>폭죽이 일정 고도에 도달하면 내부의 나트륨과 같은 화학 물질이 점화되어 화학 반응을 일으키며 폭발한다.</p>
+<p>폭죽을 둘러싼 외부 껍질은 폭발 시 부서지거나 쪼개지며, 불꽃을 일정한 방향으로 방출하는 역할을 한다.</p>
+<p>껍질의 형태와 두께, 재료는 불꽃의 분포와 모양을 결정하는 데 영향을 미친다.</p>
+<p>또한, 폭발 시 다양한 색깔의 불꽃과 효과는 포함된 화학 물질의 종류에 따라 달라지며, 그 예시는 다음과 같다.</p>
+<p>알칼리금속 (1족, 수소 제외)</p>
+<p>리튬(Li), 나트륨(Na), 칼륨(K), 루비듐(Rb), 세슘(Cs)</p>
+<p>각 금속의 불꽃 색상이다.</p>
+<p>전기적 성질 이들 금속은 전자를 쉽게 잃고 양이온이 되며, 반응성이 매우 높다. 특히 수분이나 공기 중의 산소와 격렬하게 반응한다.</p>
+<p>반응 물과 반응하여 수소 기체를 발생시키며, 이 반응은 열을 방출한다. 이로 인해 수소가 연소할 수 있는 위험이 있다.</p>
+<p>질소(N)와 같은 비활성 가스 환경에서 실험할 경우 더 안전하게 다룰 수 있다.</p>
+<p>알칼리토금속 (2족)</p>
+<p>베릴륨(Be), 마그네슘(Mg), 칼슘(Ca), 스트론튬(Sr), 바륨(Ba) / + 구리(Cu) (11족)</p>
+<p>각 금속의 불꽃 색상이다.</p>
+<p>전기적 성질 이들 금속도 전자를 잘 주어 양이온이 되지만, 알칼리금속보다 반응성이 덜한다.</p>
+<p>반응 알칼리토금속은 물과 반응할 수 있으나, 그 반응은 알칼리금속보다 덜 격렬하다.</p>
+<p>가루 상태로 만들거나 열을 가할 경우 반응성이 증가한다.</p>
+<p>08 마그네슘(Magnesium) 철보다 약 5분의 1 가벼운 금속으로, 뛰어난 경량성과 강도를 가지고 있다.</p>
+<p>반응성이 높아 산소와 쉽게 결합하여 산화되기에, 사용 시에는 반응성을 억제해야 한다.</p>
+<p>용도 마그네슘은 주로 가벼운 구조물이나 부품에 사용된다. 예를 들어, 항공기, 자동차 부품, 스포츠 장비 등에 적용된다.</p>
+<p>플라스틱 코팅이나 기타 재료와 결합하여 무게를 줄이면서도 필요한 강도를 유지할 수 있다.</p>
+<p>주파수 방해 금속 케이스를 사용할 경우 전자기파에 의한 주파수 방해가 발생할 수 있어, 이로 인해 무선 신호가 방해받을 수 있다.</p>
+<p>최근의 스마트폰에서는 아이폰은 듀랄루민을, 삼성 갤럭시는 마그네슘 합금을 사용하여 강도를 유지하면서 무게를 줄이고 있다.</p>
 
 
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

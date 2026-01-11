@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-11-14">
 
-<title>cg-hw – StudyLog</title>
+<title>세라믹(Ceramic) – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,102 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#서론" id="toc-서론" class="nav-link active" data-scroll-target="#서론">01 서론</a></li>
+  <li><a href="#어원" id="toc-어원" class="nav-link" data-scroll-target="#어원">02 어원</a></li>
+  <li><a href="#窯業-가마-산업" id="toc-窯業-가마-산업" class="nav-link" data-scroll-target="#窯業-가마-산업">03 窯業 (가마 산업)</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">세라믹(Ceramic)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 14, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>세라믹에 대한 개념에 대해 다루고자 한다.</p>
+<section id="서론" class="level1">
+<h1>01 서론</h1>
+<p>일반적으로 비금속 무기 물질로 구성되며, 고온 소결 처리를 통해 물리적 강도가 강화된 소재.</p>
+<p>비금속 무기 물질(Non-Metallic Inorganic Material)은 주로 산화물(Oxides), 질화물(Nitrides), 탄화물(Carbides)로 분류된다.</p>
+<p>고온 소결(Sintering)이란, 분말형태의 물질을 높은 온도로 가열하여 고체 상태에서 입자들이 서로 결합하도록 만드는 과정.</p>
+</section>
+<section id="어원" class="level1">
+<h1>02 어원</h1>
+<p><code>Κεραμος (Keramos)</code> 이 단어는 “굽다”라는 의미를 포함한다.</p>
+<p>고대에는 점토를 가마에 넣어 고온에서 구워 도자기나 벽돌과 같은 물건을 제작했으므로, 점토와 도자기 그리고 굽는 과정이 자연스럽게 연결되었다.</p>
+<p><code>Κεραμικός (Keramikos)</code> 점토와 관련된 작업(도자기 제작)을 지칭하며, 여기에서 현대의 “Ceramic”이 유래했다.</p>
+<p><code>세라믹 (Ceramic)</code> 특정한 성질(내열성, 내마모성, 내화학성 등)을 가진 비금속 무기 소재 자체를 의미하며, 산화알루미늄(Al₂O₃), 질화규소(Si₃N₄) 등이 있다.</p>
+<p><code>세라믹스 (Ceramics)</code> 세라믹 소재로 만든 제품 또는 공예품을 의미하며, 도자기, 타일, 반도체 칩, 인공관절 등이 있다.</p>
+</section>
+<section id="窯業-가마-산업" class="level1">
+<h1>03 窯業 (가마 산업)</h1>
+<p>세라믹 재료를 제작하거나 가공하는 산업. 이는 전통 도자기 제작부터 현대의 고기능 세라믹 생산에 이르는 광범위한 분야를 포함한다.</p>
+<p>窯(가마 요): 세라믹 제조에서 원료를 굽는 고온의 설비인 “가마”를 의미한다. 전통적으로 도자기와 같은 세라믹 재료를 제작할 때 사용하는 장치이다.</p>
+<p>業(일 업): 산업이나 일, 작업을 뜻한다.</p>
+<p>이 단어는 일본어에서 유래된 표현으로, 특히 전통적으로 도자기를 굽거나 세라믹 제품을 생산하는 업계를 지칭할 때 사용된다.</p>
+<p>한국에서는 도자기 제조와 관련된 산업을 가리킬 때 종종 이 표현을 사용하기도 하지만, 일반적으로 “도예”나 “세라믹 산업”으로 표현된다.</p>
+<p>04 장단점</p>
+<p>장점 (1) 마모에 강한 성질인 내마모성 덕분에 기계 공구, 특히 절삭 공구(Cutting Tools)에서 자주 사용된다.</p>
+<ol start="2" type="1">
+<li><p>화학적 반응에 대한 저항성인 내화학성 덕분에 생체재료(인공 관절, 치아 보철물)로 사용된다.</p></li>
+<li><p>높은 녹는점인 내열성 덕분에 고온 환경을 견뎌야 하는 항공기 부품 등에 사용된다.</p></li>
+<li><p>금속에 비해 밀도가 낮아 경량화가 필요한 응용 분야에서 사용된다.</p></li>
+<li><p>다양한 전자기적 특성을 활용하여 세라믹 콘덴서, 반도체, LED 등의 전자 부품으로 활용된다.</p></li>
+</ol>
+<p>단점 (1) 인성이 낮고 취성이 강해여 충격에 쉽게 깨진다.</p>
+<ol start="2" type="1">
+<li><p>매우 단단하기 때문에 절삭이나 가공이 어렵다. 이를 위해 레이저 가공 등 첨단 가공 기술이 사용된다.</p></li>
+<li><p>녹는점이 매우 높아 금속처럼 녹여서 틀에 부어 형태를 만드는 것이 어렵다.</p></li>
+<li><p>도자기처럼 구울 수는 있지만, 굽는 과정에서 수축이 발생하여 원래 크기보다 작아진다. 이로 인해 정밀한 크기로 제작하기가 까다롭다.</p></li>
+</ol>
+<p>05 물질의 강함과 단단함</p>
+<p>강함은 물질이 파괴나 변형에 저항하는 정도를 의미하는데, 단단한 물질이 반드시 강한 것은 아니다.</p>
+<p>예를 들어, 유리는 매우 단단하지만 충격에 약해 잘 깨지는 특성을 가지고 있다.</p>
+<ol type="1">
+<li><p>단단함 (Hardness) 표면이 긁히거나 변형되는 것에 대한 저항성을 나타내며, 단단한 물질은 일반적으로 쉽게 긁히지 않는다.</p></li>
+<li><p>강함 (Strength) 외부의 힘에 저항하는 능력으로, 재료가 파괴되거나 영구 변형되기까지의 저항 정도를 나타낸다.</p></li>
+</ol>
+<p>따라서, 유리처럼 단단하지만 깨지기 쉬운 재료는 취성(Brittleness)이 높은 예로 들 수 있다.</p>
+<p>반대로 무른 물질(Soft Materials)은 쉽게 긁히거나 변형되지만 깨지는 경우는 적다.</p>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
+</section>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

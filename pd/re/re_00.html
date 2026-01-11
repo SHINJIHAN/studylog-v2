@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Learning React: Modern Patterns for Developing React Apps">
+<meta name="dcterms.date" content="2024-09-23">
 
-<title>cg-hw – StudyLog</title>
+<title>개론 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,172 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#서론" id="toc-서론" class="nav-link active" data-scroll-target="#서론">1. 서론</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">개론</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Learning React: Modern Patterns for Developing React Apps </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 23, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="서론" class="level1">
+<h1>1. 서론</h1>
+<p>프로그래밍 언어(특히 고급언어)는 인간이 이해하기 쉬운 형태로 작성되지만, 컴퓨터는 기계어(이진수 형태)만을 이해할 수 있다.</p>
+<p>그래서 소스 코드를 작성한 후, 컴파일러라는 프로그램을 사용하여 소스 코드를 기계어로 변환하는 과정이 필요하다.</p>
+<p>이 과정을 컴파일이라고 부르며, 기계가 실행할 수 있는 바이너리 코드 또는 실행 파일을 생성하게 된다.</p>
+<p>하지만 스크립트 언어는 보통 컴파일 과정 없이 소스 코드를 바로 실행할 수 있다.</p>
+<p>스크립트 언어는 주로 인터프리터라는 프로그램이 코드를 한 줄씩 읽고 바로 실행한다. 대표적인 스크립트 언어로는 <code>Python, JavaScript</code> 등이 있다.</p>
+<p>컴퓨터 기술의 초기 개발은 군사 목적으로 진행된 경우가 많았다.</p>
+<p>특히 제2차 세계대전 동안 미사일 발사와 암호 해독과 같은 군사 목적을 위해 컴퓨터가 발명되었다.</p>
+<p>앨런 튜링은 컴퓨터 과학의 아버지로 불리며, 제2차 세계대전 당시 독일의 에니그마 암호를 해독하는 데 중요한 역할을 했다.</p>
+<p>이를 통해 현대 컴퓨터 과학의 기초를 세웠다.</p>
+<p>초기 컴퓨터들은 크기가 매우 컸다.</p>
+<p>예를 들어, 애니악(ENIAC)은 운동장만한 크기의 첫 상업용 컴퓨터 중 하나로, 많은 진공관을 사용해 작동했으며, 이 진공관의 전원을 끄고 켜는 방식으로 0과 1의 이진수(기계어)를 표현했다.</p>
+<p>이는 컴퓨터가 논리적 연산을 수행하는 기본 방식이다.</p>
+<p>CPU는 컴퓨터의 중앙 처리 장치로, 저급언어(기계어)로 작동한다. 이 저급언어는 0과 1로 구성되어 있으며, CPU가 직접 이해하고 실행할 수 있다.</p>
+<p>고급언어는 인간이 이해하기 쉽게 작성된 언어로, CPU가 실행할 수 있도록 기계어로 변환하는 컴파일 과정이 필요하다.</p>
+<p>예를 들어 C 언어는 고급언어이며, 유닉스는 C 언어로 개발된 대표적인 운영체제이다.</p>
+<p>변수는 데이터를 저장하는 임시 공간이다. 프로그래밍에서 변수는 값을 저장하고 나중에 재사용할 수 있게 해준다.</p>
+<p>var는 자바스크립트에서 오래된 방식으로 변수를 선언하는 키워드. var로 선언된 변수는 함수 스코프를 가진다.</p>
+<p>let는 ES6(ECMAScript 2015)에서 추가된 키워드로, 블록 스코프를 가진다. 즉, 변수가 선언된 블록 내에서만 유효하다.</p>
+<p>const도 ES6에서 추가된 키워드로, 상수를 선언할 때 사용한다. const로 선언한 변수는 재할당이 불가능하며, 블록 스코프를 가진다.</p>
+<p>즉, 한번 값을 할당하면 변경할 수 없고 const 키워드로 선언한 변수는 재할당이 불가능하다.</p>
+<p>const a = 10; a = 20; // 오류 발생</p>
+<p>하지만 const로 선언된 객체의 속성은 변경할 수 있다.</p>
+<p>const obj = { name: “Alice” }; obj.name = “Bob”; // 가능</p>
+<p>var topic = “JavaScript”; // 전역 변수 topic 선언 및 초기화 if (topic) { // topic이 truthy한 값이므로 이 블록이 실행됨 var topic = “React”; // var로 재선언, 전역 스코프에 영향을 미침 console.log(“block”, topic); // block React } console.log(“global”, topic); // global React</p>
+<p>let 키워드를 사용하면 var의 전역 스코프 문제를 해결할 수 있다. let은 블록 스코프를 따르므로, 변수가 선언된 블록 내부에서만 유효하게 동작한다.</p>
+<p>이를 통해 의도치 않은 값의 덮어쓰기를 방지할 수 있다.</p>
+<p>node클릭</p>
+<p>var name = “name”; console.log(name);</p>
+<p>스칼라를 동적으로 사용하려면, 코딩이 제대로 되어 있는지 인간이 직접 분석하고 판단해야 한다.</p>
+<p>세부적인 부분은 반드시 개발자가 직접 처리해야 한다.</p>
+<p>C언어는 기초 언어 p.32</p>
+<p>ECMA 컴퓨터 제조 위원회는 JavaScript 표준을 만들고 이를 승인하는 역할을 한다.</p>
+<p>ES6까지는 var 키워드를 사용해 변수를 선언했으나, 이 방식에는 여러 문제가 있었다. 예를 들어, 상수를 선언할 방법이 없었으며, var로 선언된 변수는 재할당이 가능했다.</p>
+<p>ES2015(ES6)부터는 const 키워드를 도입해 상수 선언이 가능해졌다. 현재 JavaScript 표준은 ES2024로 발전했다.</p>
+<p>const pizza = true; pizza = false;</p>
+<p>함수는 특정 기능을 수행하는 코드의 집합이다. 블록은 중괄호 {}로 감싸진 코드 영역을 의미하며, 일종의 상자로 비유할 수 있다.</p>
+<p>블록 안에서 선언된 변수는 지역 변수로, 해당 블록 내에서만 접근이 가능하다.</p>
+<p>let &amp; const ES6 (ECMAScript 2015)에서 도입된 새로운 변수 선언 키워드. var 로 인한 몇 가지 문제점을 해결하기 위해 만들어졌다.</p>
+<p>1 . 스코프(scope) 문제 var는 함수 스코프를 가지며, 블록(if, for, while 등) 안에서 선언된 변수도 블록을 벗어나면 여전히 접근이 가능하다.</p>
+<p>이는 개발자가 의도하지 않은 변수 접근이나 값의 변경을 일으킬 수 있다.</p>
+<p>let과 const는 블록 스코프를 따른다.</p>
+<p>중괄호 {} 안에서 선언된 변수는 해당 블록 내부에서만 유효하고, 블록을 벗어나면 소멸된다. 이로 인해 변수가 의도하지 않은 곳에서 사용되는 문제를 방지할 수 있다.</p>
+<p>2 . 변수 호이스팅(hoisting) 문제 var로 선언된 변수는 호이스팅이 되어, 코드 상에서 변수를 선언하기 전에 접근할 수 있다.</p>
+<p>하지만 변수는 선언된 시점 이전에 undefined로 초기화된다. 이로 인해 코드의 가독성이 떨어지고, 오류를 유발할 수 있다.</p>
+<p>let과 const는 변수 호이스팅이 발생하지만, 일시적 사각지대(TDZ) 때문에 변수를 선언하기 전에는 접근할 수 없다.</p>
+<p>이는 더 안전한 변수 사용을 가능하게 한다.</p>
+<p>3 . 중복 선언 문제 var은 같은 스코프 내에서 동일한 이름으로 변수를 중복 선언할 수 있다.</p>
+<p>let은 같은 스코프 내에서 동일한 이름으로 변수를 중복 선언할 수 없으며, 중복 선언 시 오류가 발생한다.</p>
+<p>var topic = “JavaScript”; if (topic) { var topic = “React”; console.log(“block”, topic); // block React } console.log(“global”, topic); // global React</p>
+<p>아래와 같이 작성하여 지역변수와 전역변수를 동작한다. 자바에서는 이것이 당연하게 일어나지 않아 이 문제점을 해결하였다.</p>
+<p>var topic = “JavaScript”; if (topic) { let topic = “React”; console.log(“block”, topic); // React } console.log(“global”, topic); // JavaScript</p>
+<p>호이스팅(Hoisting)이란 컴퓨터가 코드를 실행하기 전에 전체를 미리 살펴보고, 변수와 함수의 선언을 메모리에 먼저 올려두는 과정을 의미한다.</p>
+<p>이로 인해 변수나 함수가 나중에 초기화되더라도 에러 없이 실행이 가능하다. 다만, 변수는 초기화 전에 접근할 경우 기본값인 undefined를 출력한다.</p>
+<p>한편, JavaScript는 초기 웹 개발자들의 편의를 위해 변수와 함수 사용에 대한 규제를 느슨하게 설계했다.</p>
+<p>이는 코드가 운영체제(기계)에 직접적인 영향을 미친다는 점에서 유연성과 엄격함 사이의 균형을 고려한 결정이었다.</p>
+<p>consoloe.log(a) var a = 1; consoloe.log(a)</p>
+<p>에러가 발생하지 않고 그대로 출력되는 것을 알 수 있다.</p>
+<p>for(var i = 0; i &lt; 5; i++){ console.log(i); } console.log(i);</p>
+<p>지역변수와 전역변수의 역할이 나누어져 에러가 나타나는 것을 알 수 있다.</p>
+<p>for(let i = 0; i &lt; 5; i++){ console.log(i); } console.log(i);</p>
+<p>DOM 개념 본래 각 박스를 클릭할 때, 1 ~ 5 까지 순서대로 출력되어야 하나 어떤 박스를 클릭해도 5가 나오는 에러가 발생한다.</p>
+<p>var div, container = document.getElementById(“container”);</p>
+<p>for (var i = 0; i &lt; 5; i++) { div = document.createElement(“div”); div.onclick = function() { alert(“This is box #” + i); }; container.appendChild(div); }</p>
+<p>따라서, 변수 선언 시에는 항상 let 키워드를 사용하는 것이 좋으며, 특히 React와 같은 환경에서는 let을 더욱 권장한다.</p>
+<p>JavaScript는 변수의 자료형을 명시적으로 지정할 필요 없이 자동으로 결정한다. 이 과정을 타입 추론이라고 하며, 이는 var 키워드가 제공하는 특징 중 하나다.</p>
+<p>참고:</p>
+<p>파이썬의 철학은 최소한의 타이핑으로 간결하게 코드를 작성하자는 데 있다. 이를 구현하기 위해 엔진과 컴파일러가 이러한 원칙에 맞춰 설계되었다.</p>
+<p>반면, 자바는 상대적으로 모든 것을 상세히 작성해야 하는 특징이 있다.</p>
+<ul>
+<li>는 값을 더하는 역할뿐만 아니라 문자열을 연결하는 기능도 수행한다.</li>
+</ul>
+<p>과거에는 +를 사용해야 할 상황에서 이를 실수로 생략하는 경우가 종종 있었으며, 이로 인해 여러 번 오류가 발생한 경험이 있다.</p>
+<p>console.log(lastName + “,” + firstName + ” ” + middleName);</p>
+<p>데이터 바인딩 서버에서 데이터를 넘겨줘서 클라이언트에 보여주는 것. 데이터를 담고 보여줘야 할 때, 이때 이 개념을 사용한다.</p>
+<p>console.log(<code>${lastName}, ${firstName} ${middleName}</code>);</p>
+<p>사람마다 다르다.</p>
+<p>const email = <code>Hello ${firstName}, Thanks for ordering ${qty} tickets to ${event}. Order Details ${firstName} ${middleName} ${lastName} ${qty} x $${price} = $${qty*price} to ${event} You can pick your tickets up 30 minutes before the show. Thanks, ${ticketAgent}</code> 이것은 실습을 알 수 없음, 데이터가 있어야 가능하다.</p>
+<p>document.body.innerHTML = <code>&lt;section&gt; &lt;header&gt; &lt;h1&gt;The React Blog&lt;/h1&gt; &lt;/header&gt; &lt;article&gt; &lt;h2&gt;${article.title}&lt;/h2&gt; ${article.body} &lt;/article&gt; &lt;footer&gt; &lt;p&gt;copyright ${new Date().getYear()} | The React Blog&lt;/p&gt; &lt;/footer&gt; &lt;/section&gt;</code>; 이러한 것을 템플릿이라고 한다.</p>
+<p>모든 것을 객체로 보고, 객체 간에 상호작용을 보는 것</p>
+<p>함수 만들기</p>
+<p>리텃 유형, ()가 붙은 건 함수, {}는 블럭이다. 이 함수가 호출되면 블럭이 실행되도록 한다.</p>
+<p>// 함수 선언 function logCompliment() {</p>
+<p>console.log(“You’re doing great!”); }</p>
+<p>logCompliment(); 이것은 사용자 정의함수, 파이썬의 print()에 경우 개발자가 미리 만들어 놓았다.</p>
+<p>const logCompliment = function() { console.log(“You’re doing great!”); };</p>
+<p>logCompliment();</p>
+<p>외부 클래스와 상호작용하기 싫다면 함수의 인자로 함수 전달 간단하게 함수를 만들어 쓰기</p>
+<p>// Invoking the function before it’s declared hey(); // Function Declaration function hey() { alert(“hey!”); }</p>
+<p>그러나 아래의 코드는 에러가 발생한</p>
+<p>// Invoking the function before it’s declared hey(); // Function Expression const hey = function() { alert(“hey!”); };</p>
+<p>const logCompliment = function(firstName) { console.log(<code>You're doing great, ${firstName}</code>); };</p>
+<p>logCompliment(“Molly”);</p>
+<p>2가지 선언</p>
+<p>const logCompliment = function(firstName, message) { console.log(<code>${firstName}: ${message}</code>); };</p>
+<p>logCompliment(“Molly”, “You’re so cool”);</p>
+<p>const lordify = firstName =&gt; <code>${firstName} of Canterbury</code></p>
+<p>Default Parameters function logActivity(name = “Shane McConkey”, activity = “skiing”) { console.log(<code>${name} loves ${activity}</code>); }</p>
+<p>유연하게 대체하도록</p>
+<p>function logActivity(name = “Shane McConkey”, activity = “skiing”) { console.log(<code>${name} loves ${activity}</code>); }</p>
+<p>화살표</p>
+<p>const lordify = firstName =&gt; <code>${firstName} of Canterbury</code>;</p>
+<p>// Typical function const lordify = function(firstName, land) { return <code>${firstName} of ${land}</code>; };</p>
+<p>// Arrow Function const lordify = (firstName, land) =&gt; <code>${firstName} of ${land}</code>;</p>
+<p>console.log(lordify(“Don”, “Piscataway”)); // Don of Piscataway console.log(lordify(“Todd”, “Schenectady”)); // Todd of Schenectady</p>
+<p>const lordify = (firstName, land) =&gt; { if (!firstName) { throw new Error(“A firstName is required to lordify”); } if (!land) { throw new Error(“A lord must have a land”); } return <code>${firstName} of ${land}</code>; }; console.log(lordify(“Kelly”, “Sonoma”)); // Kelly of Sonoma console.log(lordify(“Dave”)); // ! JAVASCRIPT ERROR</p>
+<p>릭터닝 객체, 44페이</p>
+<p>const person = (firstName, lastName) =&gt; { first: firstName, last: lastName } console.log(person(“Brad”, “Janson”)); 람다 1930년, 기본철학은 자바, 파이썬이 쉬워진다.</p>
+<p>컴퓨터가 많은 방은 차가워야 맞음, 70, 80도 항상 24도 맞춰 놓음 추석 떄 전자출석이 더워서 서버가 장애를 일으킴</p>
+<p>리엑트!!!</p>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
+</section>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

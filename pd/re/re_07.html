@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Learning React: Modern Patterns for Developing React Apps">
+<meta name="dcterms.date" content="2024-11-05">
 
-<title>cg-hw – StudyLog</title>
+<title>React를 이용한 Blog 만들기(3) – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,217 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">React를 이용한 Blog 만들기(3)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Learning React: Modern Patterns for Developing React Apps </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>React Component UI의 구성 요소.</p>
+<p>재사용 가능하고 독립적인 UI를 표현하는 함수 또는 클래스. 컴포넌트 기반 구조를 통해 UI를 작고 관리하기 쉬운 단위로 나눌 수 있어 유지보수성이 높아진다.</p>
+<p>IT 관련 업계에서 사용되는 용어는 종종 부품이나 퍼즐 조각으로 비유할 수 있다. 각 부품이나 조각은 독립적으로 기능을 하면서 전체 시스템의 일부분을 이루는 역할을 한다. 이러한 방식은 복잡한 시스템을 구성하고 유지보수하기 위해 필수적이다.</p>
+<p>파이썬에서는 이를 모듈로 부르며, 각 기능을 모듈 단위로 나누어 관리한다. 자바에서는 패키지라는 개념을 사용하여, 관련된 클래스를 묶어 관리한다. 이와 같은 구조적 분리는 코드를 더 읽기 쉽게 하고, 유지보수와 확장성을 향상시킨다.</p>
+<p>리액트(React)는 이러한 개념을 컴포넌트 단위로 나누어 관리하는 방식으로, UI를 더 작은 부품으로 나누어 관리하고 재사용할 수 있게 해줍니다. 이로 인해 복잡한 애플리케이션을 보다 효율적으로 개발할 수 있다.</p>
+<p>또한, C 언어에서는 분리 컴파일을 사용하여 소스 코드를 독립적인 단위로 나누고, 자바에서는 클래스를 사용하여 객체 지향적으로 코드의 재사용성과 모듈화를 제공한다. 이러한 방식들은 코드의 복잡도를 줄이고, 협업 시 충돌을 방지하며, 각 기능을 독립적으로 테스트하고 관리할 수 있게 해준다.</p>
+<p>Component 종류 1. Functional Components (함수형 컴포넌트) 함수 형태로 정의된 컴포넌트로, 주로 useState, useEffect와 같은 React Hook을 사용해 상태와 생명주기를 관리한다.</p>
+<ol start="2" type="1">
+<li>Class Components (클래스형 컴포넌트) ES6 클래스 문법을 사용해 정의되며, this.state와 this.setState를 통해 상태를 관리하고, 생명주기 메서드를 제공한다.</li>
+</ol>
+<p>생명주기, 온크레이트, 다른 페이지로 띄울 때, 온퍼지 일시 정지 상태 다시 원래 상태로 돌아올 때 까지의 상태.</p>
+<p>(React 16.8 이후로는 주로 함수형 컴포넌트를 권장한다.)</p>
+<p>Props 부모 컴포넌트에서 자식 컴포넌트로 전달하는 데이터. 컴포넌트 간의 데이터 전달을 담당하며 변경할 수 없는(read-only) 값</p>
+<p>State 컴포넌트 내에서 관리되는 동적 데이터. 상태가 변경될 때마다 컴포넌트가 다시 렌더링된다.</p>
+<p>Hooks 함수형 컴포넌트에서 상태(state)와 생명주기(lifecycle)를 관리할 수 있게 해주는 기능이다. 이전에는 클래스형 컴포넌트에서만 사용할 수 있었던 상태 관리와 생명주기 관련 기능을 함수형 컴포넌트에서도 사용할 수 있도록 만들어준다.</p>
+<p>“Hooks”라는 이름은 후크나 갈고리를 의미하는데, 이는 말 그대로 어떤 기능을 “훅”으로 걸어 넣는다는 느낌으로 비유할 수 있다.</p>
+<p>외투의 후크: 외투의 끝부분에 달린 후크처럼, Hook은 특정 기능을 기존 코드에 “걸어놓는” 역할을 한다. 지퍼의 끝부분: 후크는 지퍼처럼, 여러 기능을 하나의 “구조” 안에서 잘 맞물리게 해준다. 피터팬의 후크 선장: 피터팬에서 악역으로 등장하는 후크 선장은 갈고리 손을 가진 인물로 알려져 있다.</p>
+<p>주요 React Hooks 1. useState</p>
+<p>상태를 관리하기 위한 기본 Hook 함수형 컴포넌트에서 로컬 상태를 선언하고 관리할 수 있게 합니다.</p>
+<p>초기값을 인자로 받아 상태값과 상태 갱신 함수 [state, setState]를 반환한다.</p>
+<ol start="2" type="1">
+<li>useEffect</li>
+</ol>
+<p>컴포넌트가 렌더링될 때나 상태가 변경될 때 특정 코드를 실행할 수 있게 하는 Hook. 두 번째 인자로 의존성 배열을 받으며, 이 배열에 명시된 값이 변경될 때마다 콜백 함수가 재실행된다.</p>
+<p>주로 데이터 가져오기, 구독, 타이머 설정 등에 사용된다.</p>
+<ol start="3" type="1">
+<li>useContext</li>
+</ol>
+<p>Context API와 함께 사용하여 컴포넌트 트리 전반에 데이터를 전달한다.</p>
+<p>props를 계속 전달할 필요 없이 하위 컴포넌트에서 바로 데이터에 접근할 수 있어 전역 상태 관리에 유용하다.</p>
+<p>고급 Hooks 1. useReducer</p>
+<p>상태를 관리하기 위해 useState보다 복잡한 로직이 필요할 때 사용하는 Hook.</p>
+<p>리듀서 함수와 초기 상태를 받아 상태와 디스패치 함수를 반환하며, Redux와 유사한 패턴으로 상태를 관리할 수 있다.</p>
+<ol start="2" type="1">
+<li>useMemo</li>
+</ol>
+<p>특정 값의 계산을 메모이제이션하여, 의존성이 변하지 않는 한 동일한 값을 반환하도록 한다. 계산 비용이 큰 함수의 결과를 캐싱하여 성능 최적화에 유용하다.</p>
+<ol start="3" type="1">
+<li>useCallback</li>
+</ol>
+<p>메모이제이션된 콜백 함수를 반환한다.</p>
+<p>특정 함수가 재생성되는 것을 방지하고, 주로 의존성 배열이 변하지 않는 한 동일한 함수를 재사용하도록 해 성능을 개선할 수 있습니다.</p>
+<p>이 Hook들을 조합해 복잡한 상태 관리와 최적화 작업을 효율적으로 수행할 수 있다.</p>
+<p>useEffect로 대체하기 함수형 컴포넌트에서는 생명주기 메서드를 직접 사용할 수 없으므로, useEffect Hook을 통해 각 생명주기 단계에서 필요한 동작을 구현한다.</p>
+<ol type="1">
+<li>Mounting 컴포넌트가 처음 DOM에 추가되는 단계.</li>
+</ol>
+<p>componentDidMount 메서드를 사용해 첫 번째 렌더링 후 실행할 코드를 작성한다.</p>
+<p>함수형 컴포넌트에서는 useEffect의 빈 배열 []을 의존성 배열로 설정하여, 컴포넌트가 처음 렌더링될 때 한 번만 실행되도록 한다.</p>
+<ol start="2" type="1">
+<li>Updating 상태나 props가 변경될 때 컴포넌트가 업데이트되는 단계.</li>
+</ol>
+<p>componentDidUpdate 메서드를 사용해 상태나 props가 변경될 때 실행할 코드를 작성한다.</p>
+<p>함수형 컴포넌트에서는 useEffect의 의존성 배열에 특정 상태나 props를 넣어 해당 값이 변경될 때마다 코드가 실행되도록 설정한다.</p>
+<ol start="3" type="1">
+<li>Unmounting 컴포넌트가 DOM에서 제거되는 단계.</li>
+</ol>
+<p>componentWillUnmount 메서드를 사용해 컴포넌트가 제거되기 직전에 실행할 코드를 작성한다.</p>
+<p>함수형 컴포넌트에서는 useEffect의 반환 함수에 cleanup 코드를 작성하여 컴포넌트가 언마운트될 때 해당 코드가 실행되도록 한다.</p>
+<p>모바일 앱이나 복잡한 웹 애플리케이션의 경우, 생명주기는 8단계로 나눌 수 있다.</p>
+실습
+<div data-classname="modal">
+<h2 class="anchored">
+제목
+</h2>
+<p>
+날짜
+</p>
+<p>
+상세내용
+</p>
+</div>
+<p>React에서 HTML 코드를 줄이고 재사용하기 위해 컴포넌트를 활용할 수 있다. 특히 함수형 컴포넌트는 간단하게 특정 UI를 캡슐화하고, 다른 곳에서 쉽게 사용할 수 있어 유용하다.</p>
+<p>컴포넌트 작성 방법 1. 함수 이름 짓기 함수형 컴포넌트의 이름은 대문자로 시작해야 한다. (예시: Modal, Header, Footer 등)</p>
+<ol start="2" type="1">
+<li>HTML 코드 축약 축약할 HTML 코드를 return() 안에 작성한다. 여러 태그가 있을 경우, 반드시 하나의 루트 태그로 감싸야 한다.</li>
+</ol>
+여러 태그를 감싸기 위해
+<div>
+<p>태그를 사용할 수 있으며, 빈 태그(Fragment) &lt;&gt;&lt;/&gt;를 사용할 수도 있다. &lt;&gt;&lt;/&gt;(Fragment)을 사용할 경우 불필요한 HTML 구조가 생기지 않아 코드가 깔끔해진다.</p>
+<ol start="3" type="1">
+<li>컴포넌트 적용하기 컴포넌트를 원하는 위치에 &lt;컴포넌트명 /&gt; 형태로 작성하여 삽입한다.</li>
+</ol>
+<p>위 규칙을 지키지 않으면 컴포넌트가 제대로 렌더링되지 않거나 에러가 발생할 수 있다.</p>
+실습2
+</div>
+<pre><code>  &lt;Modal/&gt;      
+&lt;/div&gt;</code></pre>
+); } function Modal(){ return(
+<div data-classname="modal">
+<pre><code>&lt;h2&gt;제목&lt;/h2&gt;
+&lt;p&gt;날짜&lt;/p&gt;
+&lt;p&gt;상세내용&lt;/p&gt;</code></pre>
+</div>
+<p>); }</p>
+<p>export default App;</p>
+<p>반복적으로 사용되는 HTML UI 덩어리들을 컴포넌트로 만들어서 관리하는 것은 매우 효율적이다. 컴포넌트를 재사용 가능한 작은 단위로 만들면 코드 유지보수가 용이해지고, UI 요소를 다른 페이지에서도 손쉽게 사용할 수 있기 때문이다.</p>
+<p>장점 동일한 UI를 여러 페이지에서 사용하려면 컴포넌트를 만들어 재사용할 수 있다. 한 번 정의한 컴포넌트는 여러 곳에서 사용할 수 있어 코드 중복을 줄일 수 있다. 앱을 여러 작은 컴포넌트로 분리하여 앱을 더 구조적으로 관리할 수 있다.</p>
+<p>단점 1. State 관리 복잡성</p>
+<p>컴포넌트에서 상태(state)를 관리할 때, 상위 컴포넌트와 하위 컴포넌트 간의 데이터 흐름이 복잡해질 수 있다.</p>
+<p>여러 컴포넌트에서 상태를 변경해야 할 때, 상태를 올바르게 관리하는 것이 중요한데, useState와 props를 잘 이해하고 사용해야 한다.</p>
+<ol start="2" type="1">
+<li>props를 통한 상태 전달</li>
+</ol>
+<p>상위 컴포넌트에서 관리하는 상태를 하위 컴포넌트에서 사용하려면 props를 사용해야 한다. 이때, props를 통해 전달된 데이터는 하위 컴포넌트에서 변경할 수 없고, 부모 컴포넌트에서만 업데이트할 수 있다. 이로 인해 상태 업데이트가 필요한 경우, 상태 변경을 위한 함수를 props로 전달해야 할 수도 있다.</p>
+<pre><code>  &lt;/div&gt;
+  &lt;Modal title = {글제목[0]}/&gt;      
+&lt;/div&gt;</code></pre>
+); } function Modal(props){ return(
+<div data-classname="modal">
+<pre><code>  &lt;h2&gt;{props.title}&lt;/h2&gt;
+  &lt;p&gt;날짜&lt;/p&gt;
+  &lt;p&gt;상세내용&lt;/p&gt;</code></pre>
+</div>
+<p>); }</p>
+<p>export default App;</p>
+<p>import React, { useState } from ‘react’; import ‘./App.css’;</p>
+<p>function App() { let [글제목, 글제목변경] = useState([“소고기 맛집-토방”, “불고기 맛집-마포숯불갈비”, “한식 맛집-백만석”]); let [따봉, 따봉변경] = useState(0); let [선택된제목, 선택된제목변경] = useState(글제목[0]); // 초기값 설정</p>
+return (
+<div data-classname="App">
+<pre><code>  &lt;div className="black-nav"&gt;
+    &lt;div&gt;대진대 맛집 소개&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;  
+    &lt;div className='list'&gt;
+      &lt;h4 onClick={() =&gt; 선택된제목변경(글제목[0])}&gt;
+        {글제목[0]} &lt;span onClick={() =&gt; 따봉변경(따봉 + 1)}&gt;👍&lt;/span&gt; {따봉}
+      &lt;/h4&gt;
+      &lt;p&gt;11월 4일 발행&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;hr/&gt;
+  &lt;div&gt;  
+    &lt;div className='list'&gt;
+      &lt;h4 onClick={() =&gt; 선택된제목변경(글제목[1])}&gt;
+        {글제목[1]} &lt;span onClick={() =&gt; 따봉변경(따봉 + 1)}&gt;👍&lt;/span&gt; {따봉}
+      &lt;/h4&gt;
+      &lt;p&gt;11월 5일 발행&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;hr/&gt;
+  &lt;div&gt;  
+    &lt;div className='list'&gt;
+      &lt;h4 onClick={() =&gt; 선택된제목변경(글제목[2])}&gt;
+        {글제목[2]} &lt;span onClick={() =&gt; 따봉변경(따봉 + 1)}&gt;👍&lt;/span&gt; {따봉}
+      &lt;/h4&gt;
+      &lt;p&gt;11월 6일 발행&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  {선택된제목 &amp;&amp; &lt;Modal title={선택된제목} /&gt;}
+&lt;/div&gt;</code></pre>
+<p>); }</p>
+function Modal(props) { return (
+<div data-classname="modal">
+<pre><code>  &lt;h2&gt;{props.title}&lt;/h2&gt;
+  &lt;p&gt;발행 날짜: {props.title === '소고기 맛집-토방' ? '11월 4일' : props.title === '불고기 맛집-마포숯불갈비' ? '11월 5일' : props.title === '한식 맛집-백만석' ? '11월 6일' : ''}&lt;/p&gt;
+  &lt;p&gt;이곳은 {props.title}에 대한 상세내용입니다.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<p>); }</p>
+<p>export default App;</p>
+<p>이런 식으로 컨퍼넌트를 만들어서 관리할 수 있다.</p>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
 
 </div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
 </div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

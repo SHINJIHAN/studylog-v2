@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-10-31">
 
-<title>cg-hw – StudyLog</title>
+<title>구리(Cu) – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,190 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">구리(Cu)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 31, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>구리의 특성 및 철의 제조 방법에 대해 다루고자 한다.</p>
+<p>01 구리 (Cu, Copper) 청동기 시대 이전부터 인류가 사용해 온 금속 중 하나.</p>
+<p>청동기 시대(Bronze Age)는 구리와 주석을 합금하여 청동을 만들면서 시작되었으며, 이는 약 기원전 3300년 ~ 1200년 사이의 시기로 여겨진다.</p>
+<ol type="1">
+<li>전기 전도도 구리는 전기 전도도가 매우 우수하여 전선으로 널리 사용된다.</li>
+</ol>
+<p>금과 은도 전기 전도성이 뛰어나지만, 구리에 비해 가격이 비싸므로, 실용적인 측면에서 구리가 더 선호된다.</p>
+<ol start="2" type="1">
+<li><p>열 전도도 구리는 열 전도도가 높아, 열을 효과적으로 전달할 수 있다. 따라서 열 배관이나 히트 싱크 같은 열 관리가 중요한 곳에서 많이 사용된다.</p></li>
+<li><p>내부식성 구리는 철에 비해 부식에 강하여 천천히 녹이 슨다.</p></li>
+</ol>
+<p>이는 구리가 갖는 내부식성 덕분으로, 물리적 화학적 환경에서 더 오래 견디며 녹슬지 않는 특징이 있다.</p>
+<ol start="4" type="1">
+<li><p>가공성 구리는 녹는 점이 낮아 낮은 온도에서도 쉽게 녹일 수 있다. 이러한 특성 덕분에 다양한 형태로 가공하기 쉬워 산업적으로 많이 사용된다.</p></li>
+<li><p>살균 효과 구리는 강력한 살균 효과를 가지고 있다. 구리 입자는 밀입자(나노 사이즈의 입자)로서 세균이나 바이러스를 빠르게 사멸시킨다.</p></li>
+</ol>
+<p>구리의 표면에 닿은 세균은 구리 입자가 파괴하면서 증식을 막아 빠르게 사멸하게 된다. 이 때문에 병원의 손잡이나, 공공장소의 특정 표면에 구리를 사용하는 경우가 많다.</p>
+<ol start="6" type="1">
+<li>나노 구리 입자 투명한 비닐에 나노 사이즈의 구리 입자를 뿌려 놓은 물체는 짧게는 2일, 길게는 일주일 동안 교차 감염을 막아준다.</li>
+</ol>
+<p>구리 입자에 닿는 세균이나 바이러스는 몇 분에서 몇 시간 이내에 사멸된다.</p>
+<p>02 활용 및 한계</p>
+<p>병원 및 공공장소 병원의 손잡이와 같은 공공장소의 표면은 구리를 사용하여 교차 감염을 줄일 수 있다. 하지만 구리는 상대적으로 비싼 소재이므로, 대규모로 사용하기에는 비용 부담이 있다.</p>
+<p>박테리아 및 바이러스 제어 구리는 박테리아의 DNA를 파괴하여 증식을 막아주는 특성이 있지만, 항생제의 발전으로 인해 이 기능은 일부 잊혀지기도 했다.</p>
+<p>최근 나노 기술과의 결합으로 구리의 살균 효과가 재조명되고 있으며, 병원과 공공장소에서 다시 구리에 대한 관심이 증가하고 있다.</p>
+<p>03 구리의 대체 금속</p>
+<ol type="1">
+<li>구리 구리는 산업적으로 탁월한 소재이지만, 비용이 상대적으로 높아 대량으로 사용하기에는 부담이 될 수 있다.</li>
+</ol>
+<p>이에 따라 구리의 사용량을 줄이고 대체 금속을 사용하는 경우가 많다.</p>
+<ol start="2" type="1">
+<li>아연 아연도 구리와 비슷하게 비싼 금속이므로, 비용적인 측면에서 부담이 될 수 있다.</li>
+</ol>
+<p>하지만, 아연은 구리와 혼합할 때 특정 물성을 강화시킬 수 있어 여전히 산업적으로 중요한 역할을 한다.</p>
+<ol start="3" type="1">
+<li>구리 + 아연의 합금 구리에 아연(Zn)을 첨가하면 색상이 가미되어, 시간이 지남에 따라 누리끼리한 색상으로 변할 수 있다.</li>
+</ol>
+<p>아연을 더 많이 추가할수록 구리 특유의 붉은 색상이 줄어들고, 누런 느낌의 색상이 더 강해진다.</p>
+<p>구리 합금에서 아연의 비율을 조정하면 다양한 색상과 물성을 얻을 수 있어, 장식품이나 화폐 등에 널리 사용된다.</p>
+<ol start="4" type="1">
+<li>청동과 황동의 차이 청동과 황동은 금속 혼합물로, 청동은 주로 구리와 주석의 합금이고, 황동은 구리와 아연의 합금이다.</li>
+</ol>
+<p>황동은 시간이 지나면 초록색으로 변할 수 있다. 이는 황동 표면에서 일어나는 산화 반응으로 인해 발생하는 색 변화이다.</p>
+<ol start="5" type="1">
+<li>알루미늄 구리나 아연에 비해 비용이 저렴하고, 경량이며 내식성이 뛰어나 다양한 산업 분야에서 구리와 아연을 대체하는 재료로 사용된다.</li>
+</ol>
+<p>예를 들어, 1원짜리 동전은 100% 알루미늄으로 제작되어 있다. 이는 알루미늄의 가벼운 무게와 저렴한 비용 때문이다.</p>
+<p>알루미늄은 전기 전도도와 가공성이 우수하여, 구리의 역할을 대체하는 경우도 많다.</p>
+<ol start="6" type="1">
+<li>동전 가치 변화 500원을 제외한 모든 동전은 현재 액면가보다 제작 비용이 더 높아졌다. 이는 사용된 금속의 원재료 가격 상승 때문이다.</li>
+</ol>
+<p>이로 인해 동전 제작에는 값싼 금속을 내부에 사용하고, 겉 표면에는 다른 금속을 덧씌우는 방식이 사용된다.</p>
+<p>04 철과 구리의 특성</p>
+<ol type="1">
+<li>기본 강도 철(Fe)은 구리(Cu)에 비해 기본적으로 더 높은 강도를 가진다.</li>
+</ol>
+<p>하지만 순수한 철은 연성(잘 늘어나고 휘어지는 성질)과 전성(얇게 늘어나는 성질)이 높아 약간 부드러워</p>
+<p>실질적으로 사용하기엔 약점이 될 수 있다.</p>
+<ol start="2" type="1">
+<li>주철 탄소 함량이 약 2~4%로 높은 철 - 탄소 합금이다.</li>
+</ol>
+<p>매우 단단하고 압축 강도가 크지만, 탄소 함량이 높아 취성(충격에 약해 쉽게 부러지는 성질)을 가지므로 내구성이 떨어진다.</p>
+<p>이러한 특성 때문에 주로 기계 부품이나 고정 구조물에 사용된다.</p>
+<ol start="3" type="1">
+<li>강철 주철에 비해 탄소 함량이 낮고(0.02~2%), 특성이 조절 가능하다.</li>
+</ol>
+<p>탄소와 함께 망간(Mn), 니켈(Ni), 크롬(Cr) 등의 합금을 추가하면 더 단단하고 충격에 강하며 유연성을 갖춘 소재로 변한다.</p>
+<p>강철은 내구성이 뛰어나고 쉽게 휘거나 부러지지 않아 건축, 교량, 자동차, 칼 등 다양한 분야에서 사용된다.</p>
+<ol start="4" type="1">
+<li>강철로 만든 칼의 우수성 강철로 만든 칼은 순수한 철로 만든 칼보다 훨씬 더 강력하다.</li>
+</ol>
+<p>이는 탄소 함량과 추가 합금 요소 덕분에 강도, 경도, 내마모성 등이 뛰어나기 때문이다.</p>
+<p>예를 들어, 일본의 사무라이 검(카타나)은 고탄소강과 저탄소강을 조합하여 내구성과 날카로움을 모두 만족시킨 사례로 유명하다.</p>
+<p>05 제선 공정</p>
+<ol type="1">
+<li>철광석과 원료 철광석은 보통 누렇거나 붉은색을 띄며, 철을 추출하기 위한 주원료이다. 철광석과 탄소 덩어리(코크스)를 이용해 용광로에서 철을 추출한다.</li>
+</ol>
+<p>FINEX와 같은 공정도 활용되는데, 이는 철광석을 보다 효율적으로 처리하기 위한 최신 기술 중 하나이다.</p>
+<ol start="2" type="1">
+<li><p>용광로 내부 공정 철광석과 코크스는 용광로(고로) 내부로 들어간다. 코크스는 연료 역할을 하며, 용광로에서 뜨거운 바람과 만나면 불타면서 강한 열을 생성한다. 코크스가 불에 타면서 용광로 내부의 온도가 상승하고, 철광석의 온도도 함께 올라간다.</p></li>
+<li><p>산소와의 반응 철광석에는 산소가 포함되어 있다.</p></li>
+</ol>
+<p>용광로 내부는 산소가 부족한 환경이기에, 코크스가 산소와 완전히 결합하지 못해 일산화탄소(CO)가 생성된다.</p>
+<p>일산화탄소는 매우 불안정한 상태이며, 안정적인 이산화탄소(CO₂)로 변하려는 성질이 있다.</p>
+<ol start="4" type="1">
+<li>환원 반응과 철 추출 일산화탄소는 철광석에 포함된 산소와 결합하여 이산화탄소로 변한다.</li>
+</ol>
+<p>이 과정에서 철광석에 있던 산소가 제거되며, 순수한 철이 남게 된다. 이를 이산화탄소의 환원 반응이라고 부른다.</p>
+<p>최종적으로, 이러한 환원 반응을 통해 선철이 생성되고, 용광로 하단에서 쇳물 형태로 추출된다.</p>
+<ol start="5" type="1">
+<li>HyREX 공정 전통적인 고로 공정을 개선한 최신 제선 기술.</li>
+</ol>
+<p>이 기술은 탄소 배출을 줄이고 에너지 효율을 높이기 위한 방식으로, 철광석의 환원 과정에서 수소를 활용할 수도 있다.</p>
+<p>06 실리카 제거 공정</p>
+<ol type="1">
+<li><p>철광석과 실리카(SiO₂) 지구상의 거의 모든 암석에는 SiO₂(실리카)가 포함되어 있다. 철을 추출하기 위해서는 이 실리카를 제거해야 한다.</p></li>
+<li><p>석회석의 사용 실리카를 제거하기 위해 석회석(탄산칼슘, CaCO₃)을 사용한다.</p></li>
+</ol>
+<p>석회석을 용광로에 넣고 열을 가하면, 석회석은 열풍에 의해 이산화탄소(CO₂)가 분리되어 날아가고, 산화칼슘(CaO)이 남게 된다.</p>
+<p>산화칼슘은 실리카와 반응하여 슬래그(불순물을 제거하기 위한 부산물)를 형성한다. 이 슬래그는 용광로 상단에 떠오르며, 이를 갈고리로 긁어내어 제거한다.</p>
+<ol start="3" type="1">
+<li><p>이산화탄소 배출 문제 이 공정에서 이산화탄소가 발생하는 것이 환경 문제로 지적된다. 따라서, 탄소 배출을 줄이기 위한 새로운 기술이 필요하다.</p></li>
+<li><p>수소 환원 기술 철광석을 환원할 때 기존의 탄소 대신 수소를 사용하는 방식을 수소 환원 반응이라고 한다. 수소는 철광석의 산소와 결합해 물(H₂O)로 변하므로, 이산화탄소 배출 없이 철을 추출할 수 있다.</p></li>
+</ol>
+<p>이러한 기술은 미래의 탄소 중립 목표를 달성하기 위한 핵심 기술로 주목받고 있다. 현재 이 기술은 아직 완성되지 않았으며, 수소 환원 철 기술은 개발 중인 상태이다.</p>
+<p>우리나라는 포스코와 같은 기업을 통해 이 기술에 대한 연구를 진행하고 있으나, 개발 속도는 다소 뒤처진 상황이다.</p>
+<p>07 제철 공정 철광석에서 철을 추출하여 다양한 철 제품을 만드는 공정을 단계별로 설명한다.</p>
+<ol type="1">
+<li>선철 쇳물의 생성 철광석을 용광로에서 가열하여 불순물이 많이 포함된 선철 쇳물을 만든다.</li>
+</ol>
+<p>이 과정에서 산소를 주입하여 탄소와 결합시켜 이산화탄소(CO₂) 형태로 제거하는 것이 목표이다.</p>
+<p>탄소가 제거되면서 선철의 성질이 개선된다.</p>
+<p>이 과정은 고온 상태를 유지해야 하며, 용광로가 꺼지면 다시 점화하는 데 오랜 시간이 걸리므로 연속적인 공정이 중요하다.</p>
+<ol start="2" type="1">
+<li>연주 공정 (Continuous Caster) 완제품이 아닌 반제품을 만드는 단계이며, 선철 쇳물을 일정한 형태로 만드는 공정이다.</li>
+</ol>
+<p>쇳물을 연속적으로 붓고 길을 따라 이동시키며, 유동성 고체 상태에서 서서히 경화되어 슬라브라는 넓은 판형태의 철 덩어리가 만들어진다.</p>
+<p>슬라브는 필요한 길이로 잘라서 식힌 후 다음 공정으로 이동한다.</p>
+<ol start="3" type="1">
+<li>압연 공정 (Rolling) 슬라브를 다양한 형태로 가공하는 과정이다.</li>
+</ol>
+<p>두 개의 롤러 사이에 슬라브를 넣어 눌러주면, 얇고 긴 판 형태로 변한다. 이 과정을 압연 공정이라고 하며, 크게 두 가지 방식으로 나뉜다.</p>
+<p>3-1. 열간 압연 (열연) 슬라브를 가열한 상태에서 압연한다.</p>
+<p>슬라브를 화장지 두루마리처럼 말아서 저장할 수 있으며, 이 과정을 줄여서 열연 강판이라고 한다. 롤러의 굴곡을 조절하여 휘어지지 않도록 두꺼운 상태로 마무리한다.</p>
+<p>조선업체, 자동차 산업, 파이프, 전자레인지 등의 소재로 활용된다.</p>
+<p>3-2. 냉간 압연 (냉연) 열간 압연된 강판을 다시 가열하여 풀어낸 후, 더욱 얇게 눌러주는 과정이다. 이 과정을 통해 표면이 매끄럽고 정밀도가 높은 냉연 강판이 만들어진다.</p>
+<p>자동차 외장, 가전제품 등 매끈한 표면이 요구되는 제품에 사용된다.</p>
+<ol start="4" type="1">
+<li><p>제철 공정의 전체 작업 제철회사에서는 이러한 과정을 통해 철광석에서 시작하여 여러 형태의 철 제품을 생산한다. 생산된 철 제품은 다양한 산업에 맞춰 가공되어 사용된다.</p></li>
+<li><p>선재 공정 (Wire Rod) 선형 제품을 생산하는 공정이다.</p></li>
+</ol>
+<p>빌렛(작은 직사각형 철 덩어리)을 가열하여 특정한 기계에 통과시키고, 철사를 뽑아내는 방식이다.</p>
+<p>철사, 케이블, 스프링 등의 얇고 긴 제품을 제작할 때 사용된다.</p>
+<ol start="2" type="1">
+<li>주조 공정 (Casting) 쇳물을 몰드(틀)에 부은 후 식히고 틀을 제거하여 원하는 형태를 만든다. 복잡한 형태나 내부 구조가 중요한 제품을 제작할 때 사용됩니다.</li>
+</ol>
+<p>자동차 엔진 블록, 기계 부품 등 복잡한 물체를 효율적으로 제조할 수 있다.</p>
+<ol start="3" type="1">
+<li>단조 공정 (Forging) 가열된 철 덩어리를 망치로 두들겨서 원하는 모양으로 만드는 공정이다.</li>
+</ol>
+<p>철의 내구성과 강도를 높이는 데 유리하며, 비교적 간단한 형태의 강한 제품을 제작할 때 사용된다.</p>
+<p>공구, 무기, 기계 부품 등 강도가 중요한 제품을 만드는 데 활용된다.</p>
 
 
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

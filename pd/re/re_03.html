@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Learning React: Modern Patterns for Developing React Apps">
+<meta name="dcterms.date" content="2024-10-10">
 
-<title>cg-hw – StudyLog</title>
+<title>비동기 자바스크립트 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,122 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">비동기 자바스크립트</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Learning React: Modern Patterns for Developing React Apps </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 10, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>(P.56)</p>
+<p>01 비동기 자바스크립트 (Asynchronous JavaScript) 프로그램이 멈추지 않고, 여러 작업을 동시에 처리할 수 있도록 설계된 개념. 기본적으로 자바스크립트는 싱글 스레드 언어이므로, 한 번에 하나의 작업만 처리할 수 있다.</p>
+<p>따라서 비동기 작업이 없으면 어떤 작업이 완료될 때까지 다른 작업들이 대기해야 하고, 이로 인해 화면이 멈추는 현상이 발생할 수 있다.</p>
+<ol type="1">
+<li>비동기 처리의 필요성 초기에는 웹 페이지에서 동적인 변화가 적어 화면이 멈추는 일이 큰 문제가 되지 않았다.</li>
+</ol>
+<p>하지만 현대적인 웹 애플리케이션에서는 사용자 경험이 중요해졌고, 작업이 멈추면 페이지가 느려지거나 비정상적으로 작동하는 것처럼 보일 수 있었다.</p>
+<p>특히, 서버에서 데이터를 불러오거나 큰 계산 작업을 하는 동안 사용자 인터페이스가 멈추는 것을 방지하는 것이 중요해졌다.</p>
+<ol start="2" type="1">
+<li>비동기 처리 방법 자바스크립트에서 비동기 처리를 위해 다양한 방법을 사용할 수 있다.</li>
+</ol>
+<ol type="1">
+<li>콜백 함수 (Callback) 함수가 완료되면 그 다음에 실행할 작업을 함수로 전달하여 실행하는 방식.</li>
+</ol>
+<p>하지만 콜백 함수의 중첩이 많아지면 코드가 복잡해지고 관리하기 어려워지는 “콜백 지옥”이 발생할 수 있다.</p>
+<ol start="2" type="1">
+<li>프로미스 (Promise) 콜백 함수의 단점을 보완한 비동기 처리 방식. 작업이 완료되면 성공(resolve)이나 실패(reject)에 대한 결과를 반환한다.</li>
+</ol>
+<p>.then()이나 .catch()로 결과를 처리할 수 있다.</p>
+<ol start="3" type="1">
+<li>async/await ES8에 도입된 방식으로, 프로미스를 더 직관적이고 순차적으로 처리할 수 있게 만들어준다.</li>
+</ol>
+<p>async 키워드를 함수에 붙이고, 그 안에서 await를 사용하여 비동기 작업이 완료될 때까지 기다릴 수 있다.</p>
+<p>입력 함수와 콜백 함수 자바스크립트에서 입력 함수는 사용자로부터 데이터를 입력받는 작업을 수행하는 함수.</p>
+<p>비동기 작업에서는 입력이 완료된 후에도 다른 작업이 바로 실행되며, 이때 콜백 함수를 사용하여 입력이 완료된 후 특정 작업을 처리하게 됩니다.</p>
+<p>콜백 함수는 특정 이벤트가 발생하거나 작업이 완료되었을 때 호출되는 함수입니다.</p>
+<p>2초 뒤에 “첫 번째 작업 완료”라는 메시지를 출력하는 비동기 코드. 이 경우 콜백 함수가 사용됩니다.</p>
+<p>중요한 점은, 2초가 지나기 전에 다른 작업이 바로 실행된다는 것입니다. 즉, 프로그램은 기다리지 않고 계속 실행되며, 작업이 완료되면 콜백 함수가 호출됩니다.</p>
+<p>이것이 블로킹되지 않는다는 의미입니다.</p>
+<p>API 요청과 fetch 함수 과거에는 API 요청을 보내는 작업이 복잡하고 번거로웠지만, fetch 함수의 도입으로 간편하게 API 호출을 할 수 있게 되었다.</p>
+<p>fetch 함수는 기본적으로 프로미스를 반환하며, 비동기적으로 데이터를 받아옵니다. 이는 REST API를 사용하여 서버에서 데이터를 가져올 때 매우 유용합니다.</p>
+<p>Promise 비동기 작업의 상태와 결과를 나타내는 자바스크립트 객체</p>
+<p>이 개념을 비유적으로 설명하면, 브라우저가 데이터를 요청하면서 “최선을 다해 데이터를 가져올게. 성공하든 실패하든 그 결과를 알려줄게.” 라고 약속하는 것과 같다.</p>
+<p>기본 동작 진행 중 (pending): 비동기 작업이 아직 완료되지 않은 상태.</p>
+<p>성공 (fulfilled): 비동기 작업이 성공적으로 완료된 상태.</p>
+<p>실패 (rejected): 비동기 작업이 실패한 상태.</p>
+<ol type="1">
+<li>.then() ⇨ 작업 체이닝(연결) 비동기 작업이 성공한 후 실행될 작업(콜백 함수)을 등록합니다. 이 함수는 이전 작업이 완료되면 호출됩니다.</li>
+</ol>
+<p>여러 then()을 연결하여 작업을 순차적으로 수행할 수 있다.</p>
+<ol start="2" type="1">
+<li>.catch() ⇨ 예외 처리 Promise에서 발생한 오류를 잡아서 처리하는 메서드.</li>
+</ol>
+<p>데이터 요청 중 네트워크 문제나 서버 오류 등의 이유로 작업이 실패할 때, 그 에러를 처리할 수 있다.</p>
+<p>Async 일반적인 함수를 비동기적으로 처리하게 해주는 함수. .then() 체인을 사용해 promise의 결과를 기다리는 대신, async 함수는 코드 실행을 promise가 해결될 때까지 기다리도록 함.</p>
+<p>앞서서 API 요청을 Async 함수로 처리하는 코드 async function getFakePerson() { try { const response = await fetch(‘https://api.randomuser.me/?nat=US&amp;results=1’); const data = await response.json(); console.log(data.results); } catch (error) { console.error(‘Error:’, error); } } getFakePerson() 동시 접근이 안된다. 해결할 때까지 기다려 준다.</p>
+<p>개발자는 이를 미리 예측하여, 멈추지 않고 작업이 가능하도록 예외처리를 하는 것이 중요함. 패치 시 await를 해줌, 함수 호출을 하면 한 명의 데이터가</p>
+<p>뉴 바인딩, 뒤에 클래스 문법이 나옴, 클래스의 이름의 첫 글자는 대문자이다. 이는 객체로 사용 가능한으로 판단할 수 있다.</p>
+<p>괄호 안에 매개변수()에 각각 성공과 실패에 대한 정보가 담긴다. 웹 문서에서 데이터 요청할 때 쓰는 2가지 방식</p>
+<p>GET(노출하여 가져오는 것, 해킹 당할 위험이 큼) POST(노출하지 않아, 더 안전하다.)</p>
+<p>성공했다면(200), 상한 연산자 - 참(?)/거짓(:)</p>
+<p>Classes 2015이전에는 자바에서 클래스를 쓸 수 없었음 이후 클래스를 써서 개발자들에게 각광을 받았다.</p>
+<p>방학 때 어디로 놀러갈 것인가?</p>
+<p>// p.62</p>
+<p>function Vacation(destination, length) { this.destination = destination; this.length = length; } Vacation.prototype.print = function() { console.log(this.destination + ” | ” + this.length + ” days”); }; const maui = new Vacation(“Maui”, 7); maui.print(); // Maui | 7 days 생성자 호출, 마오이로 7일 간 자바 스크립트 클래스 문법 차별화를 두겠다고 따라한 걸 안 들키려고 함. 이는 파이썬도 마찬가지이다.</p>
+<p>C언어로 배운 사람은 혼란할 수 있음</p>
+<p>class Vacation { constructor(destination, length) { this.destination = destination; this.length = length; } print() { console.log(<code>${this.destination} will take ${this.length} days.</code>); } }</p>
+<p>const trip = new Vacation(“Santiago, Chile”, 7); trip.print(); // Chile will take 7 days.</p>
+<p>자바 기능의 모든 것.</p>
+<p>class Expedition extends Vacation { constructor(destination, length, gear) { super(destination, length); this.gear = gear; } print() { super.print(); console.log(<code>Bring your ${this.gear.join(" and your ")}</code>); } } super의 의미: 부모의</p>
+<p>매개변수 2개, 1.상속: 부모의 기능을 그대로 사용하려는 것 객체 지향에서는 가장 중요하다.</p>
+<p>2.다형성, 3.인터페이스</p>
+<p>const trip = new Expedition(“Mt. Whitney”, 3, [ “sunglasses”, “prayer flags”, “camera”]); trip.print(); // Mt. Whitney will take 3 days. // Bring your sunglasses and your prayer flags and your camer</p>
+<p>스크립트도 모듈로 쓸 수 있도록 모듈은 쉽게 말해 부품이다.</p>
+<p>export const print=(message) =&gt; log(message, new Date()) export const log=(message, timestamp) =&gt; console.log(<code>${timestamp.toString()}: ${message}</code>) 외부에서 가져다 쓸 수 있도록 인폴트시킨 것. C언어에서 블리컨파일 불러오기를 자바에서는 모듈이라는 기능으로 불린것 뿐</p>
+<p>객체도 외부에 공개할 수 있다.</p>
+<p>import { print, log } from “./text-helpers”; import freel from “./mt-freel”; print(“printing a message”); log(“logging a message”); freel.print(); C언어는 인클루드이고, 자바나 파이썬은 인폴트를 사용한다. 모듈을 이용해서 외부의 기능을 사용한 것. 이는 관리하기 용이하고 이름이 중복되는 것을 방지.</p>
+<p>아바스틴줄 약</p>
 
 
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-10-31">
 
-<title>cg-hw – StudyLog</title>
+<title>철과 알류미늄 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,90 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">철과 알류미늄</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 31, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>베서머 전로, 알루미늄 및 두랄루민의 발전, 그리고 정유 산업의 역할에 대해 다루고자 한다.</p>
+<p>01 17세기 영국 아이작 뉴턴은 17세기 과학 혁명을 이끈 중요한 인물로, 그의 이론과 발견은 전 유럽의 과학 기술 발전에 큰 영향을 미쳤다.</p>
+<p>특히 중력 이론과 미적분학의 발전은 과학에 대한 투자를 촉진했다.</p>
+<p>산업혁명 18세기 후반에서 19세기 초에 걸쳐 영국에서 시작되었으며, 증기기관의 발명과 활용이 중요한 역할을 했다.</p>
+<p>기계가 증기기관의 힘으로 돌아가면서 생산성이 극대화되었고, 대량 생산된 제품을 철도와 같은 교통수단을 통해 빠르게 배송할 수 있게 되었다.</p>
+<p>강철 수요와 생산 기술 산업혁명으로 인해 금속과 강철의 수요가 급증하면서, 기존 제철 방법의 한계가 드러났다. 전통적인 제철 방법은 낮은 온도에서 쇳물을 만들 경우 탄소(C) 함량이 높아지는 문제가 있었다.</p>
+<p>이 문제를 해결하기 위해 망치질로 불순물을 제거하는 방법이 사용되었지만, 이는 비효율적이고 대량 생산에는 한계가 있었다.</p>
+<p>02 베서머 전로 (Bessemer) 영국의 헨리 베서머가 발명한 베서머 전로는 철광석과 석탄, 그리고 용광로 밑바닥에 열풍인 산소를 주입하여 제철 과정을 효율적으로 개선했다.</p>
+<p>이 과정에서 발생하는 탄소는 산소와 결합하여 이산화탄소로 변하며, 이를 통해 강철의 탄소 함량을 줄이는 데 성공했다.</p>
+<p>산업혁명 시기, 고품질의 강철을 생산하기 위해서는 철광석에서의 탄소 함량을 정확하게 조절하는 것이 중요했다.</p>
+<p>특히 탄소 함량이 1%로 적정해야 강철의 품질이 유지되는데, 변동성이 심한 과정에서 이를 일관되게 맞추는 것은 어려운 도전이었다.</p>
+<p>문제점 탄소 함량의 변동성이 크면 강철의 품질이 달라지며, 이는 공급자의 입장에서 큰 문제였다. 품질 불량으로 인해 고객의 신뢰를 잃거나 파산의 위험에 처할 수 있었다.</p>
+<p>해결책 무세트(Mushet)는 이 문제를 해결하기 위해 탄소를 완전히 제거한 후, 필요한 양의 탄소(1%)를 정확하게 첨가하는 방법을 제안했다.</p>
+<p>이 방식은 강철의 품질을 일정하게 유지할 수 있게 해주었다.</p>
+<p>무세트는 이 해결책에 대해 300파운드를 지불받았다.</p>
+<p>이는 품질 유지의 중요성을 강조하는 사례로, 고품질 강철의 생산이 산업의 발전에 어떻게 기여했는지를 보여준다.</p>
+<p>03 알루미늄 - Al 자연상태에서 산소와 결합하여 존재하며, 이를 분리하기 위해서는 3000도 이상의 높은 온도가 필요하다.</p>
+<p>나폴레옹 3세는 알루미늄 식기를 사용하여 접대했으며, 이는 알루미늄이 녹슬지 않고 가벼우며, 철보다 밝은 특성 덕분에 인기를 끌었다.</p>
+<p>그러나 초기에는 비싼 금속이었다.</p>
+<p>전기 분해를 이용한 생산 1800년대 초, 배터리가 발명되었고, 1800년대 후반에는 발전소가 등장하여 전기 분해의 가능성이 열렸다.</p>
+<p>이 시기에 다른 극에 다른 원소가 붙는 전기 분해 현상을 경험하면서 알루미늄의 활용을 고민하게 되었다.</p>
+<p>바륨와 알루미늄 산화물이 썩인 빙정석에 1000도의 열을 가하면 액체가 되며, 여기에 알루미늄 산화물을 넣으면 녹아 섞인다.</p>
+<p>마지막으로, 전기 분해를 통해 음극에 알루미늄이 분리된다. 이 과정을 통해 알루미늄을 효율적이고 저렴하게 생산할 수 있게 되었다.</p>
+<p>04 두랄루민 (Duralumin) 알루미늄은 철만큼 강하지 않다는 단점이 있었다.</p>
+<p>이를 해결하기 위해 합금을 만들어 보았지만, 초기에는 쓸만할 정도로 단단해지지 않았다.</p>
+<p>그런데, 시간이 지나면서 단단해지는 시효경화 현상을 우연히 발견하여, 결국 강철만큼은 아니지만 사용 가능한 알루미늄 합금을 개발하게 되었다.</p>
+<p>이 합금은 ” Duralumin ” 이라 불리며, 이는 내구성을 강조하는 이름이다.</p>
+<p>활용 독일 탱크는 힘을 받지 않는 부분에 두랄루민을 대체하여 가벼워졌다. 이로 인해 연합군 탱크보다 빠른 기동력을 갖게 되어 압도적인 전력 차이를 보였다.</p>
+<p>전쟁 후, 두랄루민이 내장된 비행기가 처음으로 여객기로 사용되었다. 이 여객기는 탄생 이후 약 72년 정도의 역사를 가지고 있다.</p>
+<p>사고 비행기가 고도에 오르면 공기압력이 0.26 atm으로 감소하기 때문에, 내부 압력을 약 0.74 atm으로 유지해야 했다.</p>
+<p>그러나 이러한 압력차로 인해 비행기 몸체가 지속적으로 팽창과 수축을 반복하며 큰 스트레스를 받았고, 결국 이를 견디지 못해 비행기에 구조적인 손상이 발생하는 사고가 있었다.</p>
+<p>사고 원인을 조사한 결과, 비행기 유리창 모서리에서 힘의 집중 현상이 발견되었다.</p>
+<p>이를 해결하기 위해 유리창을 외부는 원형, 내부는 사각형으로 설계하여 압력차를 효과적으로 분산시키는 방식을 도입했다.</p>
+<p>이러한 개선은 비행기 안전성을 크게 향상시키는 중요한 전환점이 되었다.</p>
+<p>05 정유 산업 (Refining Industry)</p>
+<p>증류탑의 원리 증류탑에서는 300도에서 액체 상태로 변하는 물질을 걷어내고, 기체는 위로 상승한다. 이 과정에서 온도를 조금 줄이며, 각 성분의 끓는점에 따라 분리되는 원리를 사용한다.</p>
+<p>증류탑의 원리를 활용한 정유 산업은 석유에서 다양한 화학 물질을 추출하고 정제하는 과정이다.</p>
+<p>나프타(naphtha)는 초기에는 쓸모가 없던 물질이었으나, 이를 화학자들이 활용하여 기초 원료를 추출하고 연결 및 조절하여</p>
+<p>새로운 물질을 만들어내는 데 성공했다.</p>
+<p>인공소재 나프타와 같은 원료를 바탕으로 만들어진 인공소재는 석유화학 산업 분야에서 중요한 역할을 한다.</p>
+<p>이러한 소재는 다양한 제품의 기초 원료로 사용되며, 현대 산업에서 필수적인 요소가 되었다.</p>
+<p>첨단세라믹 개발 나프타를 활용한 화학적 조합 및 변형 과정을 통해 첨단세라믹과 같은 고기능성 물질들이 개발되었다. 이러한 첨단소재는 전자기기, 항공우주, 의료기기 등 다양한 분야에서 혁신적인 성능을 발휘한다.</p>
 
 
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

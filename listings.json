@@ -101,9 +101,57 @@
   {
     "listing": "/cg-hw.html",
     "items": [
+      "/ch/os_01.html",
       "/ch/uno_02.html",
       "/ch/cg_01.html",
       "/ch/uno_01.html"
+    ]
+  },
+  {
+    "listing": "/prog-dev.html",
+    "items": [
+      "/pd/od/od_06.html",
+      "/pd/od/od_05.html",
+      "/pd/od/od_04.html",
+      "/pd/od/od_03.html",
+      "/pd/od/od_02.html",
+      "/pd/od/od_01.html",
+      "/pd/re/re_04.html",
+      "/pd/re/re_05.html",
+      "/pd/re/re_06.html",
+      "/pd/re/re_07.html",
+      "/pd/re/re_08.html",
+      "/pd/re/re_09.html",
+      "/pd/re/re_10.html",
+      "/pd/re/re_11.html",
+      "/pd/re/re_03.html",
+      "/pd/re/re_02.html",
+      "/pd/re/re_00.html",
+      "/pd/re/re_01.html"
+    ]
+  },
+  {
+    "listing": "/miscellaneous.html",
+    "items": [
+      "/misc/mse_05_1.html",
+      "/misc/mse_04_4.html",
+      "/misc/mse_05_0.html",
+      "/misc/mse_04_3.html",
+      "/misc/mse_04_2.html",
+      "/misc/mse_04_0.html",
+      "/misc/mse_04_1.html",
+      "/misc/mse_03_2.html",
+      "/misc/mse_03_3.html",
+      "/misc/mse_01_3.html",
+      "/misc/mse_02_0.html",
+      "/misc/mse_02_1.html",
+      "/misc/mse_01_1.html",
+      "/misc/mse_01_2.html",
+      "/misc/mse_02_2.html",
+      "/misc/mse_02_3.html",
+      "/misc/mse_03_0.html",
+      "/misc/mse_03_1.html",
+      "/misc/mse_01_0.html"
     ]
   }
 ]

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Learning React: Modern Patterns for Developing React Apps">
+<meta name="dcterms.date" content="2024-11-05">
 
-<title>cg-hw – StudyLog</title>
+<title>React를 이용한 Blog 만들기(6) – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,107 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">React를 이용한 Blog 만들기(6)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Learning React: Modern Patterns for Developing React Apps </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>목록을 적성하기.</p>
+<p>1 . 자 료 의 입 력</p>
+<p>Cloud: MongoDB Cloud</p>
+<p><a href="https://account.mongodb.com/account/login?n=https%3A%2F%2Fcloud.mongodb.com%2Fv2%2F674d0886cfb68655ff3271d0&amp;nextHash=%23overview&amp;signedOut=true">account.mongodb.com</a></p>
+<p>Html 파일에 서버데이터 넣는 방법? 데이터가 왔다가는 건 매우 어려움</p>
+<p>–template engine 사용 Pug/ejs/Handlebars…… 가장쉽고 간단한 ejs를 사용 다른 엔진은 자체 문법을 공부해야하지만, ejs는 자바스크립트 코드를 그대로 쓸 수 있음.</p>
+<p>–Ejs 설치 •&gt;&gt;npm install ejs 설치후 server.js 안에 ejs 설정하기</p>
+<p>•Html 파일에 데이터 넣기 –Ejs파일 만들기 •views폴더를 만들고 그 안에 list.ejs 생성 List.ejs코드와 main.css 코드 작성</p>
+<p>•Main.css파일 작성 –우선 프로젝트 폴더에 public 폴더 생성 -&gt; main.css 생성후 작성 –Server.js에 다음 코드 추가하기</p>
+<p>•데이터베이스 데이터를 ejs에서 사용하려면 –&lt;%=데이터 이름 %&gt;로 감싸서 사용 –HTML 코드를 ejs에서 사용하려면 위 특수태그를 사용하면 된다. –Html안에 &lt;%=데이터 이름 %&gt;을 쓰면 object 자료형이 깨져서 나옴 –&lt;%=JSON.stringify(데이터 이름) %&gt;으로 사용하면 데이터가 나옴.</p>
+<p>•/time 이라고 접속하면 현재 서버의 시간을 보내주는 기능을 만들어보자. –Ejs로 웹페이지를 만들어서 거기 안에 서버의 시간을 박아넣어서 보내주면 됨. –(팁) 서버의 시간은 server.js 파일 아무데서나 new Date() 라고 쓰면 나옴</p>
+<p>•데이터베이스 데이터를 ejs에서 사용하려면 –&lt;%=데이터 이름 %&gt;로 감싸서 사용 –HTML 코드 및 자바스크립트를 ejs에서 사용하려면 위 특수태그(&lt;% %&gt;)를 사용하면 된다. –Html안에 &lt;%=데이터 이름 %&gt;을 쓰면 object 자료형이 깨져서 나옴 –&lt;%=JSON.stringify(데이터 이름) %&gt;으로 사용하면 데이터가 나옴. –자바스크립트 반복문을 사용하여 여러 개의 게시물을 화면에 보이도록 하자.</p>
+<p>•지금까지 코드엔 네비게이션 바가 안보인다?! –Index.html의 네브바 코드만 복사에서 붙여넣으면 되지만, 모든 페이지마다 이러한 작업을 하는건 매우 비효율적이다. –Nav.ejs를 만들고, 네브바 코드를 넣은뒤, 이걸 포함시키는 방법이 더 효과적이다. –이를 위해 &lt;%- include(‘nav.ejs’) %&gt;를 사용하자.</p>
+<p>서버에 HTTP 요청하는법 서버로 진짜 요청 날리려면</p>
+<p>REST원칙</p>
+<p>좋은 URL 작명방법</p>
+<p>Method : GET, POST, PUT, UPDATE, DELETE</p>
+<ol type="1">
+<li><p>GET : 서버에 데이터 출력요청할때</p></li>
+<li><p>POST : 서버에 데이터 입력요청할때</p></li>
+<li><p>PUT,UPDATE: 서버에 데이터 수정요청할때</p></li>
+<li><p>DELETE : 서버에 데이터 삭제요청할때</p></li>
+<li><p>URL : /어쩌구</p></li>
+</ol>
+–POST요청은 어떻게?
+<form>
+<p>태그 이용 –REST(Representation state transper) API •좋은 API 디자인하는 원칙 6개 1. 일관성 있는 URL이 좋음 - 2가지 역할 금지 »하나의 URL+method는 하나의 데이터를 보내야 좋음</p>
+<ol start="2" type="1">
+<li><p>유저에게 서버역할을 맡기지 마라</p></li>
+<li><p>요청끼리 서로 의존성이 있으면 안된다. - 독립적</p></li>
+<li><p>요청은 캐싱이 가능해야 한다.</p></li>
+</ol>
+<p>여기서, 캐싱이란 자주 수신되는 자료들은 요청을 날리지 않고 하드에 저장해놓고 쓰도록 하는 기술</p>
+<p>Layered System :요청하나는 최종 응답전까지 여러 단계를 거쳐도 된다.(잘 몰라도 됨)</p>
+<p>Code on demand : 서버는 유저에게 실행가능한 코드를 보내줄 수도있음. (잘 몰라도 됨)</p>
+<p>좋은 URL 작성법 1. 동사보다는 명사 위주로</p>
+<ol start="2" type="1">
+<li><p>띄어쓰기는 언더바_대신 대시-기호</p></li>
+<li><p>파일 확장자 쓰지말기(.html)</p></li>
+<li><p>하위 문서들을 뜻할땐 /기호를 사용함(하위 폴더같은 느낌)</p></li>
+</ol>
+<p>다음과 같은 문제를 풄 있어야 된</p>
+<p>Q1.facebook.com/bbc/photos로 GET요청하면 어떤 데이터 보여줄까?</p>
+<p>BBC뉴스 이미지를 보여준다.</p>
+<p>Q2.Instagram.com/explore/tags/food로 GET요청하면 어떤 데이터 보여줄까?</p>
+<p>글 작성 페이지와 form 만들고, 서버는 전송받은 글 확인</p>
+<p>글 작성기능? 1.글작성 페이지에서 글 써서 서버로 전송 2.서버는 글을 검사 3.이상없으면 DB저장 –Views/write.ejs 생성</p>
+<p>write.ejs 코드-list.ejs코드를 복사 붙여넣고 아래처럼 수정</p>
+<p>•글 작성페이지와 form 만들기 –버튼을 클릭한다고 입력이 되는가? NO!!</p>
+<p>Url과 method를 지정해야 함!! –form태그의 속성으로 action과 method를 지정해야 한다 –또한 input태그에 name속성을 지정해야 입력된다.</p>
+<p>서버로 글 전송(server.js) res.body를 쓰면 유저가 보낸 데이터 출력가능 쓰기 전에 셋팅이 필요</p>
+<p>–Localhost/write페이지에서 글 입력하고 서버로 데이터 전송뒤 콘솔로 터미널에 출력하기 –DB 저장은? 앞서서 공부했음.알아서 해보자!! ^^;;;</p>
+<p>vjqmfflt</p>
 
 
 
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</form></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

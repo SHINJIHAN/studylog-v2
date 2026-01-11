@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
+<meta name="dcterms.date" content="2024-12-05">
 
-<title>cg-hw – StudyLog</title>
+<title>보석들 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="cg-hw.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,160 +114,196 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">cg-hw</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(4)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#에메랄드" id="toc-에메랄드" class="nav-link active" data-scroll-target="#에메랄드">01 에메랄드</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">보석들</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">code</div>
+    <div class="quarto-category">analysis</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>다이아몬드 이외의 다른 4종의 보석에 대해 다루고자 한다.</p>
+<section id="에메랄드" class="level1">
+<h1>01 에메랄드</h1>
+<p><code>Emerald, Be₃Al₂Si₆O₁₈ 베릴알루미늄실리케이트</code> <code>5월의 탄생석</code></p>
+<p>고대부터 귀한 보석으로 여겨져 왔으며, 그 이름은 그리스어 ’스멜라두스(σμάραγδος)’에서 유래한다. 이는 ’초록색’을 의미한다.</p>
+<p>에메랄드는 주로 베릴(Be0) 계열의 광물로, 베릴륨(Be), 알루미늄(Al), 실리콘(Si), 산소(O)가 결합된 구조를 가지고 있다.</p>
+<p>이 보석의 색은 주로 크로뮴(Cr)과 철(Fe)의 함량에 의해 결정된다. 또한, 기둥 모양의 형태를 가지므로, “녹주석”이라고 불리기도 한다.</p>
+<ol type="1">
+<li>상징성 고대 이집트인들은 초록색을 “생명의 색”으로 여겼다. 이는 농작물의 풍요로운 색과 닮아 있어 생명과 재생을 상징했기 때문이다.</li>
+</ol>
+<p>당시 고대 이집트에서 귀중한 보석으로 여겨졌으며, 클레오파트라는 에메랄드를 특히 사랑했다고 전해진다.</p>
+<p>클레오파트라 7세 필로파토르 (Cleopatra VII Philopator, 69BCE–30BCE)</p>
+<ol start="2" type="1">
+<li>에메랄드의 사용 왕족과 귀족들은 에메랄드를 주로 장식품이나 부적에 사용했다.</li>
+</ol>
+<p>에메랄드는 당시 죽음 이후의 세계에서 보호를 제공한다고 믿어져 무덤에 함께 매장되기도 했다.</p>
+<ol start="3" type="1">
+<li>역사적 가치 클레오파트라 시대에는 에메랄드 광산이 존재했다.</li>
+</ol>
+<p>이집트의 제벨 자바라(Jebel Zabara)와 제벨 세케이트(Jebel Sikait)는 클레오파트라 시기에 운영되던 중요한 에메랄드 광산들로 알려져 있다.</p>
+<p>이러한 이유로 에메랄드는 당시 문화와 신앙에서 큰 상징적 의미를 지녔다.</p>
+<ol start="4" type="1">
+<li>스페인 정복자들의 침략 16세기 초, 스페인과 포르투갈이 아메리카 대륙과 남미를 탐사하면서 자원을 약탈하고 정복을 진행했다.</li>
+</ol>
+<p>그들은 아즈텍, 잉카와 같은 고대 문명을 정복하고, 금, 은, 에메랄드 등 다양한 자원을 유럽으로 가져왔다.</p>
+<ol start="5" type="1">
+<li>뮤이즈 (Muzo) 콜롬비아의 보야카(Boyacá) 주에 위치한다.</li>
+</ol>
+<p>안데스 산맥의 한 지역으로, 세계에서 가장 오래된 에메랄드 광산 중 하나로 유명하다.</p>
+<p>이 지역은 에메랄드의 최고 품질을 자랑하며, 오늘날에도 여전히 중요한 에메랄드 생산지로 알려져 있다.</p>
+<ol start="6" type="1">
+<li>유럽에서의 가치 에메랄드는 유럽에서 귀한 보석으로 자리잡게 되었다.</li>
+</ol>
+<p>그 당시 상류층과 왕족에게 큰 선물이었으며, 그 가치는 금, 은, 다이아몬드와 같은 다른 귀금속과 비견될 만큼 높았다.</p>
+<ol start="7" type="1">
+<li>영화 ‘클레오파트라’ (Cleopatra, 1962)</li>
+</ol>
+<p>당시 엘리자베스 로즈먼 테일러는 클레오파트라 역을 맡았고, 리차드 서튼 버튼은 마르쿠스 안토니우스 역을 맡았다.</p>
+<p>(Elizabeth Rosemond Taylor, 1932–2011) (Richard Sutton Burton, 1925–1984)</p>
+<p>에메랄드는 영화 촬영 중에 발생한 둘의 로맨스와 관련이 있으며, 버튼은 테일러에게 콜롬비아산 에메랄드로 만든 화려한 보석을 선물했다.</p>
+<p>이 보석은 매우 크고 값비싼 에메랄드로, 에메랄드가 고대 이집트와 연관된 보석이기 때문에 클레오파트라와의 역사적 연관성을 더욱 강조한 선물이었다.</p>
+<p>이 사건은 헐리우드 역사에서 가장 유명한 로맨틱한 선물 중 하나로 기억되며, 엘리자베스 테일러의 아름다움과 클레오파트라 역할과 맞물려 더욱 큰 의미를 가진다.</p>
+<p>02 아쿠아마린 (Aquamarine, Be₃Al₂Si₆O₁₈ 베릴알루미늄실리케이트) 3월의 탄생석</p>
+<p>베릴광(beryl)의 일종으로, 이 광물은 기본적으로 알루미늄과 베릴륨이 포함된 규산염 미네랄이다.</p>
+<p>화학적으로는 에메랄드와 동일한 구조를 가졌지만, 이 베릴광에 소량의 철이 섞여 있어 푸른색 또는 청록색을 띈다.</p>
+<ol type="1">
+<li>어원 라틴어로, “aqua”(물)와 “mare”(바다)의 결합에서 유래했다.</li>
+</ol>
+<p>이 이름은 아쿠아마린이 바다의 색을 연상시키는 맑고 푸른 색을 띤다는 특성에서 비롯되었다.</p>
+<ol start="2" type="1">
+<li>그리스 신화의 포세이돈 Poseidon / Ποσειδῶν(Poseidôn)</li>
+</ol>
+<p>그리스 신화에서 포세이돈은 바다의 신으로, “바다의 지배자” 또는 “바다와 지진의 신”으로 알려져 있다.</p>
+<p>고대 그리스에서는 아쿠아마린이 포세이돈의 선물로 여겨졌다. 이는 아쿠아마린이 바다와 관련된 신화적 의미를 지닌 보석이라는 전통을 반영한 것이다.</p>
+<p>또한, 고대 항해자들이 아쿠아마린을 호신부로 사용하여 바다에서의 안전을 기원하였다.</p>
+<p>03 진주 (Pearl, CaCO₃ 탄산칼슘) 6월의 탄생석</p>
+<p>조개나 연체동물의 몸속에서 만들어진다.</p>
+<p>이물질(모래알 등)이 조개 안으로 들어오면 연체동물은 이를 감싸기 위해 보호 물질인 진주질(Nacre)을 분비한다.</p>
+<p>시간이 지나면서 탄산칼슘(CaCO₃)과 콘키올린(Conchiolin)이라는 단백질이 여러 겹 쌓여 진주가 생성된다.</p>
+<p>자연산 진주는 오랜 시간에 걸쳐 형성되며, 다결정질 구조를 가지기 때문에 빛을 산란시켜 은은한 광택을 낸다.</p>
+<p>특징 주로 불투명하거나 반투명한 구조를 가지며, 광택이 독특하다. 색상은 흰색, 크림색, 분홍색, 회색, 검은색까지 다양하다.</p>
+<ol type="1">
+<li>엘리자베스 1세 엘리자베스 튜더 (Elizabeth Tudor, 1533–1603)</li>
+</ol>
+<p>잉글랜드와 아일랜드의 여왕으로 1558년부터 1603년까지 통치했다.</p>
+<p>그녀는 “버진 퀸(The Virgin Queen)”이라는 별명을 가졌다. 이는 그녀가 결혼하지 않고 평생 독신으로 지냈기 때문이다.</p>
+<p>그녀는 스스로 “나는 국가와 결혼했다”고 선언하며, 다른 나라와의 정략결혼을 통한 정치적 동맹을 거부했다.</p>
+<ol start="2" type="1">
+<li><p>초상화 속 진주 엘리자베스 1세의 초상화에는 종종 진주 목걸이나 귀걸이가 등장한다. 진주는 그녀의 순결, 권위, 그리고 신성함을 상징했다.</p></li>
+<li><p>버지니아 명칭의 유래 (Commonwealth of Virginia)</p></li>
+</ol>
+<p>미국 동부에 위치한 주로, 북쪽으로 메릴랜드와 워싱턴 D.C., 동쪽으로 대서양, 서쪽으로 웨스트버지니아와 접하고 있다.</p>
+<p>미국 초기 13개 식민지 중 하나로, 미국 독립과 역사에서 중요한 역할을 했다.</p>
+<p>엘리자베스 1세의 별명인 “The Virgin Queen”에서 버지니아(Virginia)라는 이름이 유래했다.</p>
+<p>1584년, 영국의 탐험가 월터 롤리 경.</p>
+<p>(Sir Walter Raleigh, 1552–1618)</p>
+<p>엘리자베스 여왕의 승인을 받아 오늘날 미국 동부 해안에 버지니아 식민지를 설립했다.</p>
+<p>이는 엘리자베스 여왕에 대한 헌정의 의미로 식민지 이름이 정해졌다.</p>
+<ol start="4" type="1">
+<li>납 중독 엘리자베스 1세는 당시 사용되던 화장품에 포함된 납 성분으로 인해 건강이 악화된 것으로 알려져 있다.</li>
+</ol>
+<p>그녀는 흰 피부를 유지하기 위해 납과 식초 혼합물을 사용했다.</p>
+<ol start="5" type="1">
+<li>영국의 과학 기술 발전</li>
+</ol>
+<p>① 100년 전쟁 (The Hundred Years’ War, 1337–1453)</p>
+<p>영국과 프랑스 사이에 벌어진 일련의 군사적 충돌로, 주로 왕위 계승 문제와 영토 분쟁을 둘러싼 갈등이 원인이었다.</p>
+<p>이 전쟁은 여러 차례의 전투와 평화 협정이 혼합된 복잡한 형태였으며, 두 나라 간의 지속적인 전투로 이어졌다.</p>
+<p>결과적으로, 프랑스가 승리하게 되었다.</p>
+<p>② 장미 전쟁 (War of the Roses, 1455–1487)</p>
+<p>100년 전쟁이 끝난 후, 영국 내에서 발생한 내전.</p>
+<p>영국 왕위의 계승권을 두고 두 주요 가문인 랭커스터 가문(빨간 장미)과 요커 가문(흰 장미) 사이에 벌어졌다.</p>
+<p>이 전쟁은 영국의 정치적 혼란을 가중시키며, 결국 튜더 왕조가 등장하는 계기가 되었다.</p>
+<p>③ 절대왕정의 등장 영국은 주요 전쟁에서 패배하고 정치적 혼란을 겪으면서 절대왕정으로의 전환이 본격적으로 이루어졌다.</p>
+<p>이는 왕이 국가의 모든 권력을 중앙집권적으로 지배하는 정치 체제로, 법, 군대, 경제, 종교 등 국가의 모든 부분에 대해 전면적인 통제력을 행사하는 것이 특징이다.</p>
+<p>튜더 왕조의 창시자인 헨리 7세</p>
+<p>헨리 튜더 (Henry Tudor, 1457–1509)</p>
+<p>그는 장미 전쟁을 끝내고 안정된 정치적 환경을 만들었으며, 중앙 정부의 권력을 강화하고 왕권을 확립했다.</p>
+<p>④ 상인 우대 정책 엘리자베스 1세의 통치 초기인 16세기 중반부터 시작되었다. 이 정책은 상업과 무역의 발전을 도모하고, 영국의 경제를 활성화하려는 목적이었다.</p>
+<p>특히, 상인들에게 세금 면제나 혜택을 제공하며 영국 상업을 발전시키는 데 큰 역할을 했다.</p>
+<p>⑤ 스페인의 무적함대 격파 무적함대 (Armada Invencible, 1588)</p>
+<p>스페인의 왕 필립 2세.</p>
+<p>필리페 2세 데 아우스트리아 (Philippe II de Austria, 1527–1598)</p>
+<p>그는 영국과의 종교적 갈등과 정치적 대립을 해결하기 위해, 영국을 침공하기 위해 대규모 해군을 구성했다.</p>
+<p>당시 영국은 가톨릭과 프로테스탄트 간의 갈등이 심했고, 엘리자베스 1세는 프로테스탄트를 지지하는 입장에서 스페인과 적대적 관계를 유지하고 있었다.</p>
+<p>스페인 왕국은 해양 패권을 장악하려는 목표로 무적함대를 조직하여 1588년에 영국을 공격하기 위한 대규모 해군을 보냈다.</p>
+<p>그러나 영국 해군은 기동성과 전술적 우위를 통해 스페인 함대를 격파하였다.</p>
+<p>이 전투를 통해 엘리자베스 1세는 영국의 해상권을 강화하고, 스페인 제국의 해상 지배력을 극복할 수 있었다.</p>
+<p>이 승리는 엘리자베스 1세 시대의 중요한 성과 중 하나로 기록된다.</p>
+<p>엘리자베스 1세 시대 이후, 영국은 정치적 안정과 해상권 확립을 기반으로 상업과 과학 기술이 발전하였다.</p>
+<p>이는 뉴턴이 활동할 수 있는 기반을 마련한 측면이 있다.</p>
+<p>영국의 과학자 아이작 뉴턴 경.</p>
+<p>(Sir Isaac Newton 1642 – 1727)</p>
+<p>엘리자베스 1세의 시대 이후로 과학 혁명 시대의 중심 인물로 떠오른다.</p>
+<p>그는 만유인력의 법칙과 미적분학의 기초를 세운 인물로, 엘리자베스 1세가 다스리던 시기의 정치적 안정과 상업의 발전이 과학 기술 발전에 중대한 기여를 했다.</p>
+<p>과학기술 발전을 위한 지원과 분위기가 이 시기에 형성되었으며, 이는 뉴턴과 같은 위대한 과학자의 업적을 가능하게 했다.</p>
+<p>04 호박 (Amber, C₁₀H₁₆O, 디터펜 알콜) 11월의 탄생석</p>
+<p>수백만 년 전에 나무에서 분비된 수지가 굳어져 형성된 고대의 유기 화합물이다.</p>
+<p>황금색에서 갈색, 노란색, 녹색, 붉은색까지 다양한 색을 띠며, 때로는 내부에 고대의 곤충이나 식물 잔해가 갇혀 있는 경우도 있다.</p>
+<ol type="1">
+<li><p>역사적 가치 오래된 나무 수액이 시간이 지나면서 탄화되어 매우 단단해지고, 자연광에서 투명한 색을 띠기 때문에 보석으로 가치가 높다. 특히 고대에는 향수를 만드는 재료로도 사용되었다.</p></li>
+<li><p>파이톤 (Phaethon)</p></li>
+</ol>
+<p>태양신 헬리오스(Helios)와 클리메네라(Clymene)는 여신 사이에서 태어난 아들.</p>
+<p>헬리오스는 하늘을 가로지르는 불마차를 몰고 태양을 이동시키는 신이다.</p>
+<p>어느 날, 파이톤은 먼 곳에 있는 아버지의 신전을 찾아왔고, 이에 아버지는 기뻐하였다. 그는 스튁스 강에 맹세를 걸고 소원을 들어주겠다고 약속한다.</p>
+<p>파이톤은 불마차를 운전하겠다고 소원을 빌었고, 이에 헬리오스는 다른 소원을 빌 수 없냐며 설득했지만, 이미 스튁스에 걸었던 맹세 때문에 이 소원을 들어줄 수밖에 없었다.</p>
+<p>파이톤은 불마차를 운전할 실력이 부족했다.</p>
+<p>이후 불마차는 불안정하게 움직였고, 파이톤은 점점 상황을 통제할 수 없게 되었다.</p>
+<p>그로 인해 불이 대지에 떨어져, 여러 가지 재난을 일으켰다.</p>
+<p>결국, 대지의 여신 데메테르(Demeter)는 이 문제를 해결하기 위해 제우스(Zeus)에게 도움을 청했다.</p>
+<p>제우스는 이 문제를 해결하기 위해 불마차를 향해 번개를 쏘았고, 결국 파이톤은 마차에서 떨어져 죽게 된다.</p>
+<p>그의 죽음 이후, 그의 누이들은 깊은 슬픔에 빠져 나무로 변했고, 그들의 눈물은 호박으로 변했다고 하는 전설이 있다.</p>
+<ol start="3" type="1">
+<li>상징 이 전설은 호박이 “눈물”로 변하는 이야기와 결합되어, 호박이 상징적으로 슬픔, 애도, 그리고 죽음을 나타내기도 한다.</li>
+</ol>
+<p>또한, 고대 그리스 신화에서는 호박을 신성한 과일로 여겼다.</p>
+<ol start="4" type="1">
+<li>한국에서의 호박 한국에서는 호박이 전통적으로 노리개와 같은 장식용 소품으로 사용되었다.</li>
+</ol>
+<p>특히, 귀한 여성들이 노리개로 호박을 사용하며 아름다움을 강조하고, 호박이 상징적으로 행운, 부유함, 장수와 연결되기도 했다.</p>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741273200000" data-listing-file-modified-sort="1768142843466" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17" data-listing-word-count-sort="3229">
-<div class="thumbnail"><a href="./ch/os_01.html" class="no-external">
+</section>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/os_01.html" class="no-external">운영체제(OS)</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/os_01.html" class="no-external">
-운영체제(OS)의 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/os_01.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1728313200000" data-listing-file-modified-sort="1768065144226" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="870">
-<div class="thumbnail"><a href="./ch/uno_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_02.html" class="no-external">통신 기술의 기초</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_02.html" class="no-external">
-통신 기술에 관한 전반적인 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_02.html" class="no-external">
-<div class="listing-date">
-Oct 8, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768066207722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1125">
-<div class="thumbnail"><a href="./ch/cg_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/cg_01.html" class="no-external">컴퓨터 그래픽스</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/cg_01.html" class="no-external">
-과학, 공학, 의학, 경영 등 다양한 분야에서 활용되는 컴퓨터 그래픽스의 응용 분야에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/cg_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1725980400000" data-listing-file-modified-sort="1768065145236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
-<div class="thumbnail"><a href="./ch/uno_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./ch/uno_01.html" class="no-external">팅커캐드 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./ch/uno_01.html" class="no-external">
-팅커캐드(Tinkercad)는 Autodesk에서 제공하는 웹 기반의 3D 설계, 전자 회로 시뮬레이션, 코딩 도구이다. 간단한 전자 회로를 설계하고 이를 코드로 제어하는 과정에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./ch/uno_01.html" class="no-external">
-<div class="listing-date">
-Sep 11, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
