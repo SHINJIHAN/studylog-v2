@@ -101,10 +101,12 @@
   {
     "listing": "/cg-hw.html",
     "items": [
+      "/ch/sql_01.html",
       "/ch/os_01.html",
       "/ch/uno_02.html",
       "/ch/cg_01.html",
-      "/ch/uno_01.html"
+      "/ch/uno_01.html",
+      "/ch/db_01.html"
     ]
   },
   {
@@ -152,6 +154,17 @@
       "/misc/mse_03_0.html",
       "/misc/mse_03_1.html",
       "/misc/mse_01_0.html"
+    ]
+  },
+  {
+    "listing": "/r-and-d.html",
+    "items": [
+      "/rd/od_06.html",
+      "/rd/od_05.html",
+      "/rd/od_04.html",
+      "/rd/od_03.html",
+      "/rd/od_02.html",
+      "/rd/od_01.html"
     ]
   }
 ]

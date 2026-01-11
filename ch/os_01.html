@@ -178,7 +178,59 @@ ul.task-list li input[type="checkbox"] {
 <p>This graph shows the market share of operating systems worldwide based on over 5 billion monthly page views.</p>
 <p>gs.statcounter.com</p>
 <p>https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js</p>
-<p>var chart = echarts.init(document.getElementById(‘chart’)); var option = { title: { text: ‘전 세계 운영체제 시장 점유율’, subtext: ‘2025년 2월’, left: ‘center’ }, tooltip: { trigger: ‘item’ }, legend: [ { orient: ‘horizontal’, left: ‘center’, top: ‘93%’, itemWidth: 20, itemHeight: 10, data: [‘Android’, ‘Windows’, ‘iOS’] }, { orient: ‘horizontal’, left: ‘center’, bottom: ‘0%’, itemWidth: 20, itemHeight: 10, data: [‘macOS’, ‘Unknown’, ‘Linux’, ‘Others’] }], series: [ { name: ‘전체 비율’, type: ‘pie’, radius: ‘70%’, center: [‘50%’, ‘53%’], data: [ { value: 45.49, name: ‘Android’, label: { show: true, position: ‘inner’, color: ‘#fff’, fontSize: 25, fontWeight: ‘bold’, textBorderColor: ‘#000’, textBorderWidth: 2, formatter: ‘{b}%’ } }, { value: 25.35, name: ‘Windows’, label: { show: true, position: ‘inner’, color: ‘#fff’, fontSize: 20, fontWeight: ‘bold’, textBorderColor: ‘#000’, textBorderWidth: 2, formatter: ‘{b}%’ } }, { value: 18.26, name: ‘iOS’, label: { show: true, position: ‘inner’, color: ‘#fff’, fontSize: 20, fontWeight: ‘bold’, textBorderColor: ‘#000’, textBorderWidth: 2, formatter: ‘{b}%’ } }, { value: 5.67, name: ‘macOS’, label: { show: true, position: ‘outside’, formatter: ‘{b}: {d}%’ } }, { value: 2.97, name: ‘Unknown’, label: { show: true, position: ‘outside’, formatter: ‘{b}: {d}%’ } }, { value: 1.38, name: ‘Linux’, label: { show: true, position: ‘outside’, formatter: ‘{b}: {d}%’ }, itemStyle: { color: ‘#DDA0DD’ } }, { value: 0.88, name: ‘Others’, label: { show: true, position: ‘outside’, formatter: ‘{b}: {d}%’ }, itemStyle: { color: ‘#808080’ } }], emphasis: { itemStyle: { shadowOffsetX: 0, shadowColor: ‘rgba(0, 0, 0, 0.5)’ } } }] }; chart.setOption(option);</p>
+<pre><code>var chart = echarts.init(document.getElementById('chart'));
+var option = {
+    title: {
+        text: '전 세계 운영체제 시장 점유율',
+        subtext: '2025년 2월',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: [
+        {
+            orient: 'horizontal',
+            left: 'center',
+            top: '93%',
+            itemWidth: 20,
+            itemHeight: 10,
+            data: ['Android', 'Windows', 'iOS']
+        },
+        {
+            orient: 'horizontal',
+            left: 'center',
+            bottom: '0%',
+            itemWidth: 20,
+            itemHeight: 10,
+            data: ['macOS', 'Unknown', 'Linux', 'Others']
+        }
+    ],
+    series: [
+        {
+            name: '전체 비율',
+            type: 'pie',
+            radius: '70%',
+            center: ['50%', '53%'],
+            data: [
+                { value: 45.49, name: 'Android', label: { show: true, position: 'inner', color: '#fff', fontSize: 25, fontWeight: 'bold', textBorderColor: '#000', textBorderWidth: 2, formatter: '{b}\n{d}%' } },
+                { value: 25.35, name: 'Windows', label: { show: true, position: 'inner', color: '#fff', fontSize: 20, fontWeight: 'bold', textBorderColor: '#000', textBorderWidth: 2, formatter: '{b}\n{d}%' } },
+                { value: 18.26, name: 'iOS', label: { show: true, position: 'inner', color: '#fff', fontSize: 20, fontWeight: 'bold', textBorderColor: '#000', textBorderWidth: 2, formatter: '{b}\n{d}%' } },
+                { value: 5.67, name: 'macOS', label: { show: true, position: 'outside', formatter: '{b}: {d}%' } },
+                { value: 2.97, name: 'Unknown', label: { show: true, position: 'outside', formatter: '{b}: {d}%' } },
+                { value: 1.38, name: 'Linux', label: { show: true, position: 'outside', formatter: '{b}: {d}%' }, itemStyle: { color: '#DDA0DD' } },
+                { value: 0.88, name: 'Others', label: { show: true, position: 'outside', formatter: '{b}: {d}%' }, itemStyle: { color: '#808080' } }
+            ],
+            emphasis: {
+                itemStyle: {
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+chart.setOption(option);</code></pre>
 <p>OS의 목적 컴퓨터 시스템을 효율적으로 운영하고 사용자가 보다 편리하게 작업할 수 있도록 돕는 중요한 소프트웨어이다.</p>
 <p>1 . 사용자 프로그램 실행 지원 사용자가 원하는 프로그램을 실행할 수 있도록 지원하며, 이를 통해 다양한 소프트웨어를 활용할 수 있다.</p>
 <p>2 . 사용자 문제 해결 지원 파일 관리, 프로세스 제어, 네트워크 연결 등 여러 기능을 제공하여 사용자가 보다 쉽게 문제를 해결할 수 있도록 한다.</p>
