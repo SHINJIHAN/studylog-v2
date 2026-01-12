@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="통계학: 파이썬을 이용한 분석">
+<meta name="dcterms.date" content="2024-06-09">
 
-<title>R&amp;D – StudyLog</title>
+<title>빅데이터 개요 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5c49dcdaa1dd0040e71953adad602abc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,77 +71,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="StudyLog" href="r-and-d.xml" data-external="1"></head>
+<link rel="stylesheet" href="../styles.css">
+</head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">StudyLog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -162,7 +104,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://sinjihan71.tistory.com/" target="_blank"> 
-<span class="menu-text"><img src="./assets/Tstory.png" style="width:15px;height:17px;"></span></a>
+<span class="menu-text"><img src="../assets/Tstory.png" style="width:15px;height:17px;"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -172,248 +114,109 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">R&amp;D</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="JUVCJUI5JTg1JUVCJThEJUIwJUVDJTlEJUI0JUVEJTg0JUIwJTIwJUVDJUEwJTk1JUVDJTlEJTk4">빅데이터 정의 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(6)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#데이터의-정의" id="toc-데이터의-정의" class="nav-link active" data-scroll-target="#데이터의-정의">데이터의 정의</a></li>
+  <li><a href="#데이터베이스" id="toc-데이터베이스" class="nav-link" data-scroll-target="#데이터베이스">데이터베이스</a></li>
+  <li><a href="#빅데이터-개요" id="toc-빅데이터-개요" class="nav-link" data-scroll-target="#빅데이터-개요">빅데이터 개요</a></li>
+  <li><a href="#빅데이터-가치" id="toc-빅데이터-가치" class="nav-link" data-scroll-target="#빅데이터-가치">빅데이터 가치</a></li>
+  <li><a href="#데이터-산업의-이해" id="toc-데이터-산업의-이해" class="nav-link" data-scroll-target="#데이터-산업의-이해">데이터 산업의 이해</a></li>
+  <li><a href="#빅데이터-조직-및-인력" id="toc-빅데이터-조직-및-인력" class="nav-link" data-scroll-target="#빅데이터-조직-및-인력">빅데이터 조직 및 인력</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">빅데이터 개요</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">빅데이터 정의</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>통계학: 파이썬을 이용한 분석 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 9, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="데이터의-정의" class="level1">
+<h1>데이터의 정의</h1>
+<p>1646년 영국 문헌에 처음 등장. “주어진 것” 이란 의미를 갖는 라틴어의 과거 분사형로 사용.</p>
+<p>1940년대 이전 관념적, 추상적 개념 이후 자연 과학 + 사회 과학 발달 이로 인한 영향으로 기술적, 사실적 개념으로 변화.</p>
+<ol type="1">
+<li>추론과 추정의 근거를 이루는 사실.</li>
+<li>현실 세계에서 관찰, 측정하여 수집한 사실.</li>
+</ol>
+<p>단순한 객체로도 가치 있음. 다른 객체와의 상호작용 속에서 더 큰 가치를 지님.</p>
+<p>객관적 사실이라는 존재적 특성 지님. 추론 추정 예측 전망을 위한 근거로써 <strong>당위성</strong>을 가짐.</p>
+<p>정량적 데이터: 주로 숫자로 이뤄진 데이터 정성적 데이터: 텍스트로 구성, 함축적 의미 지님</p>
+<p>정형 데이터: 정해진 형식과 구조로 저장, 연산가능 반정형 데이터: 유연함, 스키마(자료의 구조) 정보를 데이터와 함께 제공, 연산불가 비정형 데이터: 정해진 형식 없음, 연산 불가</p>
+<p>수집과정 =&gt; 재생산 과정. 가역 데이터: 원본 환원 가능, 원본 비가역 데이터: 원본 환원 불가, 새 객체</p>
+<p>암묵지: 개인이 가진 경험, 정리 안됨. 형식지: 암묵지를 정리함.</p>
+<p>형식지로 정리 방법 공통화: 공유. 표출화: 형식지가 됨 연결화: 그걸 재분류 및 체계화 내면화: 전달 받은 형식지 다시 개인화.</p>
+<p>지식의 피라미드 <code>가치 창출 프로세스</code> 데이터 &gt; 정보 &gt; 지식 &gt; 지혜</p>
+</section>
+<section id="데이터베이스" class="level1">
+<h1>데이터베이스</h1>
+<p>1950년대 미군의 군비 상황 용도로 쓰게 됨. 1963년 6월 SDC에서 정의됨</p>
+<p>DB: 소재를 체계적으로 분류한 편집물 DBMS: 응용 프로그램들이 공유되는 소프트웨어 관계형, 객체지향, 네트워크, 계층형 SQL: DB 접근용 언어</p>
+<p>통합: 미중복 저장: 컴퓨터 접근 가능한 저장매체 공용: 여러 사용자와 공유 변화: 지속적 갱신 + 현 데이터 유지</p>
+<p>OLTP: 데이터 갱신 위주 OLAP: 데이터 조회 위주</p>
+<p>DW: 의사 결정 도움 용도 주제지향성: 주요 주제 통합성: 일관형, 전사적인 관점 시계열성: 시점별 비휘발성: 갱신 외에 변경 없음</p>
+<p>구성: 데이터 모델-[ELT, ODS]-DW-[OLAP, …]</p>
+</section>
+<section id="빅데이터-개요" class="level1">
+<h1>빅데이터 개요</h1>
+<p>일반적 DB 용량을 초과하는 데이터. 작은 용량에선 얻을 수 없었던 새로운 통찰과 가치를 추출<br>
+</p>
+<p>기업: 고객 데이터 학계: 거대 데이터</p>
+<p>데이터 처리 시점: 사전 처리 -&gt; 사후 처리 데이터 처리 범위: 표본조사 -&gt; 전수조사 데이터 가치 판단 기준: 질 -&gt; 양(데이터 지속적 추가) 데이터 분석 방향: 이론적 인과관계 -&gt; 단순한 상하관계</p>
+<p>전세계 정보량 추이 메인 프레임 컴퓨터 &gt; PC 시대 &gt; 인터넷 모바일 시대 &gt; IT</p>
+<p>특징: 규모, 유형, 속도, 품질, 가치 활용: 자원, 기술, 인력</p>
+<p>테크닉: 연관규칙 학습, 유형 분석, 유전 알고리즘, 기계 학습, 회귀 분석, 감성 분석, 소셜 네트워크 분석</p>
+</section>
+<section id="빅데이터-가치" class="level1">
+<h1>빅데이터 가치</h1>
+</section>
+<section id="데이터-산업의-이해" class="level1">
+<h1>데이터 산업의 이해</h1>
+</section>
+<section id="빅데이터-조직-및-인력" class="level1">
+<h1>빅데이터 조직 및 인력</h1>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1741014000000" data-listing-file-modified-sort="1768142586795" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="334">
-<div class="thumbnail"><a href="./rd/od_06.html" class="no-external">
+</section>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./rd/od_06.html" class="no-external">개발 일지4</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./rd/od_06.html" class="no-external">
-재실 감지 시스템을 개발하기 위한 기초 개념에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./rd/od_06.html" class="no-external">
-<div class="listing-date">
-Mar 4, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1740668400000" data-listing-file-modified-sort="1768142164512" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895">
-<div class="thumbnail"><a href="./rd/od_05.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./rd/od_05.html" class="no-external">개발 일지3</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./rd/od_05.html" class="no-external">
-재실감지 프로젝트의 2월 24일 오후 9시 회의에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./rd/od_05.html" class="no-external">
-<div class="listing-date">
-Feb 28, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1740322800000" data-listing-file-modified-sort="1768141409179" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
-<div class="thumbnail"><a href="./rd/od_04.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./rd/od_04.html" class="no-external">개발 일지2</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./rd/od_04.html" class="no-external">
-01 VS코드 실행 관리자 권한으로 실행하기.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./rd/od_04.html" class="no-external">
-<div class="listing-date">
-Feb 24, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1739977200000" data-listing-file-modified-sort="1768141346533" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
-<div class="thumbnail"><a href="./rd/od_03.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./rd/od_03.html" class="no-external">개발 일지</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./rd/od_03.html" class="no-external">
-01 제목1 [ID 사용하기]
-</a></div>
-</div>
-<div class="metadata">
-<a href="./rd/od_03.html" class="no-external">
-<div class="listing-date">
-Feb 20, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1739458800000" data-listing-file-modified-sort="1768141180875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="898">
-<div class="thumbnail"><a href="./rd/od_02.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./rd/od_02.html" class="no-external">FastAPI</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./rd/od_02.html" class="no-external">
-CHAPTER 3에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./rd/od_02.html" class="no-external">
-<div class="listing-date">
-Feb 14, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1738767600000" data-listing-file-modified-sort="1768141075654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
-<div class="thumbnail"><a href="./rd/od_01.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./rd/od_01.html" class="no-external">Git 사용법</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-<div class="delink listing-description"><a href="./rd/od_01.html" class="no-external">
-VS코드로 Git 사용법에 대해 다루고자 한다.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./rd/od_01.html" class="no-external">
-<div class="listing-date">
-Feb 6, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="JUVCJUI5JTg1JUVCJThEJUIwJUVDJTlEJUI0JUVEJTg0JUIwJTIwJUVDJUEwJTk1JUVDJTlEJTk4" data-listing-date-sort="1717858800000" data-listing-file-modified-sort="1768230339656" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="289">
-<div class="thumbnail"><a href="./rd/bae_01_0.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./rd/bae_01_0.html" class="no-external">빅데이터 개요</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('JUVCJUI5JTg1JUVCJThEJUIwJUVDJTlEJUI0JUVEJTg0JUIwJTIwJUVDJUEwJTk1JUVDJTlEJTk4'); return false;">빅데이터 정의</div>
-
-</div>
-<div class="delink listing-description"><a href="./rd/bae_01_0.html" class="no-external">
-1646년 영국 문헌에 처음 등장. “주어진 것” 이란 의미를 갖는 라틴어의 과거 분사형로 사용.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./rd/bae_01_0.html" class="no-external">
-<div class="listing-date">
-Jun 9, 2024
-</div>
-<div class="listing-author">
-통계학: 파이썬을 이용한 분석
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

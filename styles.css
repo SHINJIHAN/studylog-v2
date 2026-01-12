@@ -16,3 +16,17 @@
   font-size: 1.5rem; /* 원하는 크기 */
   font-weight: 600;  /* 굵기 조절 */
 }
+
+.section-title {
+  font-weight: 600;              /* 진하게 (과하지 않게) */
+  font-size: 1.15rem;            /* 약간 확대 */
+  font-family: "Noto Serif KR", 
+               "Times New Roman", 
+               serif;            /* 논문용 세리프 */
+  letter-spacing: 0.02em;        /* 학술 문서 느낌 */
+}
+
+.section-title .border-top {
+  border-top: 2px solid #555;    /* 라인 진하게 */
+}
+

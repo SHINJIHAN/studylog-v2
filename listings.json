@@ -13,6 +13,7 @@
     "listing": "/data-analysis.html",
     "items": [
       "/da/ada/ada_06_0.html",
+      "/da/bae_01_0.html",
       "/da/dap/dap_03.html",
       "/da/dap/dap_02.html",
       "/da/tm/tm_06_1.html",
@@ -164,7 +165,8 @@
       "/rd/od_04.html",
       "/rd/od_03.html",
       "/rd/od_02.html",
-      "/rd/od_01.html"
+      "/rd/od_01.html",
+      "/rd/bae_01_0.html"
     ]
   }
 ]

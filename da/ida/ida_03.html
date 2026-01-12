@@ -9,7 +9,7 @@
 <meta name="author" content="통계학: 파이썬을 이용한 분석">
 <meta name="dcterms.date" content="2024-06-30">
 
-<title>3장: 수치를 통한 연속형 자료의 요약 – StudyLog</title>
+<title>3장: 연속형 자료 – StudyLog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -162,13 +162,13 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/SHINJIHAN"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/SHINJIHAN" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://sinjihan71.tistory.com/"> 
-<span class="menu-text"><img src="images/Tstory.png" style="width:15px;height:17px;"></span></a>
+    <a class="nav-link" href="https://sinjihan71.tistory.com/" target="_blank"> 
+<span class="menu-text"><img src="../../assets/Tstory.png" style="width:15px;height:17px;"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -181,7 +181,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">3장: 수치를 통한 연속형 자료의 요약</h1>
+      <h1 class="title">3장: 연속형 자료</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">code</div>
                 <div class="quarto-category">analysis</div>
@@ -218,19 +218,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#자료의-입력" id="toc-자료의-입력" class="nav-link active" data-scroll-target="#자료의-입력">1. 자료의 입력</a></li>
-  <li><a href="#평균-mean" id="toc-평균-mean" class="nav-link" data-scroll-target="#평균-mean">2. 평균 (Mean)</a></li>
-  <li><a href="#중앙값median" id="toc-중앙값median" class="nav-link" data-scroll-target="#중앙값median">3. 중앙값(Median)</a></li>
-  <li><a href="#분-산-variance" id="toc-분-산-variance" class="nav-link" data-scroll-target="#분-산-variance">4. 분 산 (Variance)</a>
+  <li><a href="#예제-13" id="toc-예제-13" class="nav-link active" data-scroll-target="#예제-13">01 예제 13</a></li>
+  <li><a href="#평균" id="toc-평균" class="nav-link" data-scroll-target="#평균">02 평균</a></li>
+  <li><a href="#중앙값" id="toc-중앙값" class="nav-link" data-scroll-target="#중앙값">03 중앙값</a></li>
+  <li><a href="#분산" id="toc-분산" class="nav-link" data-scroll-target="#분산">04 분산</a>
   <ul class="collapse">
-  <li><a href="#편차deviation" id="toc-편차deviation" class="nav-link" data-scroll-target="#편차deviation">4-1. 편차(Deviation):</a></li>
-  <li><a href="#자유도" id="toc-자유도" class="nav-link" data-scroll-target="#자유도">4-2. 자유도</a></li>
+  <li><a href="#편차" id="toc-편차" class="nav-link" data-scroll-target="#편차">1. 편차</a></li>
+  <li><a href="#자유도" id="toc-자유도" class="nav-link" data-scroll-target="#자유도">2. 자유도</a></li>
   </ul></li>
-  <li><a href="#표준편차" id="toc-표준편차" class="nav-link" data-scroll-target="#표준편차">5. 표준편차</a></li>
-  <li><a href="#범위" id="toc-범위" class="nav-link" data-scroll-target="#범위">6. 범위</a></li>
-  <li><a href="#사분위수범위" id="toc-사분위수범위" class="nav-link" data-scroll-target="#사분위수범위">7. 사분위수범위</a>
+  <li><a href="#표준편차" id="toc-표준편차" class="nav-link" data-scroll-target="#표준편차">05 표준편차</a></li>
+  <li><a href="#범위" id="toc-범위" class="nav-link" data-scroll-target="#범위">06 범위</a></li>
+  <li><a href="#사분위수범위" id="toc-사분위수범위" class="nav-link" data-scroll-target="#사분위수범위">07 사분위수범위</a>
   <ul class="collapse">
-  <li><a href="#사분위수범위-1" id="toc-사분위수범위-1" class="nav-link" data-scroll-target="#사분위수범위-1">7-1. 사분위수범위</a></li>
+  <li><a href="#사분위수범위-1" id="toc-사분위수범위-1" class="nav-link" data-scroll-target="#사분위수범위-1">1. 사분위수범위</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -242,88 +242,125 @@ window.Quarto = {
 
 
 
-<p>연속형 자료가 어떤 값을 중심으로 분포되어 있는가를 나타내는 중심위치의 측도,<br> 각 자료가 중심위치의 값으로부터 흩어진 정도를 나타내는 퍼진 정도의 측도 등을 다루고자 한다.</p>
-<section id="자료의-입력" class="level2">
-<h2 class="anchored" data-anchor-id="자료의-입력">1. 자료의 입력</h2>
-<div id="4cb53a0e" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 교재 출처 최하단에 표시 ##</span></span>
+<p>연속형 자료의 분포 특성을 이해하기 위해 중심위치와 퍼짐 정도를 나타내는 측도를 다룬다.<br> <br></p>
+<ul>
+<li><strong>중심위치의 측도</strong>는 자료가 어떤 값 주변에 모여 있는지를 나타낸다.
+<ul>
+<li>대표값: 평균, 중앙값, 최빈값</li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>퍼짐 정도의 측도</strong>는 각 관측값이 중심위치로부터 얼마나 흩어져 있는지를 나타낸다.
+<ul>
+<li>대표값: 분산, 표준편차, 범위, 사분위수 범위</li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li>두 측도는 함께 사용해야 자료의 분포를 정확히 요약할 수 있다.</li>
+</ul>
+<p><br></p>
+<section id="예제-13" class="level1">
+<h1>01 예제 13</h1>
+<p>정량 100인 음료수 80병을 임의로 추출하여 그 내용물의 실제 측정된 양을 잰 자료이다.(p.42)</p>
+<div id="93710bc8" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 예제13: 정량 100인 음료수 80병을 임의로 추출하여 그 내용물의 실제 측정된 양을 잰 자료이다.(p.42)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 변수 drink에 NumPy 배열을 할당</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>drink <span class="op">=</span> np.array([<span class="dv">98</span>, <span class="dv">99</span>, <span class="dv">100</span>, <span class="dv">99</span>, <span class="fl">99.4</span>, <span class="fl">101.7</span>, <span class="fl">98.8</span>, <span class="fl">101.8</span>, <span class="fl">101.5</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">101.8</span>, <span class="fl">102.6</span>, <span class="dv">101</span>, <span class="fl">98.8</span>, <span class="fl">101.4</span>, <span class="fl">99.7</span>, <span class="fl">99.7</span>, <span class="fl">99.7</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">100.9</span>, <span class="fl">98.6</span>, <span class="fl">101.4</span>, <span class="fl">102.1</span>, <span class="fl">102.9</span>, <span class="fl">100.8</span>, <span class="fl">101.8</span>, </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">100</span>, <span class="fl">101.2</span>, <span class="fl">100.5</span>, <span class="fl">101.2</span>, <span class="fl">100.1</span>, <span class="fl">101.6</span>, <span class="fl">101.3</span>, <span class="fl">99.9</span>, </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">99.4</span>, <span class="fl">99.3</span>, <span class="fl">99.4</span>,<span class="fl">101.6</span>, <span class="fl">96.1</span>, <span class="dv">100</span>, <span class="fl">99.7</span>, <span class="fl">99.1</span>, <span class="fl">100.7</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">100.8</span>, <span class="fl">100.8</span>, <span class="fl">95.5</span>,<span class="fl">100.1</span>, <span class="fl">100.5</span>, <span class="fl">98.9</span>, <span class="fl">99.9</span>, <span class="fl">96.8</span>, </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">102.4</span>, <span class="dv">100</span>, <span class="fl">103.7</span>, <span class="fl">101.4</span>,<span class="fl">99.7</span>, <span class="fl">97.4</span>, <span class="fl">99.5</span>, <span class="fl">97.5</span>, </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">99.9</span>, <span class="fl">100.3</span>, <span class="fl">100.2</span>, <span class="fl">101.5</span>, <span class="fl">99.4</span>, <span class="fl">99.7</span>, <span class="fl">98.2</span>, <span class="fl">100.3</span>, </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">100.2</span>, <span class="fl">100.5</span>, <span class="fl">100.4</span>, <span class="fl">101.5</span>, <span class="fl">98.4</span>, <span class="fl">101.4</span>, <span class="fl">98.8</span>, <span class="fl">100.9</span>, </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">101.1</span>, <span class="fl">100.9</span>, <span class="fl">98.1</span>, <span class="fl">98.7</span>, <span class="fl">99.2</span>, <span class="fl">98.1</span>, <span class="fl">97.2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 변수 drink에 NumPy 배열을 할당</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>drink <span class="op">=</span> np.array([<span class="dv">98</span>, <span class="dv">99</span>, <span class="dv">100</span>, <span class="dv">99</span>, <span class="fl">99.4</span>, <span class="fl">101.7</span>, <span class="fl">98.8</span>, <span class="fl">101.8</span>, <span class="fl">101.5</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">101.8</span>, <span class="fl">102.6</span>, <span class="dv">101</span>, <span class="fl">98.8</span>, <span class="fl">101.4</span>, <span class="fl">99.7</span>, <span class="fl">99.7</span>, <span class="fl">99.7</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">100.9</span>, <span class="fl">98.6</span>, <span class="fl">101.4</span>, <span class="fl">102.1</span>, <span class="fl">102.9</span>, <span class="fl">100.8</span>, <span class="fl">101.8</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">100</span>, <span class="fl">101.2</span>, <span class="fl">100.5</span>, <span class="fl">101.2</span>, <span class="fl">100.1</span>, <span class="fl">101.6</span>, <span class="fl">101.3</span>, <span class="fl">99.9</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">99.4</span>, <span class="fl">99.3</span>, <span class="fl">99.4</span>,<span class="fl">101.6</span>, <span class="fl">96.1</span>, <span class="dv">100</span>, <span class="fl">99.7</span>, <span class="fl">99.1</span>, <span class="fl">100.7</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">100.8</span>, <span class="fl">100.8</span>, <span class="fl">95.5</span>,<span class="fl">100.1</span>, <span class="fl">100.5</span>, <span class="fl">98.9</span>, <span class="fl">99.9</span>, <span class="fl">96.8</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">102.4</span>, <span class="dv">100</span>, <span class="fl">103.7</span>, <span class="fl">101.4</span>,<span class="fl">99.7</span>, <span class="fl">97.4</span>, <span class="fl">99.5</span>, <span class="fl">97.5</span>, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">99.9</span>, <span class="fl">100.3</span>, <span class="fl">100.2</span>, <span class="fl">101.5</span>, <span class="fl">99.4</span>, <span class="fl">99.7</span>, <span class="fl">98.2</span>, <span class="fl">100.3</span>, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">100.2</span>, <span class="fl">100.5</span>, <span class="fl">100.4</span>, <span class="fl">101.5</span>, <span class="fl">98.4</span>, <span class="fl">101.4</span>, <span class="fl">98.8</span>, <span class="fl">100.9</span>, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">101.1</span>, <span class="fl">100.9</span>, <span class="fl">98.1</span>, <span class="fl">98.7</span>, <span class="fl">99.2</span>, <span class="fl">98.1</span>, <span class="fl">97.2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>중심위치의 측도</p>
+<p><br></p>
+<p><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&amp;display=swap" rel="stylesheet"></p>
+<figure class="text-center d-flex align-items-center gap-2 section-title figure">
+<span class="flex-grow-1 border-top"></span> ❝ 중심위치의 측도 ❞ <span class="flex-grow-1 border-top"></span>
+</figure>
 </section>
-<section id="평균-mean" class="level2">
-<h2 class="anchored" data-anchor-id="평균-mean">2. 평균 (Mean)</h2>
-<p>총 자료의 개수 <span class="math inline">\(n\)</span> 을 모든 관측값 <span class="math inline">\(x_1, x_2, \dots , x_n\)</span> 의 합으로 나눈 값.<br> 이를 “산술 평균” 이라고도 하며, 공식으로 표현하면 다음과 같다:</p>
+<section id="평균" class="level1">
+<h1>02 평균</h1>
+<p><code>Mean</code><br> 총 자료의 개수 <span class="math inline">\(n\)</span> 을 모든 관측값 <span class="math inline">\(x_1, x_2, \dots , x_n\)</span> 의 합으로 나눈 값.<br> 이를 “산술 평균” 이라고도 하며, 공식으로 표현하면 다음과 같다:</p>
 <p><span class="math display">\[
 \bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n} = \frac{\sum_{i=1}^{n} x_i}{n} = \frac{1}{n} \sum_{i=1}^{n} x_i
 \]</span></p>
 <p>표본 평균은 관측값의 산술평균이며, “극단값” 에 영향을 받는다.<br></p>
 <ul>
 <li><p>표본 평균: 전체 데이터인 “모집단” 에서 추출한 일부 데이터의 평균을 의미한다.<br> (예시1) 예제13 에서 추출된 80 병의 음료수는 표본에 해당된다.</p></li>
-<li><p>극단값(Outlier): 데이터 집합에서 다른 값들과 현저히 다른 값들을 의미한다.<br> (예시2) 데이터 집합 { 11, 12, 13, 300 } 에서 극단값은 300 이다.</p></li>
+<li><p>극단값(Outlier): 데이터 집합에서 다른 값들과 현저히 다른 값들을 의미한다.<br> (예시2) 데이터 집합 { 11, 12, 13, 300 }에서 극단값은 300이다.</p></li>
 </ul>
-<div id="3b8dc14e" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2장의 예제 13에서 주어진 음료수 한 병의 부피 데이터를 기반으로 </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 평균, 중앙값, 분산, 표준편차, 범위, 사분위수범위를 파이썬을 이용하여 계산하라.(p.83)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">## numpy 모듈을 이용하여 계산할 수 있음. ##</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 평균</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.mean(drink))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><br></p>
+<p>2장의 예제 13에서 주어진 음료수 한 병의 부피 데이터를 기반으로<br> 평균, 중앙값, 분산, 표준편차, 범위, 사분위수범위를 파이썬을 이용하여 계산하라.(p.83)</p>
+<div id="7f94012b" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## numpy 모듈을 이용하여 계산할 수 있음. ##</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.mean(drink))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>100.04125</code></pre>
 </div>
 </div>
 </section>
-<section id="중앙값median" class="level2">
-<h2 class="anchored" data-anchor-id="중앙값median">3. 중앙값(Median)</h2>
-<p>전체 관측값을 <strong>크기 순서로 배열</strong>했을 때, <strong>가운데</strong>에 위치한 값.</p>
-<p>데이터의 개수가<br> <strong>홀수</strong> 일 경우, 중앙에 위치한 값이,<br> <strong>짝수</strong> 일 경우, 중앙에 위치한 <strong>두 값의 평균</strong> 이 중앙값이 된다.<br></p>
+<section id="중앙값" class="level1">
+<h1>03 중앙값</h1>
+<p><code>Median</code><br> 전체 관측값을 <strong>크기 순서로 배열</strong>했을 때, <strong>가운데</strong>에 위치한 값.</p>
+<p>데이터의 개수가<br> * <strong>홀수</strong> 일 경우, 중앙에 위치한 값이,<br> * <strong>짝수</strong> 일 경우, 중앙에 위치한 <strong>두 값의 평균</strong> 이 중앙값이 된다.<br></p>
 <p>항상 중앙의 값을 채택하므로, <strong>극단값의 영향을 받지 않는다.</strong><br> 따라서, 평균과 값이 다를 수 있다.<br></p>
-<div id="bb7e8b8a" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 중앙값 계산</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.median(drink))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="6cd90d0d" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.median(drink))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>100.05</code></pre>
 </div>
 </div>
-<p>퍼진 정도의 측도</p>
+<p><br></p>
+<figure class="text-center d-flex align-items-center gap-2 section-title figure">
+<span class="flex-grow-1 border-top"></span> ❝ 퍼진 정도의 측도 ❞ <span class="flex-grow-1 border-top"></span>
+</figure>
 </section>
-<section id="분-산-variance" class="level2">
-<h2 class="anchored" data-anchor-id="분-산-variance">4. 분 산 (Variance)</h2>
-<p>확률 분포나 데이터 집합의 산포도(분포도)를 나타내는 통계적 측도. 주어진 데이터의 개별 값들이 평균으로부터 <strong>얼마나 멀리 퍼져 있는지</strong>를 나타내는 지표로 사용된다.</p>
-<p>관측값이 <span class="math inline">\(x_1, x_2, \dots , x_n\)</span> 이고, 표본평균이 <span class="math inline">\(\bar{x}\)</span> 일 때, 표본분산은 다음과 같다:</p>
-<p>계산과정 평 균 과 의 거 리 : 각 데이터 값이 평균으로부터 얼마나 떨어져 있는지를 계산한다. (예시1) xi – x̄ = 98 – 100.04 = – 2.04 제 곱 : 거리를 제곱하여 모든 값을 양수로 만들고, 거리의 상대적 크기를 더 잘 식별하게 한다. (예시2) – 2.04² = 4.1616 OR 2601/625</p>
-<p>평균제곱 오차의 평균: 제곱한 값을 모두 더하고, 데이터의 개수로 나눈 값이다.</p>
-<section id="편차deviation" class="level3">
-<h3 class="anchored" data-anchor-id="편차deviation">4-1. 편차(Deviation):</h3>
-<p>각 관측값과 평균의 차이</p>
-<p>편차의 합은 항상 0 이므로, 편차의 평균도 항상 0 이다.<br> 그 이유는, 양수 편차들의 합과 음수 편차들의 합이 항상 <strong>상쇄</strong> 되기 때문이다.<br> 퍼진 정도를 측정함에 있어, 멀리 떨어진 정도를 나타내는 <strong>편차의 크기</strong>가 중요하므로, <br> 따라서, 편차에서 부호를 없애는 방법으로 “제곱” 을 택한 것이다.<br></p>
+<section id="분산" class="level1">
+<h1>04 분산</h1>
+<p><code>Variance</code><br> 확률 분포나 데이터 집합의 산포도(분포도)를 나타내는 통계적 측도.<br> 주어진 데이터의 개별 값들이 평균으로부터 <strong>얼마나 멀리 퍼져 있는지</strong>를 나타내는 지표로 사용된다.<br></p>
+<p>관측값이 <span class="math inline">\(x_1, x_2, \dots , x_n\)</span> 이고,<br> 표본평균이 <span class="math inline">\(\bar{x}\)</span> 일 때, 표본분산은 다음과 같다:</p>
+<p><strong>계산과정</strong></p>
+<ul>
+<li><strong>평균과의 거리</strong>: 각 데이터 값이 평균으로부터 얼마나 떨어져 있는지를 계산한다.
+<ul>
+<li>(예시1) <span class="math inline">\(x_i - \bar{x} = 98 - 100.04 = -2.04\)</span></li>
+</ul></li>
+<li><strong>제곱</strong>: 거리를 제곱하여 모든 값을 양수로 만들고, 거리의 상대적 크기를 더 잘 식별하게 한다.
+<ul>
+<li>(예시2) <span class="math inline">\((-2.04)^2 = 4.1616 = \frac{2601}{625}\)</span></li>
+</ul></li>
+<li><strong>평균제곱 오차의 평균</strong>: 제곱한 값을 모두 더하고, 데이터의 개수로 나눈 값이다.</li>
+</ul>
+<section id="편차" class="level2">
+<h2 class="anchored" data-anchor-id="편차">1. 편차</h2>
+<p><code>Deviation</code><br> 각 관측값과 평균의 차이</p>
+<p>편차의 합은 항상 <span class="math inline">\(0\)</span> 이므로, 편차의 평균도 항상 <span class="math inline">\(0\)</span> 이다.<br> 그 이유는, 양수 편차들의 합과 음수 편차들의 합이 항상 <strong>상쇄</strong> 되기 때문이다.<br></p>
+<p>퍼진 정도를 측정함에 있어, 멀리 떨어진 정도를 나타내는 <strong>편차의 크기</strong>가 중요하므로,<br> 따라서, 편차에서 부호를 없애는 방법으로 <strong>“제곱”</strong>을 택한 것이다.<br></p>
 </section>
-<section id="자유도" class="level3">
-<h3 class="anchored" data-anchor-id="자유도">4-2. 자유도</h3>
-<p>Degrees of Freedom</p>
-<p>위키백과: 통계적 추정을 할 때, 표본자료 중 모집단에 대한 정보를 주는 “독립적인 자료의 수”. 나무위키: 추정해야 할 미지수의 개수를 내가 가진 정보의 수에서 뺀 값.</p>
-<p>모집단의 분산인 경우:<br> “모든 데이터가 사용” 되므로, 자유도를 고려할 필요없이 n 으로 나누면 된다.</p>
-<p>표본의 분산인 경우:<br> 표본은 모집단에서 추출된 “상대적으로 적은 규모의 집단” 이다.</p>
-<p>이 작은 규모의 집단을 바탕으로 계산된 편차의 제곱합은<br> 모집단을 바탕으로 한 것과 “차이” 가 있을 수 밖에 없다.</p>
-<p>우리는 편차의 크기를 나타내는 편차의 제곱합을 “정확히 구하는 것이 목적” 이므로, 표본 분산이 모집단의 분산을 “과소 추정하지 않도록” 보정하여, “통계적 추정의 정확성” 을 높이기 위해 n 이 아닌 n – 1 을 사용하는 것이다.</p>
-<div id="ea27a424" class="cell" data-execution_count="4">
+<section id="자유도" class="level2">
+<h2 class="anchored" data-anchor-id="자유도">2. 자유도</h2>
+<p><code>Degrees of Freedom</code><br> 위키백과: 통계적 추정을 할 때, 표본자료 중 모집단에 대한 정보를 주는 “독립적인 자료의 수”. 나무위키: 추정해야 할 미지수의 개수를 내가 가진 정보의 수에서 뺀 값.</p>
+<ul>
+<li><strong>모집단</strong>의 분산인 경우:
+<ul>
+<li>“모든 데이터가 사용” 되므로, 자유도를 고려할 필요없이 n 으로 나누면 된다.</li>
+</ul></li>
+<li><strong>표본</strong>의 분산인 경우:
+<ul>
+<li>표본은 모집단에서 추출된 <strong>“상대적으로 적은 규모의 집단”</strong>이다.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>이 작은 규모의 집단을 바탕으로 계산된 편차의 제곱합은 모집단을 바탕으로 한 것과 <strong>“차이”</strong>가 있을 수 밖에 없다.</p>
+<p>우리는 편차의 크기를 나타내는 편차의 제곱합을 <strong>“정확히 구하는 것이 목적”</strong>이므로, 표본 분산이 모집단의 분산을 <strong>“과소 추정하지 않도록”</strong> 보정하여, <strong>“통계적 추정의 정확성”</strong>을 높이기 위해 <span class="math inline">\(n\)</span> 이 아닌 <span class="math inline">\(n – 1\)</span> 을 사용하는 것이다.</p>
+<div id="7e2608f2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 분산 계산 (표본의 분산, 자유도를 1로 설정 = n-1)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.var(drink, ddof<span class="op">=</span><span class="dv">1</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -335,14 +372,13 @@ window.Quarto = {
 2.287173437500001</code></pre>
 </div>
 </div>
-<p>자유도를 고려할 때, 표본의 분산이 더 “크게” 나타나며,<br> 이는 표본 내의 “변동성” 을 보다 정확하게 반영하고 있음을 보여준다.<br> 자유도를 1로 설정하지 않는 것은 n – 1 로 나누지 않는 것과 같으므로, 이점을 주의한다.</p>
+<p>자유도를 고려할 때, 표본의 분산이 더 <strong>“크게”</strong> 나타나며,<br> 이는 표본 내의 <strong>“변동성”</strong> 을 보다 정확하게 반영하고 있음을 보여준다.<br> 자유도를 <span class="math inline">\(1\)</span> 로 설정하지 않는 것은 <span class="math inline">\(n – 1\)</span> 로 나누지 않는 것과 같으므로, 이점을 주의한다.</p>
 </section>
 </section>
-<section id="표준편차" class="level2">
-<h2 class="anchored" data-anchor-id="표준편차">5. 표준편차</h2>
-<p>Standard Deviation</p>
-<p>분산의 제곱근으로, 데이터의 변동성을 “원래 데이터의 단위” 로 나타낸 값.<br> 이는 분산의 계산과정 중 편차의 제곱합으로 인해 증가된 값을 바로잡아 준다.<br></p>
-<div id="0e85bad4" class="cell" data-execution_count="5">
+<section id="표준편차" class="level1">
+<h1>05 표준편차</h1>
+<p><code>Standard Deviation</code><br> 분산의 제곱근으로, 데이터의 변동성을 <strong>“원래 데이터의 단위”</strong>로 나타낸 값이다.<br> 이는 분산의 계산과정 중 편차의 제곱합으로 인해 증가된 값을 바로잡아 준다.<br></p>
+<div id="9da04e62" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 표준편차 계산 (표본의 표준편차, 자유도를 1로 설정)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.std(drink, ddof<span class="op">=</span><span class="dv">1</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -355,12 +391,15 @@ window.Quarto = {
 </div>
 <p>표준편차에서도 분산과 동일한 이유로 자유도가 주어진다.</p>
 </section>
-<section id="범위" class="level2">
-<h2 class="anchored" data-anchor-id="범위">6. 범위</h2>
-<p>Range</p>
-<p>관측값에서 가장 큰 값과 가장 작은 값의 차이.</p>
-<p>장점: 간편하게 구할 수 있고, 해석이 용이하다. 단점: 양 끝점에 의해서만 결정되므로, 중간에 위치한 관측값들이 “전혀 반영되지 않는다.” 그러므로, “극단값” 에 영향을 받는다.</p>
-<div id="2d7e87ba" class="cell" data-execution_count="6">
+<section id="범위" class="level1">
+<h1>06 범위</h1>
+<p><code>Range</code><br> 관측값에서 가장 큰 값과 가장 작은 값의 차이.</p>
+<ul>
+<li><strong>장점</strong>: 간편하게 구할 수 있고, 해석이 용이하다.</li>
+<li><strong>단점</strong>: 양 끝점에 의해서만 결정되므로, 중간에 위치한 관측값들이 <strong>“전혀 반영되지 않는다.”</strong></li>
+</ul>
+<p>그러므로, “극단값” 에 영향을 받는다.</p>
+<div id="26931135" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 범위 계산 (최대값 - 최소값)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">max</span>(drink) <span class="op">-</span> np.<span class="bu">min</span>(drink))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -368,16 +407,42 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="사분위수범위" class="level2">
-<h2 class="anchored" data-anchor-id="사분위수범위">7. 사분위수범위</h2>
-<p>Quartile</p>
-<p>전체 관측값을 <strong>작은 순서로 배열</strong> 하였을 때, 전체를 <strong>사등분</strong> 하는 값.</p>
-<p>사분위수 제1 사분위수: Q ₁ = 제25 백분위수 = 25% 제2 사분위수: Q ₂ = 제50 백분위수 = 50% = ” 중 앙 값 ” 제3 사분위수: Q ₃ = 제75 백분위수 = 75%</p>
-<p>계산방법</p>
-<section id="사분위수범위-1" class="level3">
-<h3 class="anchored" data-anchor-id="사분위수범위-1">7-1. 사분위수범위</h3>
-<p>Interquartile Range, IQR</p>
-<div id="6be34381" class="cell" data-execution_count="7">
+<section id="사분위수범위" class="level1">
+<h1>07 사분위수범위</h1>
+<p><code>Quartile</code><br> 전체 관측값을 <strong>작은 순서로 배열</strong> 하였을 때, 전체를 <strong>사등분</strong> 하는 값.<br></p>
+<p><strong>사분위수</strong> <span class="math display">\[
+\begin{aligned}
+Q_1 &amp;= \text{제1사분위수} = \text{제25백분위수} = 25\% \\
+Q_2 &amp;= \text{제2사분위수} = \text{제50백분위수} = 50\% = \text{중앙값} \\
+Q_3 &amp;= \text{제3사분위수} = \text{제75백분위수} = 75\%
+\end{aligned}
+\]</span></p>
+<p><strong>계산방법</strong> <span class="math display">\[
+\begin{aligned}
+Q_1 \text{ 위치} &amp;= (n+1) \times 0.25 \\
+Q_2 \text{ 위치} &amp;= (n+1) \times 0.5 \\
+Q_3 \text{ 위치} &amp;= (n+1) \times 0.75
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{위치 } m_k &amp;= (n+1) \times \frac{k}{4}, \quad k = 1,2,3 \\
+Q_k &amp;= x_{\lfloor m_k \rfloor} + (m_k - \lfloor m_k \rfloor) \cdot
+      \big(x_{\lceil m_k \rceil} - x_{\lfloor m_k \rfloor}\big)
+\end{aligned}
+\]</span></p>
+<section id="사분위수범위-1" class="level2">
+<h2 class="anchored" data-anchor-id="사분위수범위-1">1. 사분위수범위</h2>
+<p><code>Interquartile Range, IQR</code></p>
+<p><span class="math display">\[\text{IQR} = Q_3 - Q_1\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+m_1 &amp;= (n+1) \times 0.25, &amp; Q_1 &amp;= x_{\lfloor m_1 \rfloor} + (m_1 - \lfloor m_1 \rfloor) \cdot (x_{\lceil m_1 \rceil} - x_{\lfloor m_1 \rfloor}) \\
+m_3 &amp;= (n+1) \times 0.75, &amp; Q_3 &amp;= x_{\lfloor m_3 \rfloor} + (m_3 - \lfloor m_3 \rfloor) \cdot (x_{\lceil m_3 \rceil} - x_{\lfloor m_3 \rfloor}) \\
+\text{IQR} &amp;= Q_3 - Q_1
+\end{aligned}
+\]</span></p>
+<div id="cb0b07b6" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 사분위수 범위 계산 (IQR, Interquartile Range)</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>q1, q3 <span class="op">=</span> np.percentile(drink, [<span class="dv">25</span>, <span class="dv">75</span>])  <span class="co"># 25%와 75% 사분위수 계산</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(q3 <span class="op">-</span> q1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -385,8 +450,8 @@ window.Quarto = {
 <pre><code>2.0250000000000057</code></pre>
 </div>
 </div>
-<p>pandas 모듈의 DataFrame 객체 내의 멤버 함수인 describe() 함수를 이용하면,<br> 위의 통계량을 한 번에 계산할 수 있다.</p>
-<div id="ea5c4af4" class="cell" data-execution_count="8">
+<p><code>pandas</code>모듈의 <code>DataFrame</code>객체 내의 멤버 함수인 <code>describe()</code>함수를 이용하면, 위의 통계량을 한 번에 계산할 수 있다.</p>
+<div id="e344cf3e" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터프레임 생성 및 요약 통계량 계산</span></span>
@@ -405,7 +470,7 @@ min     95.500000
 max    103.700000</code></pre>
 </div>
 </div>
-<p>describe() 함수에서의 std 는 자동적으로 n – 1 로 나누어져서 계산된다.</p>
+<p>describe() 함수에서의 <span class="math inline">\(std\)</span> 는 자동적으로 <span class="math inline">\(n – 1\)</span> 로 나누어져서 계산된다.</p>
 
 
 </section>
