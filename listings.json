@@ -12,42 +12,7 @@
   {
     "listing": "/data-analysis.html",
     "items": [
-      "/da/ada/ada_06_0.html",
-      "/da/bae_01_0.html",
-      "/da/dap/dap_03.html",
-      "/da/dap/dap_02.html",
-      "/da/tm/tm_06_1.html",
-      "/da/tm/tm_06_0.html",
-      "/da/tm/tm_05_0.html",
-      "/da/tm/tm_03_1.html",
-      "/da/tm/tm_04_0.html",
-      "/da/tm/tm_03_0.html",
-      "/da/tm/tm_02_0.html",
-      "/da/ada/ada_07_0.html",
-      "/da/ada/ada_08_0.html",
-      "/da/ada/ada_08_1.html",
-      "/da/ada/ada_08_2.html",
-      "/da/ada/ada_09_0.html",
-      "/da/ada/ada_09_1.html",
-      "/da/ada/ada_10_0.html",
-      "/da/ada/ada_10_1.html",
-      "/da/ada/ada_10_2.html",
-      "/da/ada/ada_10_3.html",
-      "/da/ada/ada_11_0.html",
-      "/da/ida/ida_12.html",
-      "/da/ida/ida_11.html",
-      "/da/ida/ida_10.html",
-      "/da/ida/ida_09.html",
-      "/da/ida/ida_08.html",
-      "/da/ida/ida_07.html",
-      "/da/ida/ida_06.html",
-      "/da/ida/ida_05.html",
-      "/da/ida/ida_04.html",
-      "/da/ida/ida_03.html",
-      "/da/ida/ida_02.html",
-      "/da/ida/ida_13.html",
-      "/da/ida/ida_14.html",
-      "/da/ida/ida_15.html"
+      "/da/bae_01_0.html"
     ]
   },
   {
@@ -56,117 +21,26 @@
   },
   {
     "listing": "/ai-ml-dl.html",
-    "items": [
-      "/ai/ml/ml_16.html",
-      "/ai/ml/ml_11.html",
-      "/ai/ml/ml_12.html",
-      "/ai/ml/ml_13.html",
-      "/ai/ml/ml_14.html",
-      "/ai/ml/ml_15.html",
-      "/ai/ml/ml_17.html",
-      "/ai/ml/ml_10.html",
-      "/ai/ml/ml_07.html",
-      "/ai/ml/ml_08.html",
-      "/ai/ml/ml_09.html",
-      "/ai/ml/ml_03.html",
-      "/ai/ml/ml_04.html",
-      "/ai/ml/ml_05.html",
-      "/ai/ml/ml_06.html",
-      "/ai/ml/ml_01.html",
-      "/ai/ml/ml_02.html",
-      "/ai/hg_05.html",
-      "/ai/hg_04.html",
-      "/ai/hg_03.html",
-      "/ai/hg_02.html"
-    ]
+    "items": []
   },
   {
     "listing": "/cybersec.html",
-    "items": [
-      "/cs/cs_01.html",
-      "/cs/bn/bn_13.html",
-      "/cs/bn/bn_12.html",
-      "/cs/bn/bn_11.html",
-      "/cs/bn/bn_10.html",
-      "/cs/bn/bn_09.html",
-      "/cs/bn/bn_08.html",
-      "/cs/bn/bn_07.html",
-      "/cs/bn/bn_06.html",
-      "/cs/bn/bn_05.html",
-      "/cs/bn/bn_04.html",
-      "/cs/bn/bn_03.html",
-      "/cs/bn/bn_02.html",
-      "/cs/bn/bn_01.html"
-    ]
+    "items": []
   },
   {
     "listing": "/cg-hw.html",
-    "items": [
-      "/ch/sql_01.html",
-      "/ch/os_01.html",
-      "/ch/uno_02.html",
-      "/ch/cg_01.html",
-      "/ch/uno_01.html",
-      "/ch/db_01.html"
-    ]
+    "items": []
   },
   {
     "listing": "/prog-dev.html",
-    "items": [
-      "/pd/od/od_06.html",
-      "/pd/od/od_05.html",
-      "/pd/od/od_04.html",
-      "/pd/od/od_03.html",
-      "/pd/od/od_02.html",
-      "/pd/od/od_01.html",
-      "/pd/re/re_04.html",
-      "/pd/re/re_05.html",
-      "/pd/re/re_06.html",
-      "/pd/re/re_07.html",
-      "/pd/re/re_08.html",
-      "/pd/re/re_09.html",
-      "/pd/re/re_10.html",
-      "/pd/re/re_11.html",
-      "/pd/re/re_03.html",
-      "/pd/re/re_02.html",
-      "/pd/re/re_00.html",
-      "/pd/re/re_01.html"
-    ]
+    "items": []
   },
   {
     "listing": "/miscellaneous.html",
-    "items": [
-      "/misc/mse_05_1.html",
-      "/misc/mse_04_4.html",
-      "/misc/mse_05_0.html",
-      "/misc/mse_04_3.html",
-      "/misc/mse_04_2.html",
-      "/misc/mse_04_0.html",
-      "/misc/mse_04_1.html",
-      "/misc/mse_03_2.html",
-      "/misc/mse_03_3.html",
-      "/misc/mse_01_3.html",
-      "/misc/mse_02_0.html",
-      "/misc/mse_02_1.html",
-      "/misc/mse_01_1.html",
-      "/misc/mse_01_2.html",
-      "/misc/mse_02_2.html",
-      "/misc/mse_02_3.html",
-      "/misc/mse_03_0.html",
-      "/misc/mse_03_1.html",
-      "/misc/mse_01_0.html"
-    ]
+    "items": []
   },
   {
     "listing": "/r-and-d.html",
-    "items": [
-      "/rd/od_06.html",
-      "/rd/od_05.html",
-      "/rd/od_04.html",
-      "/rd/od_03.html",
-      "/rd/od_02.html",
-      "/rd/od_01.html",
-      "/rd/bae_01_0.html"
-    ]
+    "items": []
   }
 ]
